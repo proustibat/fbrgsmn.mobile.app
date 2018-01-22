@@ -1,6 +1,8 @@
 Faubourg Simone: mobile app [![Twitter Follow](https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&label=Follow)](https://twitter.com/faubourgsimone)
 ========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/proustibat/fbrgsmn.mobile.app.svg)](https://greenkeeper.io/)
+
 Source code of our web radio applications: android and ios with Ionic. 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
