@@ -1,0 +1,39 @@
+env:
+  global:
+    - GITHUB_REPO: proustibat/fbrgsm.mobile.app
+    # generate token at https://github.com/settings/tokens/new
+    # generate secure with travis encrypt -r username/repository GH_TOKEN=[the token you created before]
+
+language: node_js
+node_js: '8'
+cache: npm
+
+# create a user token here: https://sonarcloud.io/account/security
+# run `travis encrypt your-token-here`
+# paste secure token below
+addons:
+  sonarcloud:
+    organization: proustibat-github
+    token:
+
+before_install:
+  - npm install -g ionic@3.19.0 cordova@8.0.0
+
+install:
+  - npm install
+  - ionic cordova platform add android ios
+
+script:
+#  - npm run tslint:codeclimate
+#  - npm run lint
+  - ionic cordova build android
+#  - npm run typedoc
+#  - bash sonar.sh
+
+# Here we want to check out where we are.
+# We only want to update Github Pages if we're building
+# the master branch of the original repository, so we
+# have to check $TRAVIS_PULL_REQUEST and $TRAVIS_BRANCH.
+# If we are here, we run bash deploy.sh
+#after_success:
+#  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
