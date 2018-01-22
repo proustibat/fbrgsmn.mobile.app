@@ -1,0 +1,7 @@
+.sourcemaps
+node_modules
+.scannerwork
+platforms
+plugins
+resources
+www

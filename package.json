@@ -10,6 +10,8 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
+    "all-custom-lint": "npm run lint:stylelint && npm run tslint && npm run tslint:codeclimate",
+    "lint:stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss' --color --fix",
     "tslint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' --fix",
     "tslint:codeclimate": "./node_modules/.bin/tslint -c tslint-codeclimate.json 'src/**/*.ts' --fix",
     "typedoc": "./node_modules/.bin/typedoc src --exclude '**/*+(e2e|spec|index).ts'"
@@ -44,6 +46,8 @@
     "@ionic/app-scripts": "3.1.8",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-ionic-rules": "0.0.13",
     "tslint-sonarts": "^1.4.0",
