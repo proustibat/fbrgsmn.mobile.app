@@ -8,6 +8,7 @@ languages:
 
 exclude_patterns:
 - resources
+- documentation
 
 plugins:
   tslint:

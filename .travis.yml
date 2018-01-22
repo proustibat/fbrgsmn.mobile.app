@@ -1,6 +1,7 @@
 env:
   global:
     - GITHUB_REPO: proustibat/fbrgsm.mobile.app
+    - secure: "atFmfjSNIePl2h2Qd2MK7SJHuzkCV9H7ND9WYILQovviq4zJBVtfNwGy7fLg2E91AnmhzuIJilECLSFuiazRHxcBk6xJyqfrcDBuWdSBhWLnpV3CIwvgQfNvNU55lrwReYjC3ZTpCnPBFFxOECS46MLkbH7GBPIlEDTuj+w+itd/iPy4qljfmNG3+ex5sWTGys2J/ssqQO9hXrwXoCsSp7fNu6BpE95eSqfWH0kwLrSKiBonMLXXp8NUQsobGijCj7cGoImdZeWeqCpMwqUpIfeKGa1y5Urh8fAbaV2xgDV+24+EUBKLjaKJU7DUAgb4UlwswyvLLObxnUubtzOB7WOEi7djrMAaeLXSA+q0Pnk12xWZY0MzmSrxjYXR7kGjb31s//zwwJcnM5NdMM1MrHEm0KX2dtBRjLpOF/L7voNqrqOvHqFv18dmaungzFYT49k2HXZHIgcwpvkW5woMfgw6lKR/jrSOi+HdLJ90g8Ju4vfw9vvU1/GIer59SR+hQVmCWsf2oU5SLuPnDfssD2qU+11oYKMfCnZTrwlzJ2N2QNskKF17/QLmR9QVyY3lmttMsyM8ilf4NJ3VmUhDgpmsss2ffTl4RrTDzkAhBpf/6AvBo4hwdqIGcaNqASXFI/rCSIaOzVfnKkLQTl4XAsXA/2ckCkhEHBYzNvPay34="
     # generate token at https://github.com/settings/tokens/new
     # generate secure with travis encrypt -r username/repository GH_TOKEN=[the token you created before]
 
@@ -29,7 +30,7 @@ script:
   - npm run tslint:codeclimate
   - npm run lint
   - ionic cordova build android ios
-#  - npm run typedoc
+  - npm run typedoc
   - bash sonar.sh
 
 # Here we want to check out where we are.
@@ -37,5 +38,5 @@ script:
 # the master branch of the original repository, so we
 # have to check $TRAVIS_PULL_REQUEST and $TRAVIS_BRANCH.
 # If we are here, we run bash deploy.sh
-#after_success:
-#  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+after_success:
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
