@@ -923,81 +923,103 @@ img { max-width: 100%; }
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<h1 id="faubourg-simone-mobile-app-twitter-follow-https-img-shields-io-twitter-follow-faubourgsimone-svg-style-social-label-follow-https-twitter-com-faubourgsimone-">Faubourg Simone: mobile app <a href="https://twitter.com/faubourgsimone"><img src="https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&amp;label=Follow" alt="Twitter Follow"></a></h1>
-			<p><a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/proustibat/fbrgsmn.mobile.app.svg" alt="Greenkeeper badge"></a></p>
+			<h1 id="faubourg-simone-mobile-app-github-license-https-img-shields-io-github-license-proustibat-fbrgsmn-mobile-app-svg-https-github-com-proustibat-fbrgsmn-mobile-app-blob-master-license-md-twitter-follow-https-img-shields-io-twitter-follow-faubourgsimone-svg-style-social-label-follow-https-twitter-com-faubourgsimone-">Faubourg Simone: mobile app <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/proustibat/fbrgsmn.mobile.app.svg" alt="GitHub license"></a> <a href="https://twitter.com/faubourgsimone"><img src="https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&amp;label=Follow" alt="Twitter Follow"></a></h1>
 			<p>Source code of our web radio applications: android and ios with Ionic. </p>
-			<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-			<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-			<p><strong>Table of Contents</strong> </p>
-			<ul>
-				<li><a href="#demo">Demo</a></li>
-				<li><a href="#features">Features</a></li>
-				<li><a href="#installation">Installation</a></li>
-				<li><a href="#linter-for-the-typescript">Linter for the TypeScript</a></li>
-				<li><a href="#continuous-code-quality">Continuous Code Quality</a><ul>
-						<li><a href="#usage">Usage</a></li>
-						<li><a href="#a-glance-at-our-actual-sonarqube-metrics">A glance at our actual Sonarqube metrics</a><ul>
-								<li><a href="#complexity">Complexity</a></li>
-								<li><a href="#documentation--sizes">Documentation &amp; sizes</a></li>
-								<li><a href="#duplications">Duplications</a></li>
-								<li><a href="#issues">Issues</a></li>
-								<li><a href="#maintainability">Maintainability</a></li>
-								<li><a href="#technical-debt">Technical debt</a></li>
-								<li><a href="#reliability">Reliability</a></li>
-								<li><a href="#security">Security</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li><a href="#feel-free-to-improve-the-app-with-us">Feel free to improve the app with us</a></li>
-				<li><a href="#contribute">Contribute</a></li>
-				<li><a href="#support">Support</a></li>
-				<li><a href="#license">License</a></li>
-				<li><a href="#dependencies">Dependencies</a></li>
-				<li><a href="#dev-dependencies">Dev Dependencies</a></li>
-			</ul>
-			<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 			<hr>
-			<h2 id="demo">Demo</h2>
-			<p><a href='https://play.google.com/store/apps/details?id=com.mfkr.faubourg.simone&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="150"/></a></p>
-			<p>&nbsp;&nbsp;<a href='https://itunes.apple.com/fr/app/faubourg-simone-radio/id617687434&pcampaignid=GITHUB'><img alt='Get it on Apple Store' src='https://devimages-cdn.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg' width="132"/></a></p>
-			<h2 id="features">Features</h2>
+			<table>
+				<thead>
+					<tr>
+						<th><a href='https://play.google.com/store/apps/details?id=com.mfkr.faubourg.simone&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="150"/></a> <br/> <a href='https://itunes.apple.com/fr/app/faubourg-simone-radio/id617687434&pcampaignid=GITHUB'><img alt='Get it on Apple Store' src='https://devimages-cdn.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg' width="132"/></a></th>
+						<th style="text-align:left"><a href="https://travis-ci.org/proustibat/fbrgsmn.mobile.app"><img src="https://travis-ci.org/proustibat/fbrgsmn.mobile.app.svg?branch=master" alt="Build Status"></a> <br/> <a href="https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app"><img src="https://sonarcloud.io/api/badges/gate?key=fbrgsmn.mobile.app" alt="Sonar quality gate"></a> </br> <a href="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app"><img src="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app/badges/gpa.svg" alt="Code Climate"></a></th>
+						<th style="text-align:left"><a href="https://github.com/proustibat/fbrgsmn.mobile.app/commits/master"><img src="https://img.shields.io/maintenance/yes/2018.svg" alt="Maintenance"></a> <br/> <a href="https://github.com/proustibat/fbrgsmn.mobile.app/commits/master"><img src="https://img.shields.io/github/last-commit/proustibat/fbrgsmn.mobile.app.svg" alt="GitHub last commit"></a> <br/> <a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=open_issues"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=open_issues" alt="Open issues"></a></th>
+						<th style="text-align:left"><a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/proustibat/fbrgsmn.mobile.app.svg" alt="Greenkeeper badge"></a> <br/> <a href="https://david-dm.org/proustibat/fbrgsmn.mobile.app"><img src="https://david-dm.org/proustibat/fbrgsmn.mobile.app/status.svg" alt="Dependencies Status"></a> <br/> <a href="https://david-dm.org/proustibat/fbrgsmn.mobile.app?type=dev"><img src="https://david-dm.org/proustibat/fbrgsmn.mobile.app/dev-status.svg" alt="DevDependencies Status"></a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<h1 id="features">Features</h1>
 			<ul>
 				<li>Listening to our radio</li>
 				<li>See content of our website: Pola / Calepins / Dans le casque</li>
 			</ul>
+			<hr>
+			<h1 id="for-developers">For Developers</h1>
+			<h2 id="prerequisites">Prerequisites</h2>
+			<p>Be sure <a href="https://ionicframework.com/">Ionic</a> and <a href="https://cordova.apache.org/">Cordova</a> are installed:</p>
+			<pre><code class="lang-bash">cordova -v
+ionic -v
+</code></pre>
+			<p>If it&#39;s not the case, run <code>npm install -g ionic cordova</code>.</p>
+			<p>You also needs sdks:</p>
+			<ul>
+				<li>For Android development we recommand to install <a href="https://developer.android.com/studio/index.html">Android Studio</a>. </li>
+				<li>For IOS you don&#39;t have the choice: you need <a href="https://developer.apple.com/xcode/">XCode</a></li>
+			</ul>
+			<p>Run <code>ionic info</code> to be sure your system is ok.</p>
 			<h2 id="installation">Installation</h2>
-			<p>Install the app by running:</p>
-			<pre><code>npm install -g ionic cordova
-npm i
-ionic platform ios android
-ionic <span class="hljs-keyword">state</span> restore
-</code></pre><h2 id="linter-for-the-typescript">Linter for the TypeScript</h2>
-			<pre><code><span class="hljs-comment">tslint</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">type</span><span class="hljs-literal">-</span><span class="hljs-comment">check</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">project</span> <span class="hljs-comment">tsconfig</span><span class="hljs-string">.</span><span class="hljs-comment">json</span>
-</code></pre><p><em>Note that our tslint config extends <a href="https://www.sonarsource.com/products/codeanalyzers/sonarts.html">SonarTS rules</a></em></p>
-			<h2 id="continuous-code-quality">Continuous Code Quality</h2>
+			<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> git@github.com:proustibat/fbrgsmn.mobile.app.git
+<span class="hljs-built_in">cd</span> fbrgsmn.mobile.app
+ionic cordova prepare
+</code></pre>
+			<p>Answer <code>Y</code> to the following question to run <code>npm install</code> automatically:</p>
+			<pre><code class="lang-bash">? Looks like a fresh checkout! No ./node_modules directory found. Would you like to install project dependencies? (Y/n)
+</code></pre>
+			<h2 id="watching">Watching</h2>
+			<h3 id="in-a-browser">In a browser</h3>
+			<pre><code class="lang-bash">ionic serve -l
+</code></pre>
+			<h3 id="on-a-device">On a device</h3>
+			<pre><code class="lang-bash">ionic cordova run android -l -c -s
+</code></pre>
+			<h3 id="on-a-simulator">On a simulator</h3>
+			<pre><code class="lang-bash">ionic cordova <span class="hljs-built_in">emulate</span> ios --target=<span class="hljs-string">"iPhone-8"</span>
+</code></pre>
+			<h2 id="build">Build</h2>
+			<pre><code class="lang-bash">ionic cordova build ios android
+</code></pre>
+			<h2 id="code-documentation-is-available-here-https-proustibat-github-io-fbrgsmn-mobile-app-">Code documentation is <a href="https://proustibat.github.io/fbrgsmn.mobile.app/">available here</a></h2>
+			<h2 id="contribute">Contribute</h2>
+			<ul>
+				<li>Issue Tracker: <a href="https://github.com/proustibat/fbrgsmn.mobile.app/issues">https://github.com/proustibat/fbrgsmn.mobile.app/issues</a></li>
+				<li>Source Code: <a href="https://github.com/proustibat/fbrgsmn.mobile.app">https://github.com/proustibat/fbrgsmn.mobile.app</a></li>
+			</ul>
+			<h2 id="support">Support</h2>
+			<p>If you are having issues, please let us know: tech.team@faubourgsimone.com</p>
+			<h2 id="license">License</h2>
+			<p>The project is licensed under the <a href="LICENSE">GNU Affero General Public License v3.0 license</a></p>
+			<hr>
+			<h2 id="tools">Tools</h2>
+			<h3 id="travis-ci">Travis CI</h3>
+			<ul>
+				<li>lint</li>
+				<li>sonar scan</li>
+				<li>build</li>
+				<li>documentation</li>
+				<li>deploy doc</li>
+			</ul>
+			<h3 id="codeclimate">CodeClimate</h3>
+			<ul>
+				<li>tslint </li>
+			</ul>
+			<h3 id="sonarqube">Sonarqube</h3>
 			<p>We use <strong><a href="https://www.sonarqube.org/">Sonarqube</a></strong> on <a href="https://about.sonarcloud.io/get-started/">Sonarcloud.io</a> to keep our code safe.
-			The dashboard is available here: <a href="https://sonarcloud.io/dashboard?id=faubourgsimone_ionic_app">https://sonarcloud.io/dashboard?id=faubourgsimone_ionic_app</a></p>
-			<h3 id="usage">Usage</h3>
-			<p>Be sure you have downloaded and installed the <a href="https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner">Sonarqube Scanner</a>.</p>
-			<p>You need to add sonar-project.properties to the root of the project as following:</p>
-			<pre><code>sonar.<span class="hljs-attribute">projectName</span>=Faubourg Simone Ionic App
-sonar.<span class="hljs-attribute">projectKey</span>=faubourgsimone_ionic_app
-sonar.host.<span class="hljs-attribute">url</span>=https://sonarcloud.io
-sonar.<span class="hljs-attribute">organization</span>=faubourgsimone-github
-sonar.<span class="hljs-attribute">login</span>=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-sonar.<span class="hljs-attribute">sources</span>=src
-sonar.java.<span class="hljs-attribute">source</span>=1.8
-sonar.java.<span class="hljs-attribute">binaries</span>=.
-</code></pre><p>When it&#39;s done, use the following command to generate results on the dashboard:</p>
-			<pre><code>sonar-scanner -X -Dsonar.projectVersion=<span class="hljs-keyword">x</span>.<span class="hljs-keyword">x</span>.<span class="hljs-keyword">x</span>
-</code></pre><p><em>Please contact us if you want a public login for our project.</em></p>
-			<h3 id="a-glance-at-our-actual-sonarqube-metrics">A glance at our actual Sonarqube metrics</h3>
+			The dashboard is available here: <a href="https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app">https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app</a></p>
+			<h3 id="greenkeeper">Greenkeeper</h3>
+			<h3 id="typedoc">Typedoc</h3>
+			<h3 id="commitizen">Commitizen</h3>
+			<p>We use <a href="https://github.com/commitizen/cz-cli">commitizen</a>, so if you wanna contribute to the project and create a pull request, use it by running <code>git cz</code> instead of <code>git commit</code>.</p>
+			<hr>
+			<h2 id="a-glance-at-our-actual-sonarqube-metrics">A glance at our actual Sonarqube metrics</h2>
 			<h4 id="complexity">Complexity</h4>
 			<p>How simple or complicated the control flow of the application is. </p>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=complexity"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=complexity" alt="Complexity"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=file_complexity"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=file_complexity" alt="Complexity per file"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=cognitive_complexity"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=cognitive_complexity" alt="Cognitive Complexity"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=complexity"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=complexity" alt="Complexity"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=file_complexity"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=file_complexity" alt="Complexity per file"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=cognitive_complexity"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=cognitive_complexity" alt="Cognitive Complexity"></a></p>
 			<p>Cyclomatic Complexity measures the minimum number of test cases requiref for full test coverage.
 			Cognitive Complexity is a measure of how difficult the application is to understand</p>
 			<p><em>Complexity for Javascript or typescript is incremented by one for each:</em></p>
@@ -1015,25 +1037,25 @@ sonar.java.<span class="hljs-attribute">binaries</span>=.
 			<p><em>Complexity of the web page is measured by counting the decision tags (such as if and forEach) and boolean operators in expressions (&amp;&amp; and ||), plus one for the body of the document.
 			The decision tags and the operators are configurable through the Complexity rule.</em></p>
 			<h4 id="documentation-sizes">Documentation &amp; sizes</h4>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=lines"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=lines" alt="Lines"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=ncloc"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=ncloc" alt="Lines of code"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=comment_lines"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=comment_lines" alt="Comment lines"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=comment_lines_density"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=comment_lines_density" alt="Comments (%)"></a></p>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=directories"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=directories" alt="Directories"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=files"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=files" alt="Files"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=classes"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=classes" alt="Classes"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=functions"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=functions" alt="Functions"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=lines"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=lines" alt="Lines"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=ncloc"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=ncloc" alt="Lines of code"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=comment_lines"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=comment_lines" alt="Comment lines"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=comment_lines_density"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=comment_lines_density" alt="Comments (%)"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=directories"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=directories" alt="Directories"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=files"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=files" alt="Files"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=classes"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=classes" alt="Classes"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=functions"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=functions" alt="Functions"></a></p>
 			<h4 id="duplications">Duplications</h4>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=duplicated_blocks"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=duplicated_blocks" alt="Duplicated blocks"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=duplicated_lines"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=duplicated_lines" alt="Duplicated lines"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=duplicated_blocks"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=duplicated_blocks" alt="Duplicated blocks"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=duplicated_lines"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=duplicated_lines" alt="Duplicated lines"></a></p>
 			<h4 id="issues">Issues</h4>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=open_issues"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=open_issues" alt="Open issues"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=confirmed_issues"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=confirmed_issues" alt="Confirmed issues"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=wont_fix_issues"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=wont_fix_issues" alt="Won&#39;t fix issues"></a> </p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=open_issues"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=open_issues" alt="Open issues"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=confirmed_issues"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=confirmed_issues" alt="Confirmed issues"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=wont_fix_issues"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=wont_fix_issues" alt="Won&#39;t fix issues"></a> </p>
 			<h4 id="maintainability">Maintainability</h4>
 			<p>Issues in this domain mark code that will be more difficult to update competently than it should</p>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=code_smells"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=code_smells" alt="Code smells"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=sqale_rating"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=sqale_rating" alt="SQALE Rating"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=code_smells"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=code_smells" alt="Code smells"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=sqale_rating"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=sqale_rating" alt="SQALE Rating"></a></p>
 			<p>Rating given to the project related to the value of the Technical Debt Ratio.
 			The default Maintainability Rating grid is:</p>
 			<ul>
@@ -1053,13 +1075,13 @@ sonar.java.<span class="hljs-attribute">binaries</span>=.
 			</ul>
 			<h4 id="technical-debt">Technical debt</h4>
 			<p>Effort to fix all maintainability issues. The measure is stored in minutes. An 8-hour day is assumed when values are shown in days. (The value of the cost to develop a line of code is 0.06 days)</p>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=sqale_index"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=sqale_index" alt="Technical debt"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=sqale_debt_ratio"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=sqale_debt_ratio" alt="Technical debt ratio"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=sqale_index"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=sqale_index" alt="Technical debt"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=sqale_debt_ratio"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=sqale_debt_ratio" alt="Technical debt ratio"></a></p>
 			<h4 id="reliability">Reliability</h4>
 			<p>Issues in this domain mark code where you will get behavior other than what was expected.</p>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=bugs"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=bugs" alt="Bugs"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=reliability_remediation_effort"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=reliability_remediation_effort" alt="Reliability remediation effort"></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=reliability_rating"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=reliability_rating" alt="Reliability Rating"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=bugs"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=bugs" alt="Bugs"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=reliability_remediation_effort"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=reliability_remediation_effort" alt="Reliability remediation effort"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=reliability_rating"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=reliability_rating" alt="Reliability Rating"></a></p>
 			<p><strong>Reliability remediation effort</strong></p>
 			<p>Effort to fix all bug issues. The measure is stored in minutes. An 8-hour day is assumed when values are shown in days.</p>
 			<p><strong>Reliability rating</strong></p>
@@ -1071,9 +1093,9 @@ sonar.java.<span class="hljs-attribute">binaries</span>=.
 				<li>E or 5 = at least 1 Blocker Bug</li>
 			</ul>
 			<h4 id="security">Security</h4>
-			<p><a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=vulnerabilities"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=vulnerabilities" alt="Vulnerabilities"></a>
-				<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=security_remediation_effort"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=security_remediation_effort" alt="Security remediation effort    "></a>
-			<a href="https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&amp;metric=security_rating"><img src="https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&amp;metric=security_rating" alt="Security Rating"></a></p>
+			<p><a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=vulnerabilities"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=vulnerabilities" alt="Vulnerabilities"></a>
+				<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=security_remediation_effort"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=security_remediation_effort" alt="Security remediation effort"></a>
+			<a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=security_rating"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=security_rating" alt="Security Rating"></a></p>
 			<p><strong>Security remediation effort</strong></p>
 			<p>Effort to fix all vulnerability issues. The measure is stored in minutes in the DB. An 8-hour day is assumed when values are shown in days.</p>
 			<p><strong>Security rating</strong></p>
@@ -1083,90 +1105,6 @@ sonar.java.<span class="hljs-attribute">binaries</span>=.
 				<li>C = at least 1 Major Vulnerability</li>
 				<li>D = at least 1 Critical Vulnerability</li>
 				<li>E = at least 1 Blocker Vulnerability</li>
-			</ul>
-			<h2 id="feel-free-to-improve-the-app-with-us">Feel free to improve the app with us</h2>
-			<ul>
-				<li>Run <code>ionic serve -l</code></li>
-				<li>We recommand to test your code by running <code>ionic run android</code> or <code>ionic run ios</code> to see results on simulators. If you&#39;re not familiar with Ionic framework, please read the Ionic documentation: <a href="https://ionicframework.com/docs/">https://ionicframework.com/docs/</a></li>
-				<li>We use <a href="https://github.com/commitizen/cz-cli">commitizen</a>, so if you wanna contribute to the project and create a pull request, use it by running <code>git cz</code> instead of <code>git commit</code>.</li>
-			</ul>
-			<h2 id="contribute">Contribute</h2>
-			<ul>
-				<li>Issue Tracker: <a href="https://github.com/FaubourgSimone/ionic-app/issues">https://github.com/FaubourgSimone/ionic-app/issues</a></li>
-				<li>Source Code: <a href="https://github.com/FaubourgSimone/ionic-app">https://github.com/FaubourgSimone/ionic-app</a></li>
-			</ul>
-			<h2 id="support">Support</h2>
-			<p>If you are having issues, please let us know: tech.team@faubourgsimone.com</p>
-			<h2 id="license">License</h2>
-			<p>The project is licensed under the <a href="LICENSE">GNU Affero General Public License v3.0 license</a></p>
-			<h2 id="dependencies">Dependencies</h2>
-			<ul>
-				<li><a href="https://github.com/angular/angular">@angular/common</a>: Angular - commonly needed directives and services</li>
-				<li><a href="https://github.com/angular/angular">@angular/compiler</a>: Angular - the compiler library</li>
-				<li><a href="https://github.com/angular/angular">@angular/compiler-cli</a>: Angular - the compiler CLI for Node.js</li>
-				<li><a href="https://github.com/angular/angular">@angular/core</a>: Angular - the core framework</li>
-				<li><a href="https://github.com/angular/angular">@angular/forms</a>: Angular - directives and services for creating forms</li>
-				<li><a href="https://github.com/angular/angular">@angular/http</a>: Angular - the http service</li>
-				<li><a href="https://github.com/angular/angular">@angular/platform-browser</a>: Angular - library for using Angular in a web browser</li>
-				<li><a href="https://github.com/angular/angular">@angular/platform-browser-dynamic</a>: Angular - library for using Angular in a web browser with JIT compilation</li>
-				<li><a href="https://github.com/angular/angular">@angular/platform-server</a>: Angular - library for using Angular in Node.js</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/app-rate</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/app-version</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/ionic-team/ionic-native">@ionic-native/background-mode</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/core</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/google-analytics</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/in-app-browser</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/ionic-team/ionic-native">@ionic-native/media</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/music-controls</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/screenshot</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/social-sharing</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/splash-screen</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-native">@ionic-native/status-bar</a>: Ionic Native - Native plugins for ionic apps</li>
-				<li><a href="https://github.com/driftyco/ionic-cloud-angular">@ionic/cloud-angular</a>: Ionic Cloud Client for Angular 2</li>
-				<li><a href="https://github.com/driftyco/ionic-storage">@ionic/storage</a>: Ionic Storage utility</li>
-				<li><a href="https://github.com/ngx-translate/core">@ngx-translate/core</a>: The internationalization (i18n) library for Angular 2+</li>
-				<li><a href="https://github.com/ngx-translate/http-loader">@ngx-translate/http-loader</a>: A loader for ngx-translate that loads translations using http</li>
-				<li><a href="https://github.com/ksachdeva/angular2-swing">angular2-swing</a>: Angular 2 Component for Swing (Tinder style cards)</li>
-				<li><a href="https://github.com/gitawego/cordova-screenshot">com.darktalker.cordova.screenshot</a>: screenshot PhoneGap Plugin for Android</li>
-				<li><a href="https://git-wip-us.apache.org/repos/asf/cordova-ios.git">cordova-ios</a>: cordova-ios release</li>
-				<li><a href="https://github.com/whiteoctober/cordova-plugin-app-version">cordova-plugin-app-version</a>: Cordova plugin to return the version number of the current app</li>
-				<li><a href="https://github.com/pushandplay/cordova-plugin-apprate">cordova-plugin-apprate</a>: A plugin to provide rate this app functionality into your Cordova / Phonegap application&lt;br&gt;</li>
-				<li><a href="https://github.com/katzer/cordova-plugin-background-mode">cordova-plugin-background-mode</a>: Prevent app from going to sleep in background.</li>
-				<li><a href="https://github.com/apache/cordova-plugin-compat">cordova-plugin-compat</a>: This repo is for remaining backwards compatible with previous versions of Cordova.</li>
-				<li><a href="https://github.com/apache/cordova-plugin-console">cordova-plugin-console</a>: Cordova Console Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-device">cordova-plugin-device</a>: Cordova Device Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-dialogs">cordova-plugin-dialogs</a>: Cordova Notification Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-file">cordova-plugin-file</a>: Cordova File Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-globalization">cordova-plugin-globalization</a>: Cordova Globalization Plugin</li>
-				<li><a href="https://github.com/danwilson/google-analytics-plugin">cordova-plugin-google-analytics</a>: Google Universal Analytics Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-inappbrowser">cordova-plugin-inappbrowser</a>: Cordova InAppBrowser Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-media">cordova-plugin-media</a>: Cordova Media Plugin</li>
-				<li><a href="https://github.com/homerours/cordova-music-controls-plugin">cordova-plugin-music-controls</a>: Music controls for Cordova apps</li>
-				<li><a href="https://github.com/apache/cordova-plugin-splashscreen">cordova-plugin-splashscreen</a>: Cordova Splashscreen Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-statusbar">cordova-plugin-statusbar</a>: Cordova StatusBar Plugin</li>
-				<li><a href="https://github.com/apache/cordova-plugin-whitelist">cordova-plugin-whitelist</a>: Cordova Whitelist Plugin</li>
-				<li><a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin">cordova-plugin-x-socialsharing</a>: Share text, images (and other files), or a link via the native sharing widget of your device. Android is fully supported, as well as iOS 6 and up. WP8 has somewhat limited support.</li>
-				<li><a href="https://github.com/apache/cordova-windows">cordova-windows</a>: cordova-windows release</li>
-				<li><a href="https://github.com/vstirbu/PromisesPlugin">es6-promise-plugin</a>: ES6-Promises polyfill for Cordova/PhoneGap</li>
-				<li><a href="https://github.com/driftyco/ionic">ionic-angular</a>: A powerful framework for building mobile and progressive web apps with JavaScript and Angular 2</li>
-				<li><a href="https://github.com/driftyco/ionic-plugin-deploy">ionic-plugin-deploy</a>: Ionic Deploy Plugin</li>
-				<li><a href="https://github.com/driftyco/ionic-plugin-keyboard">ionic-plugin-keyboard</a>: Ionic Keyboard Plugin</li>
-				<li><a href="https://github.com/driftyco/ionicons">ionicons</a>: Premium icons for Ionic.</li>
-				<li><a href="https://github.com/ocombe/ng2-translate">ng2-translate</a>: An implementation of angular translate for Angular 2</li>
-				<li><a href="https://github.com/ReactiveX/RxJS">rxjs</a>: Reactive Extensions for modern JavaScript</li>
-				<li><a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox</a>: Service Worker Toolbox provides some simple helpers for use in creating your own service workers.</li>
-				<li><a href="https://github.com/angular/zone.js">zone.js</a>: Zones for JavaScript</li>
-				<li><a href="https://git-wip-us.apache.org/repos/asf/cordova-android.git">cordova-android</a>: cordova-android release</li>
-			</ul>
-			<h2 id="dev-dependencies">Dev Dependencies</h2>
-			<ul>
-				<li><a href="https://github.com/driftyco/ionic-app-scripts">@ionic/app-scripts</a>: Scripts for Ionic Projects</li>
-				<li><a href="https://github.com/ionic-team/ionic-cli">@ionic/cli-plugin-cordova</a>: Ionic Cordova Plugin for Ionic CLI</li>
-				<li><a href="https://github.com/ionic-team/ionic-cli">@ionic/cli-plugin-ionic-angular</a>: Ionic CLI build plugin for Ionic Angular projects</li>
-				<li><a href="https://github.com/commitizen/cz-cli">commitizen</a>: Git commit, but play nice with conventions.</li>
-				<li><a href="https://github.com/commitizen/cz-conventional-changelog">cz-conventional-changelog</a>: Commitizen adapter following the conventional-changelog format.</li>
-				<li><a href="https://github.com/SonarSource/SonarTS">tslint-sonarts</a>: SonarTS rules for TSLint</li>
-				<li><a href="https://github.com/Microsoft/TypeScript">typescript</a>: TypeScript is a language for application scale JavaScript development</li>
 			</ul>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
