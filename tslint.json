@@ -1,6 +1,7 @@
 {
   "extends": ["tslint:latest", "tslint-ionic-rules", "tslint-sonarts"],
   "rules": {
+    "no-console": [false],
     "quotemark": [true, "single"],
     "trailing-comma": false,
     "semicolon": [true, "always"],

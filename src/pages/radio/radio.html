@@ -1,0 +1,61 @@
+<ion-header>
+    <main-header>{{ 'RADIOPAGE.TITLE' | translate }}</main-header>
+</ion-header>
+
+<ion-content parallax-header class="radio-page-cover" no-padding>
+
+    <div class="header-image">
+        <img no-padding no-margin class="cover" [ngClass]="configReady ? 'animated' : ''" src="{{currentSong.cover.jpg}}" srcset="{{currentSong.cover.svg}}" alt="Current cover song"/>
+    </div>
+
+    <div class="main-content">
+        <div class="meta-info" padding>
+            <span ion-text class="label-now-playing"
+                  [ngClass]="configReady ? 'hidden' : ''"
+                  color="secondary" text-uppercase>
+                <span class="txt">
+                    <span>•&nbsp;</span>{{ 'RADIOPAGE.NOWPLAYING' | translate }}
+                </span>
+            </span>
+            <ion-row class="toggle-buttons" justify-content-center>
+                <button [disabled]="!isButtonActive" class="btn-play-pause" ion-button round icon-only
+                        color="secondary"
+                        *ngIf="playerReady"
+                        (click)="togglePlayPause()">
+                    <ion-icon *ngIf="isButtonActive" [name]="playPauseButton"></ion-icon>
+                    <ion-spinner name="dots" *ngIf="!isButtonActive"></ion-spinner>
+                </button>
+
+            </ion-row>
+            <h1 ion-text class="artist" color="primary" text-uppercase no-margin padding-horizontal><span>{{currentSong.artist}}</span></h1>
+            <h2 ion-text class="track" color="primary" text-capitalize padding-horizontal><span>{{currentSong.track}}</span></h2>
+            <share-button class="current-song"
+                          [ngClass]="configReady ? 'hidden' : ''"
+                          [options]="shareOptions"
+                          [doScreenShot]="true"
+                          [trackingOptions]="trackingOptions"
+                          border icon-only>
+            </share-button>
+
+            <button color="secondary" clear ion-button icon-only (click)="postToFeed()">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+
+        </div>
+
+        <ion-list *ngIf="lastSongs" class="last-songs" no-margin>
+            <ion-list-header no-margin no-border>
+                <h3 ion-text color="primary" no-margin no-padding text-uppercase>{{ 'RADIOPAGE.LASTTRACKS' | translate }}</h3>
+            </ion-list-header>
+            <ion-item class="last-song-item" *ngFor="let song of lastSongs" text-wrap>
+                <ion-thumbnail item-left>
+                    <img src="{{song.cover.jpg}}" srcset="{{song.cover.svg}}" alt="Song cover"/>
+                </ion-thumbnail>
+                <h4 ion-text color="primary" no-margin no-padding text-uppercase="">{{song.artist}}</h4>
+                <p ion-text no-margin no-padding color="primary">{{song.track}}</p>
+            </ion-item>
+        </ion-list>
+
+    </div>
+
+</ion-content>

@@ -1,0 +1,31 @@
+ion-tabs {
+
+  &.tabs {
+
+    .tabbar {
+      background: $toolbar-background;
+    }
+
+    .tab-button-text,
+    .tab-button .tab-button-icon,
+    .tab-button[aria-selected=true] .tab-button-icon {
+      color: color($colors, 'secondary');
+    }
+    .tab-button-text {
+      //display: none;
+      font-size: 0.9rem;
+    }
+
+    .tab-button[aria-selected=true] {
+      color: color($colors, 'secondary');
+      .tab-button-text {
+        //display: block;
+        font-weight: bold;
+      }
+    }
+
+    &[tabsHighlight=true] .tab-highlight {
+      background: color($colors, 'secondary');
+    }
+  }
+}
