@@ -1,4 +1,4 @@
-# Faubourg Simone: mobile app [![GitHub license](https://img.shields.io/github/license/proustibat/fbrgsmn.mobile.app.svg)](https://github.com/proustibat/fbrgsmn.mobile.app/blob/master/LICENSE.md) [![Twitter Follow](https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&label=Follow)](https://twitter.com/faubourgsimone)
+# Faubourg Simone: mobile app [![GitHub license](https://img.shields.io/github/license/proustibat/fbrgsmn.mobile.app.svg)](https://github.com/proustibat/fbrgsmn.mobile.app/blob/master/LICENSE) [![Twitter Follow](https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&label=Follow)](https://twitter.com/faubourgsimone)
 
 Source code of our web radio applications: android and ios with Ionic. 
 
