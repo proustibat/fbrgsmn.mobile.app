@@ -21,6 +21,8 @@ plugins:
       checks:
           CssSyntaxError:
             enabled: false
+          EmptyRule:
+            enabled: false
   scss-lint:
     enabled: true
   csslint:
