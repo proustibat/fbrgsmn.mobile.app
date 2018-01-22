@@ -21,10 +21,11 @@ plugins:
       checks:
           CssSyntaxError:
             enabled: false
-          EmptyRule:
-            enabled: false
   scss-lint:
     enabled: true
+    checks:
+      EmptyRule:
+        enabled: false
   csslint:
     enabled: true
     checks:
