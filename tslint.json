@@ -1,11 +1,9 @@
 {
+  "extends": ["tslint:latest", "tslint-ionic-rules", "tslint-sonarts"],
   "rules": {
-    "no-duplicate-variable": true,
-    "no-unused-variable": [
-      true
-    ]
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ]
+    "quotemark": [true, "single"],
+    "trailing-comma": false,
+    "semicolon": [true, "always"],
+    "eofline": true
+  }
 }

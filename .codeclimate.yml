@@ -1,0 +1,32 @@
+version: "2"
+
+languages:
+  JavaScript: true
+  Ruby: true
+  Python: false
+  PHP: false
+
+exclude_patterns:
+- resources
+
+plugins:
+  tslint:
+    enabled: true
+    config: tslint.json
+  fixme:
+    enabled: true
+  stylelint:
+      enabled: true
+  scss-lint:
+    enabled: true
+  csslint:
+    enabled: true
+    checks:
+      bulletproof-font-face:
+        enabled: false
+      universal-selector:
+        enabled: false
+  duplication:
+    enabled: true
+  sonar-java:
+    enabled: true

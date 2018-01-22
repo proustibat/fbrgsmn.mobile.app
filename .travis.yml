@@ -25,8 +25,9 @@ install:
   - ionic cordova platform add android ios
 
 script:
+  - npm run tslint
 #  - npm run tslint:codeclimate
-#  - npm run lint
+  - npm run lint
   - ionic cordova build android ios
 #  - npm run typedoc
   - bash sonar.sh
