@@ -5,15 +5,17 @@
   "homepage": "http://faubourgsimone.paris/",
   "private": true,
   "scripts": {
+    "preinstall": "gem install scss_lint",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "all-custom-lint": "npm run lint:stylelint && npm run tslint && npm run tslint:codeclimate",
+    "all-custom-lint": "npm run lint:stylelint && npm run tslint && npm run tslint:codeclimate && npm run lint:scss",
     "lint:stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss' --color --fix",
     "tslint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' --fix",
     "tslint:codeclimate": "./node_modules/.bin/tslint -c tslint-codeclimate.json 'src/**/*.ts' --fix",
+    "lint:scss": "scss-lint src/**/*.scss",
     "typedoc": "./node_modules/.bin/typedoc src --exclude '**/*+(e2e|spec|index).ts'"
   },
   "dependencies": {
