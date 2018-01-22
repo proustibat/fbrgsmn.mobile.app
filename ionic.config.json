@@ -1,6 +1,6 @@
 {
-  "name": "fbrsmn.mobile.app",
-  "app_id": "",
+  "name": "faubourgsimone",
+  "app_id": "2660e52d",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

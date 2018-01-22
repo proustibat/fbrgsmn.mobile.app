@@ -1,10 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>fbrsmn.mobile.app</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="com.faubourgsimone.radio" version="3.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Faubourg Simone</name>
+    <description>Faubourg Simone, la webradio parisienne, sans pub et impertinente ! Notre radio en direct, nos calepins, nos polas et nos coups de coeur musicaux dans une app.</description>
+    <author email="tech.team@faubourgsimone.com" href="http://faubourgsimone.paris/">Faubourg Simone Team</author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="http://faubourgsimone.local/*" />
+    <allow-navigation href="http://faubourgsimone.paris/*" />
+    <allow-navigation href="http://192.168.1.21:8100" />
+    <allow-navigation href="http://localhost:8100" />
+    <allow-navigation href="http://10.0.73.98:8100" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -81,4 +87,5 @@
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
