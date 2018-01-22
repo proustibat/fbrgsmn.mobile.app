@@ -27,12 +27,22 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+$error-color: rgba(209, 71, 71, 0.9);
+
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
+  primary:    #480a0f,
+  secondary:  #135a76,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  foggy-gray: #ceccbf,
+  westar:     #e6e4de,
+  carrara:    #f2f1ee,
+  pampas:     #f2f0ed,
+  verylight:  #fff,
+  error:      $error-color,
+  sea-green:  #2e8b57,
+  red-crimson:    #dc143c
 );
 
 // App iOS Variables
@@ -68,3 +78,11 @@ $colors: (
 
 @import 'roboto';
 @import 'noto-sans';
+
+// Custom variables
+// --------------------------------------------------
+@import 'font-lato';
+$font-family-base: 'Lato', $font-family-base;
+
+$speed-vinyl: 4s;
+$speed-cover: 6s;

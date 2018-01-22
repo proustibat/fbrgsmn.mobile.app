@@ -1,15 +1,15 @@
 $lato-font-path: $font-path !default;
 
+// latin-ext
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url("#{$lato-font-path}/Lato-Hairline.ttf") format('ttf');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
 
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Lato Hairline'), local('Lato-Hairline'), url("#{$lato-font-path}/Lato-Hairline.ttf") format('ttf');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -17,7 +17,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Hairline'), local('Lato-Hairline'), url("#{$lato-font-path}/Lato-Hairline.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -25,7 +26,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Light'), local('Lato-Light'), url("#{$lato-font-path}/Lato-Light.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -33,7 +35,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Light'), local('Lato-Light'), url("#{$lato-font-path}/Lato-Light.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -41,7 +44,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Regular'), local('Lato-Regular'), url("#{$lato-font-path}/Lato-Regular.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -49,7 +53,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Regular'), local('Lato-Regular'), url("#{$lato-font-path}/Lato-Regular.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -57,7 +62,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Bold'), local('Lato-Bold'), url("#{$lato-font-path}/Lato-Bold.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -65,7 +71,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Bold'), local('Lato-Bold'), url("#{$lato-font-path}/Lato-Bold.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -73,7 +80,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Black'), local('Lato-Black'), url("#{$lato-font-path}/Lato-Black.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -81,7 +89,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Black'), local('Lato-Black'), url("#{$lato-font-path}/Lato-Black.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -89,7 +98,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Hairline Italic'), local('Lato-HairlineItalic'), url("#{$lato-font-path}/Lato-HairlineItalic.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -97,7 +107,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Hairline Italic'), local('Lato-HairlineItalic'), url("#{$lato-font-path}/Lato-HairlineItalic.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -105,7 +116,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Light Italic'), local('Lato-LightItalic'), url("#{$lato-font-path}/Lato-LightItalic.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -113,7 +125,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Light Italic'), local('Lato-LightItalic'), url("#{$lato-font-path}/Lato-LightItalic.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -121,7 +134,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Italic'), local('Lato-Italic'), url("#{$lato-font-path}/Lato-Italic.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -129,7 +143,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Italic'), local('Lato-Italic'), url("#{$lato-font-path}/Lato-Italic.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -137,7 +152,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url("#{$lato-font-path}/Lato-BoldItalic.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -145,7 +161,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url("#{$lato-font-path}/Lato-BoldItalic.ttf") format('ttf');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin-ext */
+
+// latin-ext
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -153,7 +170,8 @@ $lato-font-path: $font-path !default;
   src: local('Lato Black Italic'), local('Lato-BlackItalic'), url("#{$lato-font-path}/Lato-BlackItalic.ttf") format('ttf');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
+// latin
 @font-face {
   font-family: 'Lato';
   font-style: italic;
