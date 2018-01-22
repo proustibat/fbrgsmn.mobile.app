@@ -10,7 +10,8 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "tslint": "./node_modules/.bin/tslint -c tslint.json ./src/**/**/*.ts"
+    "tslint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' --fix",
+    "tslint:codeclimate": "./node_modules/.bin/tslint -c tslint-codeclimate.json 'src/**/*.ts' --fix"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -42,6 +43,7 @@
     "@ionic/app-scripts": "3.1.8",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
+    "tslint-config-standard": "^7.0.0",
     "tslint-ionic-rules": "0.0.13",
     "tslint-sonarts": "^1.4.0",
     "typescript": "2.4.2"

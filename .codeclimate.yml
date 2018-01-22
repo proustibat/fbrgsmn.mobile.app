@@ -12,7 +12,7 @@ exclude_patterns:
 plugins:
   tslint:
     enabled: true
-    config: tslint.json
+    config: tslint-codeclimate.json
   fixme:
     enabled: true
   stylelint:

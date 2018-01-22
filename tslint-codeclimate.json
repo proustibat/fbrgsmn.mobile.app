@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:latest", "tslint-ionic-rules", "tslint-sonarts"],
+  "extends": "tslint-config-standard",
   "rules": {
     "quotemark": [true, "single"],
     "trailing-comma": false,
