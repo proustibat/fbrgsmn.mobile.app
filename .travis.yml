@@ -26,7 +26,7 @@ install:
 script:
 #  - npm run tslint:codeclimate
 #  - npm run lint
-  - ionic cordova build android
+  - ionic cordova build android ios
 #  - npm run typedoc
 #  - bash sonar.sh
 
