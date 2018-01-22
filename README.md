@@ -1,14 +1,7 @@
-Faubourg Simone: mobile applications [![Twitter Follow](https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&label=Follow)](https://twitter.com/faubourgsimone)
+Faubourg Simone: mobile app [![Twitter Follow](https://img.shields.io/twitter/follow/faubourgsimone.svg?style=social&label=Follow)](https://twitter.com/faubourgsimone)
 ========
 
-Sources of our web radio applications: android and ios with Ionic 2. 
-
-[![Code Climate](https://codeclimate.com/github/FaubourgSimone/ionic-app/badges/gpa.svg)](https://codeclimate.com/github/FaubourgSimone/ionic-app)
-[![Sonar quality gate](https://sonarcloud.io/api/badges/gate?key=faubourgsimone_ionic_app)](https://sonarcloud.io/dashboard?id=faubourgsimone_ionic_app)
-[![Quality Gate Status](https://sonarcloud.io/api/badges/measure?key=faubourgsimone_ionic_app&metric=alert_status)](https://sonarcloud.io/component_measures?id=faubourgsimone_ionic_app&metric=alert_status)
-[![Dependencies Status](https://david-dm.org/faubourgsimone/ionic-app/status.svg)](https://david-dm.org/faubourgsimone/ionic-app)
-[![DevDependencies Status](https://david-dm.org/faubourgsimone/ionic-app/dev-status.svg)](https://david-dm.org/faubourgsimone/ionic-app?type=dev)
-[![GitHub License](https://img.shields.io/badge/license-AGPLv3-blue.svg)](https://raw.githubusercontent.com/FaubourgSimone/ionic-app/master/LICENSE)
+Source code of our web radio applications: android and ios with Ionic. 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
