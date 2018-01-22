@@ -8,13 +8,13 @@ import { GlobalService } from './global-service';
 import { InitService } from './init-service';
 
 export const CustomProviders = [
-    GlobalService,
-    InitService
+  GlobalService,
+  InitService
 ];
 
 export const ExternalProviders = [
-    StatusBar,
-    SplashScreen,
-    GoogleAnalytics,
+  StatusBar,
+  SplashScreen,
+  GoogleAnalytics,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
 ];

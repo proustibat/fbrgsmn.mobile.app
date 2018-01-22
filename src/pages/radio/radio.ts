@@ -31,12 +31,12 @@ export class RadioPage {
     this.plt.ready().then( ( readySource ) => {
       console.log( 'Platform ready from', readySource );
 
-        this.ga.trackView( this.viewCtrl.name );
+      this.ga.trackView( this.viewCtrl.name );
 
         // Look for streaming address in a json file on a server
-        this.initService.getInitData().then( ( data: any ) => {
-            console.log( data );
-        } );
+      this.initService.getInitData().then( ( data: any ) => {
+        console.log( data );
+      } );
     } );
   }
 }
