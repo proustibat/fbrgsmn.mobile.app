@@ -1,0 +1,7 @@
+scss_files: 'src/**/*.scss'
+linters:
+  LeadingZero:
+    enabled: false
+  EmptyRule:
+    enabled: false
+

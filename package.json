@@ -15,7 +15,7 @@
     "lint:stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss' --color --fix",
     "tslint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' --fix",
     "tslint:codeclimate": "./node_modules/.bin/tslint -c tslint-codeclimate.json 'src/**/*.ts' --fix",
-    "lint:scss": "scss-lint src/**/*.scss",
+    "lint:scss": "scss-lint --config .scss-lint.yml",
     "typedoc": "./node_modules/.bin/typedoc src --exclude '**/*+(e2e|spec|index).ts'"
   },
   "dependencies": {
