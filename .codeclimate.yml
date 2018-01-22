@@ -19,12 +19,28 @@ plugins:
   stylelint:
       enabled: true
       checks:
-          CssSyntaxError:
-            enabled: false
+        CssSyntaxError:
+          enabled: false
+        LeadingZero:
+          enabled: false
   scss-lint:
     enabled: true
     checks:
+      LeadingZero:
+        enabled: false
       EmptyRule:
+        enabled: false
+      NestingDepth:
+        enabled: true
+        max_depth: 6
+        ignore_parent_selectors: false
+      SelectorDepth:
+        enabled: true
+        max_depth: 5
+      SelectorFormat:
+        enable: true
+        convention: camel_case || hyphenated_lowercase
+      ImportantRule:
         enabled: false
   csslint:
     enabled: true

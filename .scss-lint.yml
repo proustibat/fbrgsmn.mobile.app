@@ -1,7 +1,30 @@
 scss_files: 'src/**/*.scss'
+
+# Default severity of all linters.
+severity: error
+
 linters:
   LeadingZero:
     enabled: false
   EmptyRule:
     enabled: false
+  # todo: should be fix to 3
+  NestingDepth:
+    enabled: true
+    max_depth: 6
+    ignore_parent_selectors: false
+  # todo: should be fix to 3
+  SelectorDepth:
+    enabled: true
+    max_depth: 5
+  SelectorFormat:
+    enable: true
+    convention: camel_case || hyphenated_lowercase
+  ImportantRule:
+    enabled: false
+#  Indentation:
+#    enabled: true
+#    allow_non_nested_indentation: false
+#    character: space
+#    width: 4
 

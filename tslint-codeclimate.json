@@ -1,6 +1,11 @@
 {
   "extends": "tslint-config-standard",
+  "rulesDirectory": [
+    "node_modules/tslint/lib/rules",
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
   "rules": {
+    "indent": [true, "spaces", 4],
     "no-console": [false],
     "quotemark": [true, "single"],
     "trailing-comma": false,
@@ -16,16 +21,16 @@
       "check-typecast",
       "check-preblock"
     ],
-    "space-before-function-paren": [true, "always"],
+    "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
     "space-within-parens": [true, 1],
     "typedef-whitespace": [
       true,
       {
         "call-signature": "onespace",
         "index-signature": "onespace",
-        "parameter": "onespace",
+        "parameter": "nospace",
         "property-declaration": "onespace",
-        "variable-declaration": "onespace"
+        "variable-declaration": "nospace"
       },
       {
         "call-signature": "onespace",
@@ -35,6 +40,14 @@
         "variable-declaration": "onespace"
       }
     ],
-    "no-consecutive-blank-lines": true
+    "no-consecutive-blank-lines": [true, 1],
+    "await-promise": false,
+    "no-unused-variable": false,
+    "no-use-before-declare": false,
+    "return-undefined": false,
+    "no-floating-promises": false,
+    "no-unnecessary-type-assertion": false,
+    "no-unnecessary-qualifier": false,
+    "strict-type-predicates": false
   }
 }

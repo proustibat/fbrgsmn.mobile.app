@@ -1,15 +1,21 @@
-@-webkit-keyframes opacity {
-  0%, 100% {opacity:0.05;}
-  50% {opacity:1;}
+@keyframes opacity {
+  0%,
+  100% {
+    opacity: 0.05;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 page-radio {
-
   .header-image {
-    height: 100vw;
     background: color($colors, 'verylight');
-    img.animated {
-      animation:spin $speed-cover linear infinite;
+    height: 100vw;
+
+    .animated {
+      animation: spin $speed-cover linear infinite;
       border-radius: 50%;
     }
   }
@@ -19,7 +25,6 @@ page-radio {
   }
 
   .radio-page-cover {
-
     &.content {
       background: color($colors, 'pampas');
     }
@@ -28,26 +33,27 @@ page-radio {
       width: 100%;
       //margin-top: 2rem;
     }
+
     .meta-info {
-      background: #fff;
-      position: relative;
-      width: 94%;
+      background: color($colors, 'verylight');
+      box-shadow: 0 1px 10px 2px $color-shadow-meta-info;
       margin: 0 auto;
       position: relative;
       top: -4rem;
       //border: 2px solid color($colors, 'secondary');
       //box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
-      box-shadow:0px 1px 10px 2px rgba(206, 204, 191, 0.5);
       //box-shadow: 0px 0px 4px 1px rgba(19, 90, 118, 0.4);
+      width: 94%;
     }
 
     .artist {
-      font-weight: bold;
-      font-size: 1.6rem;
-      width: 80%;
-      padding-bottom: 0.5rem;
       color: color($colors, 'secondary');
+      font-size: 1.6rem;
+      font-weight: bold;
+      padding-bottom: 0.5rem;
+      width: 80%;
     }
+
     .track {
       color: color($colors, 'secondary');
       font-size: 1.4rem;
@@ -58,73 +64,76 @@ page-radio {
       &.hidden {
         display: none;
       }
+
       .button {
         margin: 0 0 0 15px;
       }
     }
 
     .btn-last {
-      position: relative;
-      margin: 0 0 0 15px;
-      width: 30px;
       height: 30px;
+      margin: 0 0 0 15px;
+      position: relative;
+      width: 30px;
+
       ion-icon {
         font-size: 3.3rem;
       }
     }
 
-
     .label-now-playing {
-      &.hidden {
-        display: none;
-      }
-      background: #fff;
+      background: color($colors, 'verylight');
       color: color($colors, 'danger');
-      font-size: 1rem;
       display: inline-block;
+      font-size: 1rem;
       font-weight: bold;
+      height: 2.2rem;
+      left: 0;
       //line-height: 1rem;
       padding: 0.5rem;
       position: absolute;
       top: -2.4rem;
-      height: 2.2rem;
-      left: 0;
+
+      &.hidden {
+        display: none;
+      }
+
       .txt {
-        -webkit-animation-name: opacity;
-        -webkit-animation-duration: 2s;
-        -webkit-animation-iteration-count: infinite;
-        animation-name: opacity;
         animation-duration: 2s;
         animation-iteration-count: infinite;
+        animation-name: opacity;
       }
     }
 
     .toggle-buttons {
-
-
       position: absolute;
-      top: -3rem;
       right: 2rem;
+      top: -3rem;
 
       .btn-play-pause {
-        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-        width:60px;
-        height:60px;
+        box-shadow: 0 0 10px 2px $color-shadow-btn-play-pause;
+        height: 60px;
         padding: 0;
-        &[color="verylight"] {
-          background: color($colors, 'verylight');
-          ion-icon {
-            color: color($colors, 'secondary')!important;
-          }
-        }
-        &[color="secondary"] {
-          background: color($colors, 'secondary');
-          ion-icon {
-            color: color($colors, 'verylight')!important;
-          }
-        }
+        width: 60px;
+
         ion-icon {
           font-size: 3rem;
+        }
+
+        &[color="verylight"] {
+          background: color($colors, 'verylight');
+
+          ion-icon {
+            color: color($colors, 'secondary') !important;
+          }
+        }
+
+        &[color="secondary"] {
+          background: color($colors, 'secondary');
+
+          ion-icon {
+            color: color($colors, 'verylight') !important;
+          }
         }
       }
 
@@ -201,38 +210,33 @@ page-radio {
       //  }
       //}
       @keyframes spin {
-        0%  {
+        0% {
           transform: rotate(0deg);
         }
+
         100% {
           transform: rotate(360deg);
         }
       }
     }
 
-
     .last-songs {
-
       ion-thumbnail img {
-        border: 1px solid #c8c7cc;
+        border: 1px solid $color-thumbnail-border;
       }
 
       ion-list-header {
-        border:none;
         background: color($colors, 'carrara');
+        border: 0;
       }
 
       ion-item {
         background: color($colors, 'westar');
       }
+
       h3 {
-        font-weight: bold!important;
+        font-weight: bold !important;
       }
     }
   }
 }
-
-
-
-
-

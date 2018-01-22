@@ -1,7 +1,5 @@
 ion-tabs {
-
   &.tabs {
-
     .tabbar {
       background: $toolbar-background;
     }
@@ -11,6 +9,7 @@ ion-tabs {
     .tab-button[aria-selected=true] .tab-button-icon {
       color: color($colors, 'secondary');
     }
+
     .tab-button-text {
       //display: none;
       font-size: 0.9rem;
@@ -18,6 +17,7 @@ ion-tabs {
 
     .tab-button[aria-selected=true] {
       color: color($colors, 'secondary');
+
       .tab-button-text {
         //display: block;
         font-weight: bold;

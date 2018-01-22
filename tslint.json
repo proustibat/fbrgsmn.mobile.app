@@ -1,6 +1,10 @@
 {
   "extends": ["tslint:latest", "tslint-ionic-rules", "tslint-sonarts"],
+  "rulesDirectory": [
+    "node_modules/tslint/lib/rules"
+  ],
   "rules": {
+    "indent": [true, "spaces", 4],
     "no-console": [false],
     "quotemark": [true, "single"],
     "trailing-comma": false,
@@ -16,16 +20,16 @@
       "check-typecast",
       "check-preblock"
     ],
-    "space-before-function-paren": [true, "always"],
+    "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
     "space-within-parens": [true, 1],
     "typedef-whitespace": [
       true,
       {
         "call-signature": "onespace",
         "index-signature": "onespace",
-        "parameter": "onespace",
+        "parameter": "nospace",
         "property-declaration": "onespace",
-        "variable-declaration": "onespace"
+        "variable-declaration": "nospace"
       },
       {
         "call-signature": "onespace",
@@ -35,6 +39,26 @@
         "variable-declaration": "onespace"
       }
     ],
-    "no-consecutive-blank-lines": true
+    "no-consecutive-blank-lines": [true, 1],
+    "await-promise": false,
+    "no-unused-variable": false,
+    "no-accessor-field-mismatch": false,
+    "no-array-delete": false,
+    "no-collection-size-mischeck": false,
+    "no-dead-store": false,
+    "no-element-overwrite": false,
+    "no-gratuitous-expressions": false,
+    "no-ignored-initial-value": false,
+    "no-ignored-return": false,
+    "no-misleading-array-reverse": false,
+    "no-return-type-any": false,
+    "no-self-assignment": false,
+    "no-unused-array": false,
+    "no-use-of-empty-return-value": false,
+    "no-useless-cast": false,
+    "no-useless-intersection": false,
+    "no-variable-usage-before-declaration": false,
+    "prefer-immediate-return": false,
+    "use-type-alias": false
   }
 }

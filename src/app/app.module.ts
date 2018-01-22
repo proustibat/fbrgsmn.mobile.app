@@ -1,30 +1,73 @@
+// Angular libs
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { NgModule } from '@angular/core';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+// Ionic libs
+import { IonicApp, IonicModule } from 'ionic-angular';
+
+// Main
+import { FbrgSmnApp } from './app.component';
+
+// Pages
+import { Pages } from '../pages';
+
+// Providers
+import { CustomProviders, ExternalProviders } from '../providers';
+
+// Components and Directives
+import { CustomComponents, CustomDirectives, ExternalComponents } from '../components';
+
+// Libs
+import { SwingModule } from 'angular2-swing';
+import { Http, HttpModule } from '@angular/http';
+import { TranslateLoader, TranslateModule, TranslateStaticLoader } from 'ng2-translate';
+
+const appSettings = {
+  backButtonText: 'Retour',
+  // tabsLayout: 'title-hide',
+  // pageTransition: 'ios-transition',
+  // modalEnter: 'modal-slide-in',
+  // modalLeave: 'modal-slide-out',
+  statusbarPadding: true,
+  tabsHideOnSubPages: true,
+  // menuType: 'reveal'
+  tabsHighlight: true,
+  tabsPlacement: 'bottom'
+};
+
+export function createTranslateLoader( http: Http ) {
+  return new TranslateStaticLoader( http, './assets/i18n', '.json' );
+}
 
 @NgModule( {
   bootstrap: [IonicApp],
   declarations: [
-    MyApp,
-    HomePage
+    FbrgSmnApp,
+    ...Pages,
+    ...CustomComponents,
+    ...ExternalComponents,
+    ...CustomDirectives
   ],
   entryComponents: [
-    MyApp,
-    HomePage
+    FbrgSmnApp,
+    ...Pages,
+    ...CustomComponents,
+    ...ExternalComponents
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot( MyApp )
+    IonicModule.forRoot( FbrgSmnApp, appSettings ),
+    SwingModule,
+    HttpModule,
+    TranslateModule.forRoot( {
+      deps: [ Http ],
+      provide: TranslateLoader,
+      useFactory: ( createTranslateLoader )
+    } )
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    ...CustomProviders,
+    ...ExternalProviders
   ]
 } )
 export class AppModule {}
