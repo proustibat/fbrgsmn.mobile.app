@@ -90,4 +90,5 @@
     <plugin name="cordova-plugin-google-analytics" spec="^1.8.3" />
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-music-controls" spec="^2.1.4" />
 </widget>

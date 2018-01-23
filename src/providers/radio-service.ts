@@ -18,7 +18,6 @@ export class RadioService {
     }
 
     public initLoop( interval?: number ) {
-        console.log( 'initLoop', interval );
         if ( this.timer ) {
             clearTimeout( this.timer );
         }
@@ -60,7 +59,6 @@ export class RadioService {
     }
 
     public filterDefaultCovers( data ) {
-        console.log( 'filterDefaultCovers', data );
         const defaultTags = [
             'sample',
             'jingle',
@@ -128,8 +126,4 @@ export class RadioService {
         } );
         return data;
     }
-}
-
-export interface ISongs {
-    songs: any[];
 }

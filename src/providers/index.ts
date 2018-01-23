@@ -8,12 +8,14 @@ import { GlobalService } from './global-service';
 import { InitService } from './init-service';
 import { PromptService } from './prompt-service';
 import { RadioService } from './radio-service';
+import { TrackerService } from './tracker-service';
 
 export const CustomProviders = [
     GlobalService,
     InitService,
     PromptService,
-    RadioService
+    RadioService,
+    TrackerService
 ];
 
 export const ExternalProviders = [
