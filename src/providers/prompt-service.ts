@@ -5,8 +5,8 @@ import { GlobalService } from './global-service';
 @Injectable()
 export class PromptService {
 
-    private loader : Loading;
-    private messageToast : Toast;
+    private loader: Loading;
+    private messageToast: Toast;
 
     constructor( private loadingCtrl: LoadingController,
                  private vars: GlobalService,
@@ -33,10 +33,10 @@ export class PromptService {
                                classNameCss,
                                duration,
                                callback
-    }: { message : string,
-        classNameCss? : string,
-        duration? : number,
-        callback? : () => void } ) {
+    }: { message: string,
+        classNameCss?: string,
+        duration?: number,
+        callback?: () => void } ) {
 
         if ( this.messageToast ) {
             this.messageToast

@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalService {
 
-    public DEVMODE = false;
-    public BASE_URL : string;
+    public DEVMODE = true;
+    public BASE_URL: string;
 
     public URL_INFO_DEV = 'assets/config.json';
     public URL_INFO_PROD = 'http://faubourgsimone.paris/ionic-app/info.json';
     public URL_STREAMING_DEFAULT = 'http://91.121.65.131:8000/;';
     public URL_COVERS_API = 'http://ks25555.kimsufi.com/fsapi/cacheapi.json';
 
-    public URL_POLAS : { baseUrl : string, params : { count : string, page : string } };
-    public URL_CALEPINS : { baseUrl : string, params : { count : string, page : string } };
-    public URL_CASQUES : { baseUrl : string, params : { count : string, page : string } };
-    public URL_CALEPIN : string;
-    public URL_CASQUE : string;
-    public URL_CASQUE_FIELDS : string;
+    public URL_POLAS: { baseUrl: string, params: { count: string, page: string } };
+    public URL_CALEPINS: { baseUrl: string, params: { count: string, page: string } };
+    public URL_CASQUES: { baseUrl: string, params: { count: string, page: string } };
+    public URL_CALEPIN: string;
+    public URL_CASQUE: string;
+    public URL_CASQUE_FIELDS: string;
 
     public COVER_DEFAULT = {
         jpg: 'assets/images/cover-default.jpg',
@@ -33,7 +33,7 @@ export class GlobalService {
         svg: 'assets/images/cover-news.svg'
     };
 
-    public loadingMsgPosts : string[] = [
+    public loadingMsgPosts: string[] = [
         'Tout doux beau prince !',
         'Patience beauté !',
         'Quelques secondes minouche !',
@@ -49,7 +49,7 @@ export class GlobalService {
         'Oui, oui, un p’tit instant voulez-vous'
     ];
 
-    public loadingMsgRadio : string[] = [
+    public loadingMsgRadio: string[] = [
         'Paris ne s\'est pas faite en un jour !',
         'En voiture Simone !',
         'Préparation du café !',

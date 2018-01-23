@@ -5,6 +5,7 @@ import { GlobalService } from '../../providers/global-service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InitService } from '../../providers/init-service';
 import { PromptService } from '../../providers/prompt-service';
+import { RadioService } from '../../providers/radio-service';
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;
@@ -18,6 +19,10 @@ declare let FB: any;
 export class RadioPage {
 
     private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
+    private streamingUrl: string;
+    private configReady = true;
+    private playerReady = false;
+    private myOnlyTrack: any;
 
     constructor( public navCtrl: NavController,
                  private vars: GlobalService,
@@ -26,6 +31,7 @@ export class RadioPage {
                  public viewCtrl: ViewController,
                  private initService: InitService,
                  private prompt: PromptService,
+                 private radioService: RadioService,
     ) {
         this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
         console.log( this.currentSong );
@@ -45,10 +51,21 @@ export class RadioPage {
                     } );
                     data = data.content;
                 }
+                this.streamingUrl = data.streamingUrl ? data.streamingUrl : this.vars.URL_STREAMING_DEFAULT;
+                this.radioService.initLoop( data.loop_interval );
+                this.configReady = false;
+                this.initPlayer();
             } ).catch( errors => this.prompt.presentMessage( {
                 classNameCss: 'error',
                 message: `⚠ ${ errors.join( ' ⚠ ' ) }`
             } ) );
         } );
+    }
+
+    private initPlayer() {
+        this.playerReady = true;
+        this.myOnlyTrack = {
+            src: this.streamingUrl
+        };
     }
 }

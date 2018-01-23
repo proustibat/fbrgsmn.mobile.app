@@ -7,11 +7,13 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { GlobalService } from './global-service';
 import { InitService } from './init-service';
 import { PromptService } from './prompt-service';
+import { RadioService } from './radio-service';
 
 export const CustomProviders = [
     GlobalService,
     InitService,
-    PromptService
+    PromptService,
+    RadioService
 ];
 
 export const ExternalProviders = [

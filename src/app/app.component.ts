@@ -14,9 +14,9 @@ import { RadioPage } from '../pages/radio/radio';
 } )
 export class FbrgSmnApp {
 
-    @ViewChild( Nav ) public nav : Nav;
-    public rootPage : any = TabsPage;
-    public pages : Array<{title : string, component : any, tabIndex : number }>;
+    @ViewChild( Nav ) public nav: Nav;
+    public rootPage: any = TabsPage;
+    public pages: Array<{title: string, component: any, tabIndex: number }>;
 
     constructor ( platform: Platform,
                 statusBar: StatusBar,
