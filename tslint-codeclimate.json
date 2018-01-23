@@ -5,6 +5,7 @@
         "ter-indent": [
             true, 4
         ],
+        "no-console": [false],
         "quotemark": [true, "single"],
         "trailing-comma": false,
         "semicolon": [true, "always"],
