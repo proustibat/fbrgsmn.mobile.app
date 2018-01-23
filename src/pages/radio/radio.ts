@@ -11,32 +11,32 @@ declare let FB: any;
 /* tslint:enable:no-unused-variable */
 
 @Component( {
-  selector: 'page-radio',
-  templateUrl: 'radio.html'
+    selector: 'page-radio',
+    templateUrl: 'radio.html'
 } )
 export class RadioPage {
 
-  private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
+    private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
 
-  constructor( public navCtrl: NavController,
-               private vars: GlobalService,
-               public plt: Platform,
-               private ga: GoogleAnalytics,
-               public viewCtrl: ViewController,
-               private initService: InitService,
-  ) {
-    this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
-    console.log( this.currentSong );
+    constructor( public navCtrl: NavController,
+                 private vars: GlobalService,
+                 public plt: Platform,
+                 private ga: GoogleAnalytics,
+                 public viewCtrl: ViewController,
+                 private initService: InitService,
+    ) {
+        this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
+        console.log( this.currentSong );
 
-    this.plt.ready().then( ( readySource ) => {
-      console.log( 'Platform ready from', readySource );
+        this.plt.ready().then( ( readySource ) => {
+            console.log( 'Platform ready from', readySource );
 
-      this.ga.trackView( this.viewCtrl.name );
+            this.ga.trackView( this.viewCtrl.name );
 
-        // Look for streaming address in a json file on a server
-      this.initService.getInitData().then( ( data: any ) => {
-        console.log( data );
-      } );
-    } );
-  }
+            // Look for streaming address in a json file on a server
+            this.initService.getInitData().then( ( data: any ) => {
+                console.log( data );
+            } );
+        } );
+    }
 }

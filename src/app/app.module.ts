@@ -21,53 +21,55 @@ import { CustomComponents, CustomDirectives, ExternalComponents } from '../compo
 import { SwingModule } from 'angular2-swing';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateLoader, TranslateModule, TranslateStaticLoader } from 'ng2-translate';
+import { HttpClientModule } from '@angular/common/http';
 
 const appSettings = {
-  backButtonText: 'Retour',
-  // tabsLayout: 'title-hide',
-  // pageTransition: 'ios-transition',
-  // modalEnter: 'modal-slide-in',
-  // modalLeave: 'modal-slide-out',
-  statusbarPadding: true,
-  tabsHideOnSubPages: true,
-  // menuType: 'reveal'
-  tabsHighlight: true,
-  tabsPlacement: 'bottom'
+    backButtonText: 'Retour',
+    // tabsLayout: 'title-hide',
+    // pageTransition: 'ios-transition',
+    // modalEnter: 'modal-slide-in',
+    // modalLeave: 'modal-slide-out',
+    statusbarPadding: true,
+    tabsHideOnSubPages: true,
+    // menuType: 'reveal'
+    tabsHighlight: true,
+    tabsPlacement: 'bottom'
 };
 
 export function createTranslateLoader( http: Http ) {
-  return new TranslateStaticLoader( http, './assets/i18n', '.json' );
+    return new TranslateStaticLoader( http, './assets/i18n', '.json' );
 }
 
 @NgModule( {
-  bootstrap: [IonicApp],
-  declarations: [
-    FbrgSmnApp,
-    ...Pages,
-    ...CustomComponents,
-    ...ExternalComponents,
-    ...CustomDirectives
-  ],
-  entryComponents: [
-    FbrgSmnApp,
-    ...Pages,
-    ...CustomComponents,
-    ...ExternalComponents
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot( FbrgSmnApp, appSettings ),
-    SwingModule,
-    HttpModule,
-    TranslateModule.forRoot( {
-      deps: [ Http ],
-      provide: TranslateLoader,
-      useFactory: ( createTranslateLoader )
-    } )
-  ],
-  providers: [
-    ...CustomProviders,
-    ...ExternalProviders
-  ]
+    bootstrap: [IonicApp],
+    declarations: [
+        FbrgSmnApp,
+        ...Pages,
+        ...CustomComponents,
+        ...ExternalComponents,
+        ...CustomDirectives
+    ],
+    entryComponents: [
+        FbrgSmnApp,
+        ...Pages,
+        ...CustomComponents,
+        ...ExternalComponents
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot( FbrgSmnApp, appSettings ),
+        SwingModule,
+        HttpClientModule,
+        HttpModule,
+        TranslateModule.forRoot( {
+            deps: [ Http ],
+            provide: TranslateLoader,
+            useFactory: ( createTranslateLoader )
+        } )
+    ],
+    providers: [
+        ...CustomProviders,
+        ...ExternalProviders
+    ]
 } )
 export class AppModule {}

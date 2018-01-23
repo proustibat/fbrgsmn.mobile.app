@@ -6,6 +6,9 @@
     ],
     "rules": {
         "indent": [true, "spaces", 4],
+        "ter-indent": [
+            true, 4
+        ],
         "no-console": [false],
         "quotemark": [true, "single"],
         "trailing-comma": false,
@@ -21,8 +24,9 @@
             "check-typecast",
             "check-preblock"
         ],
-        "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
         "space-within-parens": [true, 1],
+        "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "ignore"}],
+        "arrow-parens": [false, "ban-single-arg-parens"],
         "typedef-whitespace": [
             true,
             {
@@ -48,6 +52,7 @@
         "no-floating-promises": false,
         "no-unnecessary-type-assertion": false,
         "no-unnecessary-qualifier": false,
-        "strict-type-predicates": false
+        "strict-type-predicates": false,
+        "no-submodule-imports": [true, "@angular/common/http"]
     }
 }
