@@ -6,10 +6,12 @@ import { IonicErrorHandler } from 'ionic-angular';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { GlobalService } from './global-service';
 import { InitService } from './init-service';
+import { PromptService } from './prompt-service';
 
 export const CustomProviders = [
     GlobalService,
-    InitService
+    InitService,
+    PromptService
 ];
 
 export const ExternalProviders = [

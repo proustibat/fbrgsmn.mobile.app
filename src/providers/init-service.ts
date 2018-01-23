@@ -19,13 +19,17 @@ export class InitService {
                 .then( data => resolve( data ) )
                 .catch( error => {
                     return this.getFile( this.vars.URL_INFO_DEV )
-                        .then( data => resolve( data ) )
-                        .catch( err => reject( { error, err } ) );
+                        .then( data => resolve( {
+                            content: data,
+                            error: `Error when loading ${this.vars.URL_INFO_PROD}: ${error}`
+                        } ) )
+                        .catch( err => reject( [ error.message, err.message ] ) );
                 } );
         } );
     }
 
     private getFile( url ) {
+        console.log( 'getFile', url );
         return new Promise( ( resolve, reject ) => {
             this.http.get( url ).subscribe( data => resolve( data ), ( error ) => reject( error ) );
         } );

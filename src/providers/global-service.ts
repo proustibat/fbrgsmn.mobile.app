@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalService {
 
-    public DEVMODE = true;
+    public DEVMODE = false;
     public BASE_URL : string;
 
     public URL_INFO_DEV = 'assets/config.json';
