@@ -41,6 +41,7 @@
             }
         ],
         "no-consecutive-blank-lines": [true, 1],
-        "await-promise": false
+        "await-promise": false,
+        "no-unused-variable": false
     }
 }
