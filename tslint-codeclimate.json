@@ -40,6 +40,6 @@
                 "variable-declaration": "onespace"
             }
         ],
-        "no-consecutive-blank-lines": true
+        "no-consecutive-blank-lines": [true, 1]
     }
 }
