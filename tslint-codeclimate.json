@@ -42,6 +42,7 @@
         ],
         "no-consecutive-blank-lines": [true, 1],
         "await-promise": false,
-        "no-unused-variable": false
+        "no-unused-variable": false,
+        "no-use-before-declare": false
     }
 }
