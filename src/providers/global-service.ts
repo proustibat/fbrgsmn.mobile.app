@@ -66,7 +66,7 @@ export class GlobalService {
     private BASE_URL_API_PROD = 'http://faubourgsimone.paris';
     private BASE_URL_API_DEV = 'http://faubourgsimone.local';
 
-    constructor() {
+    constructor () {
         console.log( 'Hello GlobalService Provider' );
 
         this.BASE_URL = !this.DEVMODE ? this.BASE_URL_API_PROD : this.BASE_URL_API_DEV;
@@ -101,11 +101,11 @@ export class GlobalService {
         this.URL_CASQUE_FIELDS = this.BASE_URL + '/wp-json/acf/v2/nouveaute/';
     }
 
-    public getRandomMessageRadio() {
+    public getRandomMessageRadio () {
         return this.loadingMsgRadio[Math.floor( Math.random() * ( this.loadingMsgRadio.length - 1 ) )];
     }
 
-    public getRandomMessagePosts() {
+    public getRandomMessagePosts () {
         return this.loadingMsgPosts[Math.floor( Math.random() * ( this.loadingMsgPosts.length - 1 ) )];
     }
 }

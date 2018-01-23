@@ -9,15 +9,15 @@ import { TranslateService } from 'ng2-translate';
 @Injectable()
 export class TrackerService {
 
-    constructor( public http: HttpClient,
-                private ga: GoogleAnalytics,
-                private translateService: TranslateService ) {
+    constructor ( public http: HttpClient,
+                  private ga: GoogleAnalytics,
+                  private translateService: TranslateService ) {
         console.log( 'Hello TrackerService Provider' );
     }
 
-    public trackEventWithI18n( category: { translate: string, params?: any },
-                               action: { translate: string, params?: any},
-                               label: { translate: string, params?: any} ) {
+    public trackEventWithI18n ( category: { translate: string, params?: any },
+                                action: { translate: string, params?: any},
+                                label: { translate: string, params?: any} ) {
         const params = {
             ...category.params,
             ...action.params,
@@ -42,7 +42,7 @@ export class TrackerService {
             }, error => console.log( error ) );
     }
 
-    public trackEventWithData( category, label, action ) {
+    public trackEventWithData ( category, label, action ) {
         console.log( 'TrackerService.trackEventWithData' );
         console.log( category, label, action );
         this.ga.trackEvent( category, label, action );

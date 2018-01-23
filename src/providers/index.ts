@@ -9,6 +9,11 @@ import { InitService } from './init-service';
 import { PromptService } from './prompt-service';
 import { RadioService } from './radio-service';
 import { TrackerService } from './tracker-service';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Screenshot } from '@ionic-native/screenshot';
+import { Media } from '@ionic-native/media';
 
 export const CustomProviders = [
     GlobalService,
@@ -22,5 +27,10 @@ export const ExternalProviders = [
     StatusBar,
     SplashScreen,
     GoogleAnalytics,
+    InAppBrowser,
+    BackgroundMode,
+    SocialSharing,
+    Screenshot,
+    Media,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
 ];

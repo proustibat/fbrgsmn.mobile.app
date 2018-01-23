@@ -9,6 +9,9 @@ import { RadioService } from '../../providers/radio-service';
 import { TranslateService } from 'ng2-translate';
 import { MusicControls } from '@ionic-native/music-controls';
 import { TrackerService } from '../../providers/tracker-service';
+import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser';
+import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;
@@ -31,19 +34,28 @@ export class RadioPage {
     private shareOptions: any;
     private trackingOptions: any;
     private isPlaying = false;
+    private isButtonActive = true;
+    private playPauseButton = 'play';
+    private browserPopup: InAppBrowserObject;
+    private hasLeft = false;
+    private isLoading = true;
+    private mediaObject: MediaObject;
 
-    constructor( public navCtrl: NavController,
-                 private vars: GlobalService,
-                 public plt: Platform,
-                 private ga: GoogleAnalytics,
-                 public viewCtrl: ViewController,
-                 private initService: InitService,
-                 private prompt: PromptService,
-                 private radioService: RadioService,
-                 private events: Events,
-                 private translateService: TranslateService,
-                 private musicControls: MusicControls,
-                 private tracker: TrackerService,
+    constructor ( public navCtrl: NavController,
+                  private vars: GlobalService,
+                  public plt: Platform,
+                  private ga: GoogleAnalytics,
+                  public viewCtrl: ViewController,
+                  private initService: InitService,
+                  private prompt: PromptService,
+                  private radioService: RadioService,
+                  private events: Events,
+                  private translateService: TranslateService,
+                  private musicControls: MusicControls,
+                  private tracker: TrackerService,
+                  private iab: InAppBrowser,
+                  private media: Media,
+                  private backgroundMode: BackgroundMode
     ) {
         this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
         this.plt.ready().then( ( readySource ) => {
@@ -71,7 +83,7 @@ export class RadioPage {
         } );
     }
 
-    protected ionViewDidLoad() {
+    protected ionViewDidLoad () {
         this.events.subscribe( 'nowPlayingChanged', ( currentSong, lastSongs ) => {
             this.onNowPlayingChanged( currentSong, lastSongs );
         } );
@@ -79,15 +91,23 @@ export class RadioPage {
         this.events.subscribe( 'onError', error => this.onRadioServiceError( error ) );
     }
 
-    private initPlayer() {
+    protected ionViewDidEnter () {
+        this.hasLeft = false;
+    }
+
+    protected ionViewDidLeave () {
+        this.hasLeft = true;
+        this.prompt.dismissLoading();
+    }
+
+    private initPlayer () {
         this.playerReady = true;
         this.myOnlyTrack = {
             src: this.streamingUrl
         };
     }
 
-    private onNowPlayingChanged( currentSong, lastSongs ) {
-        console.log( '############## onNowPlayingChanged' );
+    private onNowPlayingChanged ( currentSong, lastSongs ) {
         this.currentSong = currentSong;
         this.lastSongs = lastSongs;
         this.updateShareOptions();
@@ -99,7 +119,7 @@ export class RadioPage {
         } );
     }
 
-    private updateShareOptions() {
+    private updateShareOptions () {
         this.translateService
             .get(
                 [ 'SHARING.CURRENT_SONG.MESSAGE', 'SHARING.CURRENT_SONG.SUBJECT', 'SHARING.CURRENT_SONG.URL' ],
@@ -115,7 +135,7 @@ export class RadioPage {
             } );
     }
 
-    private updateTrackingOptions() {
+    private updateTrackingOptions () {
         this.translateService
             .get( [
                 'TRACKING.SHARE.CURRENT_SONG.CATEGORY',
@@ -133,11 +153,11 @@ export class RadioPage {
             } );
     }
 
-    private onRadioServiceError( error ) {
+    private onRadioServiceError ( error ) {
         this.prompt.presentMessage( { message: error.toString(), classNameCss: 'error' } );
     }
 
-    private destroyMusicControls() {
+    private destroyMusicControls () {
         console.log( 'destroyMusicControls' );
         if ( this.plt.is( 'cordova' ) ) {
             this.musicControls.destroy();
@@ -157,11 +177,8 @@ export class RadioPage {
         }
     }
 
-    private createMusicControls() {
-        console.log( 'createMusicControls ' );
-
+    private createMusicControls () {
         if ( this.plt.is( 'cordova' ) ) {
-            console.log( 'REALLY createMusicControls' );
             this.musicControls.create( {
                 album: 'Faubourg Simone Radio', // iOS only
                 artist: this.currentSong.artist,
@@ -173,7 +190,7 @@ export class RadioPage {
                 hasScrubbing: false, // iOS only
                 isPlaying: this.isPlaying,
                 ticker: `# Faubourg Simone # ${this.currentSong.title}`, // Android only
-                track: this.currentSong.track,
+                track: this.currentSong.track
             } );
 
             this.musicControls.subscribe().subscribe( action => {
@@ -185,7 +202,7 @@ export class RadioPage {
         }
     }
 
-    private onMusicControlsEvent( action ) {
+    private onMusicControlsEvent ( action ) {
         const message = JSON.parse( action ).message;
         if ( message === 'music-controls-pause' ) {
             console.log( '#### PAUSE' );
@@ -282,6 +299,134 @@ export class RadioPage {
                         result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
                         result[ 'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED' ] );
                 }, error => console.log( error ) );
+        }
+    }
+
+    private togglePlayPause () {
+        let trackingAction;
+        if ( this.isPlaying ) {
+            this.pause();
+            trackingAction = { translate: 'TRACKING.PLAYER.ACTION.PAUSE' };
+        } else {
+            this.play();
+            trackingAction = { translate: 'TRACKING.PLAYER.ACTION.PLAY' };
+        }
+
+        this.tracker.trackEventWithI18n(
+            { translate: 'TRACKING.PLAYER.CATEGORY' },
+            trackingAction,
+            { translate: 'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS', params: { date: Date.now().toString() } }
+        );
+    }
+
+    private postToFeed () {
+        // Escape HTML
+        const el: HTMLElement = document.createElement( 'textarea' );
+        el.innerHTML = this.currentSong.cover.jpg.toString();
+
+        this.translateService
+            .get( 'SHARING.CURRENT_SONG.FACEBOOK_FEED_DESCRIPTION',
+                { track: this.currentSong.track, artist: this.currentSong.artist } )
+            .subscribe( ( result: string ) => {
+                const url = `https://www.facebook.com/dialog/feed?app_id=419281238161744&name=${this.currentSong.title}
+                &display=popup&caption=http://faubourgsimone.paris/application-mobile
+                &description=${result}
+                &link=faubourgsimone.paris/application-mobile
+                &picture=${el.innerHTML}`;
+                this.browserPopup = this.iab.create( url, '_blank' );
+                // This check is because of a crash when simulated on desktop browser
+                if ( typeof this.browserPopup.on( 'loadstop' ).subscribe === 'function' ) {
+                    this.browserPopup.on( 'loadstop' ).subscribe( ( evt ) => {
+                        if ( evt.url === 'https://www.facebook.com/dialog/return/close?#_=_' ) {
+                            this.closePopUp();
+                        }
+                    } );
+                }
+            } );
+    }
+
+    private closePopUp () {
+        this.browserPopup.close();
+    }
+
+    private play () {
+        this.isButtonActive = false;
+        this.prompt.presentLoading( true );
+        this.isPlaying = true;
+        this.startStreamingMedia();
+        this.playPauseButton = 'pause';
+    }
+
+    private pause () {
+        if ( this.plt.is( 'cordova' ) && this.musicControls && typeof this.musicControls !== 'undefined' ) {
+            this.mediaObject.stop();
+            this.musicControls.updateIsPlaying( false );
+        }
+        this.playPauseButton = 'play';
+        this.isPlaying = false;
+        this.isLoading = true;
+    }
+
+    private startStreamingMedia () {
+        if ( this.plt.is( 'cordova' ) ) {
+            this.mediaObject = this.media.create( this.myOnlyTrack.src );
+
+            this.mediaObject.onStatusUpdate.subscribe( status => {
+                if ( status === MEDIA_STATUS.RUNNING ) {
+                    this.backgroundMode.enable();
+                    this.onTrackLoaded();
+
+                }
+                if ( ( status === MEDIA_STATUS.STOPPED || status === MEDIA_STATUS.PAUSED )
+                    && this.backgroundMode.isEnabled() ) {
+                    this.backgroundMode.disable();
+                }
+            } );
+
+            this.mediaObject.onError.subscribe( ( error: MEDIA_ERROR ) => {
+                const possibleErrors = [
+                    MEDIA_ERROR.SUPPORTED,
+                    MEDIA_ERROR.DECODE,
+                    MEDIA_ERROR.ABORTED,
+                    MEDIA_ERROR.NETWORK ];
+                if ( possibleErrors.indexOf( error ) > 1 ) {
+                    this.onTrackError( error );
+                } else {
+                    console.log( 'Media returns impossible error status !' );
+                    this.onTrackError( { isFalseError: true } );
+                }
+            } );
+
+            // play the file
+            this.mediaObject.play();
+        } else {
+            // TODO: fallback fro browser ?
+            this.onTrackError( 'Cordova is missing! ' +
+                'If you\'re on a mobile device, please contact us at tech.team@faubourgsimone.com' );
+        }
+    }
+
+    private onTrackLoaded ( event? ) {
+        this.isLoading = false;
+        this.prompt.dismissLoading();
+        this.isPlaying = true;
+        this.isButtonActive = true;
+        if ( this.plt.is( 'cordova' ) ) {
+            this.musicControls.updateIsPlaying( true );
+        }
+    }
+
+    private onTrackError ( event ) {
+        this.prompt.dismissLoading();
+        this.isButtonActive = true;
+        if ( this.plt.is( 'cordova' ) ) {
+            this.musicControls.updateIsPlaying( false );
+        }
+        if ( !event.isFalseError ) {
+            if ( this.isPlaying ) {
+                this.pause();
+            }
+            this.prompt.presentMessage( { message: event.toString(), classNameCss: 'error', duration: 6000 } );
         }
     }
 }

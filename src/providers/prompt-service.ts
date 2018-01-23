@@ -8,13 +8,13 @@ export class PromptService {
     private loader: Loading;
     private messageToast: Toast;
 
-    constructor( private loadingCtrl: LoadingController,
+    constructor ( private loadingCtrl: LoadingController,
                  private vars: GlobalService,
                  private toastCtrl: ToastController ) {
         console.log( 'Hello PromptService Provider' );
     }
 
-    public presentLoading( forRadio = false ) {
+    public presentLoading ( forRadio = false ) {
         const message = forRadio ? this.vars.getRandomMessageRadio() : this.vars.getRandomMessagePosts();
         this.loader = this.loadingCtrl.create( {
             content: message,
@@ -23,13 +23,13 @@ export class PromptService {
         this.loader.present().catch( reason => console.log( `Error when presenting loader: ${ reason }` ) );
     }
 
-    public dismissLoading() {
+    public dismissLoading () {
         if ( this.loader ) {
             this.loader.dismiss().catch( reason => console.log( `Error when dismissing loader: ${reason}` ) );
         }
     }
 
-    public presentMessage( { message,
+    public presentMessage ( { message,
                                classNameCss,
                                duration,
                                callback

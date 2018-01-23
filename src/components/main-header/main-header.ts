@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 } )
 export class MainHeaderComponent {
 
-    constructor() {
+    constructor () {
         console.log( 'Hello MainHeader Component' );
     }
 

@@ -1,15 +1,10 @@
 {
     "extends": "tslint-config-standard",
-    "rulesDirectory": [
-        "node_modules/tslint/lib/rules",
-        "node_modules/tslint-eslint-rules/dist/rules"
-    ],
     "rules": {
         "indent": [true, "spaces", 4],
         "ter-indent": [
             true, 4
         ],
-        "no-console": [false],
         "quotemark": [true, "single"],
         "trailing-comma": false,
         "semicolon": [true, "always"],
@@ -24,9 +19,8 @@
             "check-typecast",
             "check-preblock"
         ],
-        "space-within-parens": [true, 1],
         "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "ignore"}],
-        "arrow-parens": [false, "ban-single-arg-parens"],
+        "space-within-parens": [true, 1],
         "typedef-whitespace": [
             true,
             {
@@ -44,16 +38,6 @@
                 "variable-declaration": "onespace"
             }
         ],
-        "no-consecutive-blank-lines": [true, 1],
-        "await-promise": false,
-        "no-unused-variable": false,
-        "no-use-before-declare": false,
-        "return-undefined": false,
-        "no-floating-promises": false,
-        "no-unnecessary-type-assertion": false,
-        "no-unnecessary-qualifier": false,
-        "strict-type-predicates": false,
-        "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map"],
-        "no-commented-code": false
+        "no-consecutive-blank-lines": true
     }
 }

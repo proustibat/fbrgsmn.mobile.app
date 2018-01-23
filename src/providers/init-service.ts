@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class InitService {
 
-    constructor( public http: HttpClient, private vars: GlobalService ) {}
+    constructor ( public http: HttpClient, private vars: GlobalService ) {}
 
-    public getInitData() {
+    public getInitData () {
         console.log( 'InitService.getInitData' );
 
         if ( this.vars.DEVMODE ) {
@@ -28,7 +28,7 @@ export class InitService {
         } );
     }
 
-    private getFile( url ) {
+    private getFile ( url ) {
         console.log( 'getFile', url );
         return new Promise( ( resolve, reject ) => {
             this.http.get( url ).subscribe( data => resolve( data ), ( error ) => reject( error ) );

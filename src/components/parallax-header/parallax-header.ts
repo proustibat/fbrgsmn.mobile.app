@@ -5,7 +5,7 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
         '(ionScroll)': 'onContentScroll($event)',
         '(window:resize)': 'onWindowResize($event)'
     },
-    selector: '[parallax-header]',
+    selector: '[parallax-header]'
 } )
 export class ParallaxHeader {
 
@@ -14,9 +14,9 @@ export class ParallaxHeader {
     private translateAmt: any;
     private scaleAmt: any;
 
-    constructor( public element: ElementRef, public renderer: Renderer2 ) {}
+    constructor ( public element: ElementRef, public renderer: Renderer2 ) {}
 
-    protected ngOnInit() {
+    protected ngOnInit () {
 
         const content = this.element.nativeElement.getElementsByClassName( 'scroll-content' )[ 0 ];
         this.header = content.getElementsByClassName( 'header-image' )[0];
@@ -29,11 +29,11 @@ export class ParallaxHeader {
         this.renderer.setStyle( mainContent, 'position', 'absolute' );
     }
 
-    private onWindowResize( ev ) {
+    private onWindowResize ( ev ) {
         this.headerHeight = this.header.clientHeight;
     }
 
-    private onContentScroll( ev ) {
+    private onContentScroll ( ev ) {
 
         ev.domWrite( () => {
             this.updateParallaxHeader( ev );
@@ -41,7 +41,7 @@ export class ParallaxHeader {
 
     }
 
-    private updateParallaxHeader( ev ) {
+    private updateParallaxHeader ( ev ) {
 
         if ( ev.scrollTop >= 0 ) {
             this.translateAmt = ev.scrollTop / 4;

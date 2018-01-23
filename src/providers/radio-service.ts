@@ -13,11 +13,11 @@ export class RadioService {
     private timer: any;
     private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
     private lastSongs: Array<{ cover: { jpg: '', svg: '' }, title: string, artist: string, track: string }>;
-    constructor( public http: HttpClient, private vars: GlobalService, private events: Events ) {
+    constructor ( public http: HttpClient, private vars: GlobalService, private events: Events ) {
         console.log( 'Hello RadioService Provider' );
     }
 
-    public initLoop( interval?: number ) {
+    public initLoop ( interval?: number ) {
         if ( this.timer ) {
             clearTimeout( this.timer );
         }
@@ -47,7 +47,7 @@ export class RadioService {
             } );
     }
 
-    public getApiSongs() {
+    public getApiSongs () {
         return new Promise( resolve => {
             this.http.get( this.vars.URL_COVERS_API ).subscribe( data => {
                 resolve( this.filterDefaultCovers( data ) );
@@ -58,7 +58,7 @@ export class RadioService {
         } );
     }
 
-    public filterDefaultCovers( data ) {
+    public filterDefaultCovers ( data ) {
         const defaultTags = [
             'sample',
             'jingle',
