@@ -20,8 +20,9 @@
             "check-typecast",
             "check-preblock"
         ],
-        "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "ignore"}],
         "space-within-parens": [true, 1],
+        "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "ignore"}],
+        "arrow-parens": [false, "ban-single-arg-parens"],
         "typedef-whitespace": [
             true,
             {
