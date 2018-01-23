@@ -53,6 +53,6 @@
         "no-unnecessary-type-assertion": false,
         "no-unnecessary-qualifier": false,
         "strict-type-predicates": false,
-        "no-submodule-imports": [true, "@angular/common/http"]
+        "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map"]
     }
 }

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GlobalService } from './global-service';
 import { Events } from 'ionic-angular';
+/* tslint:disable:no-import-side-effect */
+import 'rxjs/add/operator/map';
+/* tslint:enable:no-import-side-effect */
 
 @Injectable()
 export class RadioService {
@@ -20,27 +23,24 @@ export class RadioService {
             clearTimeout( this.timer );
         }
         this.getApiSongs()
-            .then( data => {
-                console.log( 'data', data );
+            .then( ( data: any ) => {
                 const hasChanged = ( this.currentSong.title !== data.songs[0].title );
                 if ( hasChanged ) {
                     this.lastSongs = data.songs.map( song => {
-                        const result = {
+                        return {
                             artist: song.title.split( ' - ' )[0],
                             cover: song.cover,
                             title: song.title || '',
                             track: song.title.split( ' - ' )[1]
                         };
-                        return result;
                     } );
-
                     this.currentSong = this.lastSongs.shift();
 
+                    // TODO verifier que c'est entendu
                     this.events.publish( 'nowPlayingChanged', this.currentSong, this.lastSongs );
                 }
                 this.timer = setTimeout( () => this.initLoop(), interval ? interval : this.loopInterval );
-            }
-            )
+            } )
             .catch( error => {
                 console.log( error );
                 // TODO : verifier que c'est entendu
@@ -81,7 +81,7 @@ export class RadioService {
 
         data.songs = data.songs.map( ( song ) => {
 
-            const checkIfTagFor = ( titleToCompare: string, tagArray: string[], coverIfFound: string ) => {
+            const checkIfTagFor = ( titleToCompare: string, tagArray: string[], coverIfFound: any ) : any => {
                 // todo: remoe that dirty stuff
                 /* tslint:disable:no-shadowed-variable */
                 let coverToGet = null;
@@ -128,4 +128,8 @@ export class RadioService {
         } );
         return data;
     }
+}
+
+export interface ISongs {
+    songs: any[];
 }
