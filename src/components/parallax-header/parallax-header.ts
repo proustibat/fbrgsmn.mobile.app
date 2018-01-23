@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer } from '@angular/core';
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive( {
     host: {
@@ -14,7 +14,7 @@ export class ParallaxHeader {
     private translateAmt: any;
     private scaleAmt: any;
 
-    constructor( public element: ElementRef, public renderer: Renderer ) {}
+    constructor( public element: ElementRef, public renderer: Renderer2 ) {}
 
     protected ngOnInit() {
 
@@ -26,8 +26,7 @@ export class ParallaxHeader {
 
         // this.renderer.setElementStyle(this.header, 'webkitTransformOrigin', 'center bottom');
         // this.renderer.setElementStyle(this.header, 'background-size', 'cover');
-        this.renderer.setElementStyle( mainContent, 'position', 'absolute' );
-
+        this.renderer.setStyle( mainContent, 'position', 'absolute' );
     }
 
     private onWindowResize( ev ) {
@@ -52,11 +51,10 @@ export class ParallaxHeader {
             this.scaleAmt = -ev.scrollTop / this.headerHeight + 1;
         }
 
-        this.renderer.setElementStyle(
+        this.renderer.setStyle(
             this.header,
-            `webkitTransform`,
+            'webkitTransform',
             `translate3d(0, ${ this.translateAmt }px, 0) scale(${ this.scaleAmt }, ${ this.scaleAmt })`
         );
     }
-
 }
