@@ -45,6 +45,8 @@
         "no-unused-variable": false,
         "no-use-before-declare": false,
         "return-undefined": false,
-        "no-floating-promises": false
+        "no-floating-promises": false,
+        "no-unnecessary-type-assertion": false,
+        "no-unnecessary-qualifier": false
     }
 }
