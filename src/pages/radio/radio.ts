@@ -171,8 +171,8 @@ export class RadioPage {
                 .subscribe( ( result: string ) => {
                     this.tracker.trackEventWithData(
                         result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
-                        result[ 'TRACKING.PLAYER.ACTION.DESTROY' ] );
+                        result[ 'TRACKING.PLAYER.ACTION.DESTROY' ],
+                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
                 }, error => console.log( error ) );
         }
     }
@@ -206,7 +206,7 @@ export class RadioPage {
         const message = JSON.parse( action ).message;
         if ( message === 'music-controls-pause' ) {
             console.log( '#### PAUSE' );
-            // this.pause();
+            this.pause();
             this.translateService
                 .get( [
                     'TRACKING.PLAYER.CATEGORY',
@@ -216,14 +216,14 @@ export class RadioPage {
                 .subscribe( ( result: string ) => {
                     this.tracker.trackEventWithData(
                         result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
-                        result[ 'TRACKING.PLAYER.ACTION.PAUSE' ] );
+                        result[ 'TRACKING.PLAYER.ACTION.PAUSE' ],
+                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
                 }, error => console.log( error ) );
         }
 
         if ( message === 'music-controls-play' ) {
             console.log( '#### PLAY' );
-            // this.play();
+            this.play();
             this.translateService
                 .get( [
                     'TRACKING.PLAYER.CATEGORY',
@@ -233,8 +233,8 @@ export class RadioPage {
                 .subscribe( ( result: string ) => {
                     this.tracker.trackEventWithData(
                         result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
-                        result[ 'TRACKING.PLAYER.ACTION.PLAY' ] );
+                        result[ 'TRACKING.PLAYER.ACTION.PLAY' ],
+                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
                 }, error => console.log( error ) );
         }
 
@@ -262,14 +262,14 @@ export class RadioPage {
                 .subscribe( ( result: string ) => {
                     this.tracker.trackEventWithData(
                         result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
-                        result[ 'TRACKING.PLAYER.ACTION.MEDIA_BUTTON' ] );
+                        result[ 'TRACKING.PLAYER.ACTION.MEDIA_BUTTON' ],
+                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
                 }, error => console.log( error ) );
         }
 
         if ( message === 'music-controls-headset-unplugged' ) {
             console.log( '### HEADSET UNPLUGGED' );
-            // this.pause();
+            this.pause();
             this.translateService
                 .get( [
                     'TRACKING.PLAYER.CATEGORY',
@@ -279,14 +279,14 @@ export class RadioPage {
                 .subscribe( ( result: string ) => {
                     this.tracker.trackEventWithData(
                         result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
-                        result[ 'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED' ] );
+                        result[ 'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED' ],
+                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
                 }, error => console.log( error ) );
         }
 
         if ( message === 'music-controls-headset-plugged' ) {
             console.log( '### HEADSET PLUGGED' );
-            // this.play();
+            this.play();
             this.translateService
                 .get( [
                     'TRACKING.PLAYER.CATEGORY',
@@ -296,27 +296,28 @@ export class RadioPage {
                 .subscribe( ( result: string ) => {
                     this.tracker.trackEventWithData(
                         result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ],
-                        result[ 'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED' ] );
+                        result[ 'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED' ],
+                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
                 }, error => console.log( error ) );
         }
     }
 
     private togglePlayPause () {
-        let trackingAction;
-        if ( this.isPlaying ) {
-            this.pause();
-            trackingAction = { translate: 'TRACKING.PLAYER.ACTION.PAUSE' };
-        } else {
-            this.play();
-            trackingAction = { translate: 'TRACKING.PLAYER.ACTION.PLAY' };
-        }
+        this.isPlaying ? this.pause() : this.play();
 
-        this.tracker.trackEventWithI18n(
-            { translate: 'TRACKING.PLAYER.CATEGORY' },
-            trackingAction,
-            { translate: 'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS', params: { date: Date.now().toString() } }
-        );
+        this.translateService
+            .get( [
+                'TRACKING.PLAYER.CATEGORY',
+                this.isPlaying ? 'TRACKING.PLAYER.ACTION.PAUSE' : 'TRACKING.PLAYER.ACTION.PLAY',
+                'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS'
+            ] )
+            .subscribe( ( result: string ) => {
+                console.log( result );
+                this.tracker.trackEventWithData(
+                    result[ 'TRACKING.PLAYER.CATEGORY' ],
+                    result[ this.isPlaying ? 'TRACKING.PLAYER.ACTION.PAUSE' : 'TRACKING.PLAYER.ACTION.PLAY' ],
+                    result[ 'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS' ] );
+            }, error => console.log( error ) );
     }
 
     private postToFeed () {
@@ -421,6 +422,13 @@ export class RadioPage {
         this.isButtonActive = true;
         if ( this.plt.is( 'cordova' ) ) {
             this.musicControls.updateIsPlaying( false );
+        } else {
+            // cordova is missing, just reset the ui (setTimeout to 0 is to run this immediately)
+            setTimeout( () => {
+                this.playPauseButton = 'play';
+                this.isPlaying = false;
+                this.isLoading = true;
+            }, 0 );
         }
         if ( !event.isFalseError ) {
             if ( this.isPlaying ) {

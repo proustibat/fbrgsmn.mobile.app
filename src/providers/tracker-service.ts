@@ -15,37 +15,37 @@ export class TrackerService {
         console.log( 'Hello TrackerService Provider' );
     }
 
-    public trackEventWithI18n ( category: { translate: string, params?: any },
-                                action: { translate: string, params?: any},
-                                label: { translate: string, params?: any} ) {
-        const params = {
-            ...category.params,
-            ...action.params,
-            ...label.params
-        };
-        this.translateService
-            .get( [
-                category.translate,
-                action.translate,
-                label.params
-            ], {
-                ...category.params,
-                ...action.params,
-                ...label.params
-            } )
-            .subscribe( ( result: string ) => {
-                const trackingCategory = result[ category.translate ];
-                const trackingAction = result[ action.translate ];
-                const trackingLabel = result[ label.translate ];
-                console.log( trackingCategory, trackingAction, trackingLabel );
-                this.ga.trackEvent( trackingCategory, trackingAction, trackingLabel );
-            }, error => console.log( error ) );
-    }
+    // public trackEventWithI18n ( category: { translate: string, params?: any },
+    //                             action: { translate: string, params?: any},
+    //                             label: { translate: string, params?: any} ) {
+    //     const params = {
+    //         ...category.params,
+    //         ...action.params,
+    //         ...label.params
+    //     };
+    //     this.translateService
+    //         .get( [
+    //             category.translate,
+    //             action.translate,
+    //             label.params
+    //         ], {
+    //             ...category.params,
+    //             ...action.params,
+    //             ...label.params
+    //         } )
+    //         .subscribe( ( result: string ) => {
+    //             const trackingCategory = result[ category.translate ];
+    //             const trackingAction = result[ action.translate ];
+    //             const trackingLabel = result[ label.translate ];
+    //             console.log( trackingCategory, trackingAction, trackingLabel );
+    //             this.ga.trackEvent( trackingCategory, trackingAction, trackingLabel );
+    //         }, error => console.log( error ) );
+    // }
 
-    public trackEventWithData ( category, label, action ) {
+    public trackEventWithData ( category, action, label ) {
         console.log( 'TrackerService.trackEventWithData' );
-        console.log( category, label, action );
-        this.ga.trackEvent( category, label, action );
+        console.log( category, action, label );
+        this.ga.trackEvent( category, action, label );
     }
 
 }
