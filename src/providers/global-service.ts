@@ -67,7 +67,7 @@ export class GlobalService {
     private BASE_URL_API_DEV = 'http://faubourgsimone.local';
 
     constructor () {
-        console.log( 'Hello GlobalService Provider' );
+        console.log( 'Hello GlobalService' );
 
         this.BASE_URL = !this.DEVMODE ? this.BASE_URL_API_PROD : this.BASE_URL_API_DEV;
 
@@ -102,10 +102,16 @@ export class GlobalService {
     }
 
     public getRandomMessageRadio () {
-        return this.loadingMsgRadio[Math.floor( Math.random() * ( this.loadingMsgRadio.length - 1 ) )];
+        // return this.loadingMsgRadio[ Math.floor( Math.random() * ( this.loadingMsgRadio.length - 1 ) ) ];
+        return this.getRandomMessageIn( this.loadingMsgRadio );
     }
 
     public getRandomMessagePosts () {
-        return this.loadingMsgPosts[Math.floor( Math.random() * ( this.loadingMsgPosts.length - 1 ) )];
+        // return this.loadingMsgPosts[ Math.floor( Math.random() * ( this.loadingMsgPosts.length - 1 ) ) ];
+        return this.getRandomMessageIn( this.loadingMsgPosts );
+    }
+
+    private getRandomMessageIn( messages: string[] ) {
+        return messages[ Math.floor( Math.random() * ( messages.length - 1 ) ) ];
     }
 }
