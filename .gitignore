@@ -39,3 +39,4 @@ sonar-project.properties
 .scannerwork
 documentation
 *.backup
+codeclimate-out.html
