@@ -29,8 +29,8 @@ script:
   - npm run all-custom-lint
   - npm run lint
   - ionic cordova build android ios
-  - npm run typedoc
-  - bash sonar.sh
+  - test $TRAVIS_BRANCH == "master" && npm run typedoc
+  - test $TRAVIS_BRANCH == "master" && bash sonar.sh
 
 # Here we want to check out where we are.
 # We only want to update Github Pages if we're building
