@@ -351,52 +351,64 @@ export class RadioPage {
     }
 
     private play () {
-        this.isButtonActive = false;
-        this.prompt.presentLoading( true );
-        this.isPlaying = true;
-        this.startStreamingMedia();
-        this.playPauseButton = 'pause';
+        if ( !this.isPlaying ) {
+            this.isButtonActive = false;
+            this.prompt.presentLoading( true );
+            this.startStreamingMedia();
+            this.isPlaying = true;
+            this.playPauseButton = 'pause';
+        }
     }
 
     private pause () {
-        if ( this.plt.is( 'cordova' ) && this.musicControls && typeof this.musicControls !== 'undefined' ) {
-            this.mediaObject.stop();
-            this.musicControls.updateIsPlaying( false );
+        if ( this.isPlaying ) {
+            if ( this.plt.is( 'cordova' ) && this.musicControls && typeof this.musicControls !== 'undefined' ) {
+                this.mediaObject.stop();
+                this.musicControls.updateIsPlaying( false );
+            }
+            this.playPauseButton = 'play';
+            this.isPlaying = false;
+            this.isLoading = true;
         }
-        this.playPauseButton = 'play';
-        this.isPlaying = false;
-        this.isLoading = true;
+    }
+
+    private createMedia () {
+        this.mediaObject = this.media.create( this.myOnlyTrack.src );
+
+        this.mediaObject.onStatusUpdate.subscribe( status => {
+            if ( status === MEDIA_STATUS.RUNNING ) {
+                this.backgroundMode.enable();
+                this.onTrackLoaded();
+
+            }
+            if ( ( status === MEDIA_STATUS.STOPPED || status === MEDIA_STATUS.PAUSED )
+                && this.backgroundMode.isEnabled() ) {
+                this.backgroundMode.disable();
+            }
+        } );
+
+        this.mediaObject.onError.subscribe( ( error: MEDIA_ERROR ) => {
+            const possibleErrors = [
+                MEDIA_ERROR.SUPPORTED,
+                MEDIA_ERROR.DECODE,
+                MEDIA_ERROR.ABORTED,
+                MEDIA_ERROR.NETWORK ];
+            if ( possibleErrors.indexOf( error ) > 1 ) {
+                this.onTrackError( error );
+            } else {
+                console.log( 'Media returns impossible error status !' );
+                this.onTrackError( { isFalseError: true } );
+            }
+        } );
     }
 
     private startStreamingMedia () {
         if ( this.plt.is( 'cordova' ) ) {
-            this.mediaObject = this.media.create( this.myOnlyTrack.src );
 
-            this.mediaObject.onStatusUpdate.subscribe( status => {
-                if ( status === MEDIA_STATUS.RUNNING ) {
-                    this.backgroundMode.enable();
-                    this.onTrackLoaded();
-
-                }
-                if ( ( status === MEDIA_STATUS.STOPPED || status === MEDIA_STATUS.PAUSED )
-                    && this.backgroundMode.isEnabled() ) {
-                    this.backgroundMode.disable();
-                }
-            } );
-
-            this.mediaObject.onError.subscribe( ( error: MEDIA_ERROR ) => {
-                const possibleErrors = [
-                    MEDIA_ERROR.SUPPORTED,
-                    MEDIA_ERROR.DECODE,
-                    MEDIA_ERROR.ABORTED,
-                    MEDIA_ERROR.NETWORK ];
-                if ( possibleErrors.indexOf( error ) > 1 ) {
-                    this.onTrackError( error );
-                } else {
-                    console.log( 'Media returns impossible error status !' );
-                    this.onTrackError( { isFalseError: true } );
-                }
-            } );
+            if ( !this.mediaObject ) {
+                console.log( 'first launch: will create the media' );
+                this.createMedia();
+            }
 
             // play the file
             this.mediaObject.play();
