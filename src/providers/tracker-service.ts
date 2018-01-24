@@ -58,8 +58,7 @@ export class TrackerService {
     }
 
     public trackEventWithData ( category, action, label ) {
-        console.log( 'TrackerService.trackEventWithData' );
-        console.log( category, action, label );
+        console.log( `[Tracker]trackEventWithData :: |${category}|${action}|${label}|` );
         this.ga.trackEvent( category, action, label );
     }
 

@@ -34,16 +34,14 @@ export class RadioService {
                         };
                     } );
                     this.currentSong = this.lastSongs.shift();
-
-                    // TODO verifier que c'est entendu
-                    this.events.publish( 'nowPlayingChanged', this.currentSong, this.lastSongs );
+                    this.events.publish( '[RadioService]now-playing-change', this.currentSong, this.lastSongs );
                 }
                 this.timer = setTimeout( () => this.initLoop(), interval ? interval : this.loopInterval );
             } )
             .catch( error => {
                 console.log( error );
                 // TODO : verifier que c'est entendu
-                this.events.publish( 'onError', error );
+                this.events.publish( '[RadioService]error', error );
             } );
     }
 
@@ -52,7 +50,6 @@ export class RadioService {
             this.http.get( this.vars.URL_COVERS_API ).subscribe( data => {
                 resolve( this.filterDefaultCovers( data ) );
             }, err => {
-                // TODO : verifier que c'est entendu
                 return new Error( 'This request has failed ' + err );
             } );
         } );
