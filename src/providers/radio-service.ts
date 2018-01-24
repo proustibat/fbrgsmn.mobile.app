@@ -5,14 +5,15 @@ import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
 import 'rxjs/add/operator/map';
 /* tslint:enable:no-import-side-effect */
+import { ISong } from '../interfaces';
 
 @Injectable()
 export class RadioService {
 
     private loopInterval = 3000;
     private timer: any;
-    private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
-    private lastSongs: Array<{ cover: { jpg: '', svg: '' }, title: string, artist: string, track: string }>;
+    private currentSong: ISong;
+    private lastSongs: ISong[];
     constructor ( public http: HttpClient, private vars: GlobalService, private events: Events ) {
         console.log( 'Hello RadioService Provider' );
     }
@@ -23,7 +24,7 @@ export class RadioService {
         }
         this.getApiSongs()
             .then( ( data: any ) => {
-                const hasChanged = ( this.currentSong.title !== data.songs[0].title );
+                const hasChanged = !this.currentSong || ( this.currentSong.title !== data.songs[0].title );
                 if ( hasChanged ) {
                     this.lastSongs = data.songs.map( song => {
                         return {

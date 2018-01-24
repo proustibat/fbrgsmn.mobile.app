@@ -6,6 +6,7 @@ import { InitService } from '../../providers/init-service';
 import { PromptService } from '../../providers/prompt-service';
 import { RadioService } from '../../providers/radio-service';
 import { PlayerComponent } from '../../components/player/player';
+import { ISong } from '../../interfaces';
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;
@@ -22,7 +23,7 @@ export class RadioPage {
 
     private streamingUrl: string;
     private configReady = false;
-    private lastSongs: Array<{ cover: { jpg: '', svg: '' }, title: string, artist: string, track: string }>;
+    private lastSongs: ISong[];
     private hasLeft = false;
 
     constructor ( private vars: GlobalService,
