@@ -42,6 +42,21 @@ export class TrackerService {
     //         }, error => console.log( error ) );
     // }
 
+    public translateAndTrack( categoryKey, actionKey, labelKey ) {
+        this.translateService
+            .get( [
+                categoryKey,
+                actionKey,
+                labelKey
+            ] )
+            .subscribe( ( result: string ) => {
+                this.trackEventWithData(
+                    result[ categoryKey ],
+                    result[ actionKey ],
+                    result[ labelKey ] );
+            }, error => console.log( error ) );
+    }
+
     public trackEventWithData ( category, action, label ) {
         console.log( 'TrackerService.trackEventWithData' );
         console.log( category, action, label );

@@ -162,18 +162,11 @@ export class RadioPage {
         if ( this.plt.is( 'cordova' ) ) {
             this.musicControls.destroy();
 
-            this.translateService
-                .get( [
-                    'TRACKING.PLAYER.CATEGORY',
-                    'TRACKING.PLAYER.ACTION.DESTROY',
-                    'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-                ] )
-                .subscribe( ( result: string ) => {
-                    this.tracker.trackEventWithData(
-                        result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.ACTION.DESTROY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
-                }, error => console.log( error ) );
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                'TRACKING.PLAYER.ACTION.DESTROY',
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
         }
     }
 
@@ -207,35 +200,21 @@ export class RadioPage {
         if ( message === 'music-controls-pause' ) {
             console.log( '#### PAUSE' );
             this.pause();
-            this.translateService
-                .get( [
-                    'TRACKING.PLAYER.CATEGORY',
-                    'TRACKING.PLAYER.ACTION.PAUSE',
-                    'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-                ] )
-                .subscribe( ( result: string ) => {
-                    this.tracker.trackEventWithData(
-                        result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.ACTION.PAUSE' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
-                }, error => console.log( error ) );
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                'TRACKING.PLAYER.ACTION.PAUSE',
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
         }
 
         if ( message === 'music-controls-play' ) {
             console.log( '#### PLAY' );
             this.play();
-            this.translateService
-                .get( [
-                    'TRACKING.PLAYER.CATEGORY',
-                    'TRACKING.PLAYER.ACTION.PLAY',
-                    'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-                ] )
-                .subscribe( ( result: string ) => {
-                    this.tracker.trackEventWithData(
-                        result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.ACTION.PLAY' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
-                }, error => console.log( error ) );
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                'TRACKING.PLAYER.ACTION.PLAY',
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
         }
 
         if ( message === 'music-controls-destroy' ) {
@@ -253,52 +232,31 @@ export class RadioPage {
         // All media button events are listed below
         if ( message === 'music-controls-media-button' ) {
             console.log( '### MEDIA BUTTON' );
-            this.translateService
-                .get( [
-                    'TRACKING.PLAYER.CATEGORY',
-                    'TRACKING.PLAYER.ACTION.MEDIA_BUTTON',
-                    'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-                ] )
-                .subscribe( ( result: string ) => {
-                    this.tracker.trackEventWithData(
-                        result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.ACTION.MEDIA_BUTTON' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
-                }, error => console.log( error ) );
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                'TRACKING.PLAYER.ACTION.MEDIA_BUTTON',
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
         }
 
         if ( message === 'music-controls-headset-unplugged' ) {
             console.log( '### HEADSET UNPLUGGED' );
             this.pause();
-            this.translateService
-                .get( [
-                    'TRACKING.PLAYER.CATEGORY',
-                    'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED',
-                    'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-                ] )
-                .subscribe( ( result: string ) => {
-                    this.tracker.trackEventWithData(
-                        result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
-                }, error => console.log( error ) );
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED',
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
         }
 
         if ( message === 'music-controls-headset-plugged' ) {
             console.log( '### HEADSET PLUGGED' );
             this.play();
-            this.translateService
-                .get( [
-                    'TRACKING.PLAYER.CATEGORY',
-                    'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED',
-                    'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-                ] )
-                .subscribe( ( result: string ) => {
-                    this.tracker.trackEventWithData(
-                        result[ 'TRACKING.PLAYER.CATEGORY' ],
-                        result[ 'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED' ],
-                        result[ 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS' ] );
-                }, error => console.log( error ) );
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED',
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
         }
     }
 
