@@ -29,12 +29,11 @@ export class ShareButtonComponent {
         if ( this.doScreenShot ) {
             this.screenshot.URI( 100 ).then(
                 result => {
-                    console.log( result );
                     this.options.image = result.URI;
                     this.shareIt( this.options );
                 },
                 error => {
-                    console.log( 'error: ', error );
+                    console.log( 'Error: ', error );
                     this.prompt.presentMessage( {
                         classNameCss: 'error',
                         message: `Une erreur s'est produite lors de la screenshot : \n ${ error.toString() }`
@@ -55,10 +54,6 @@ export class ShareButtonComponent {
             )
             .then( () => {
                 if ( this.trackingOptions ) {
-                    console.log( '[ShareButtonComponent] Tracked sharing: ',
-                        this.trackingOptions.category,
-                        this.trackingOptions.action,
-                        this.trackingOptions.label );
                     this.tracker.trackEventWithData(
                         this.trackingOptions.category,
                         this.trackingOptions.action,

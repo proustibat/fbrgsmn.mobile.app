@@ -1,3 +1,126 @@
 player {
+  .header-image {
+    background: color($colors, 'verylight');
+    height: 100vw;
 
+    .animated {
+      animation: spin $speed-cover linear infinite;
+      border-radius: 50%;
+    }
+  }
+
+  .cover {
+    width: 100%;
+  }
+
+  .meta-info {
+    background: color($colors, 'verylight');
+    box-shadow: 0 1px 10px 2px $color-shadow-meta-info;
+    margin: 0 auto;
+    position: relative;
+    top: -4rem;
+    width: 94%;
+  }
+
+  .artist {
+    color: color($colors, 'secondary');
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    width: 80%;
+  }
+
+  .track {
+    color: color($colors, 'secondary');
+    font-size: 1.4rem;
+    width: 80%;
+  }
+
+  share-button {
+    &.hidden {
+      display: none;
+    }
+
+    .button {
+      margin: 0 0 0 15px;
+    }
+  }
+
+  //.btn-last {
+  //  height: 30px;
+  //  margin: 0 0 0 15px;
+  //  position: relative;
+  //  width: 30px;
+  //
+  //  ion-icon {
+  //    font-size: 3.3rem;
+  //  }
+  //}
+
+  .label-now-playing {
+    background: color($colors, 'verylight');
+    color: color($colors, 'danger');
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 2.2rem;
+    left: 0;
+    //line-height: 1rem;
+    padding: 0.5rem;
+    position: absolute;
+    top: -2.4rem;
+
+    &.hidden {
+      display: none;
+    }
+
+    .txt {
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-name: opacity;
+    }
+  }
+
+  .toggle-buttons {
+    position: absolute;
+    right: 2rem;
+    top: -3rem;
+
+    .btn-play-pause {
+      box-shadow: 0 0 10px 2px $color-shadow-btn-play-pause;
+      height: 60px;
+      padding: 0;
+      width: 60px;
+
+      ion-icon {
+        font-size: 3rem;
+      }
+
+      &[color="verylight"] {
+        background: color($colors, 'verylight');
+
+        ion-icon {
+          color: color($colors, 'secondary') !important;
+        }
+      }
+
+      &[color="secondary"] {
+        background: color($colors, 'secondary');
+
+        ion-icon {
+          color: color($colors, 'verylight') !important;
+        }
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
 }
