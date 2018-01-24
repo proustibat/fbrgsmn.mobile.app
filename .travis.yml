@@ -7,7 +7,9 @@ env:
 
 language: node_js
 node_js: '8'
-cache: npm
+cache:
+  directories:
+    - node_modules
 
 # create a user token here: https://sonarcloud.io/account/security
 # run `travis encrypt your-token-here`
