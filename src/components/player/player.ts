@@ -217,22 +217,43 @@ export class PlayerComponent {
 
     private onMusicControlsEvent ( action ) {
         const message = JSON.parse( action ).message;
+
         if ( message === 'music-controls-pause' ) {
             console.log( '#### PAUSE' );
             this.pause();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.PAUSE',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
         }
 
         if ( message === 'music-controls-play' ) {
             console.log( '#### PLAY' );
             this.play();
+        }
+
+        // Headset event headset-unplugged (Android only)
+        if ( message === 'music-controls-headset-unplugged' ) {
+            console.log( '### HEADSET UNPLUGGED' );
+            this.pause();
+        }
+
+        // Headset event headset-plugged (Android only)
+        if ( message === 'music-controls-headset-plugged' ) {
+            console.log( '### HEADSET PLUGGED' );
+            this.play();
+        }
+
+        // If it's one of those events, we track on the same way with just a different action parameter
+        const eventsToTrack = [
+            'pause',
+            'play',
+            'headset-unplugged',
+            'headset-plugged'
+        ];
+        const indexOfEvent = eventsToTrack.map( evtName => `music-controls-${evtName}` ).indexOf( message );
+        if ( indexOfEvent !== -1 ) {
+            const eventToTrackKey = eventsToTrack[ indexOfEvent ].replace( '-', '_' ).toUpperCase();
+            const actionKey = `TRACKING.PLAYER.ACTION.${ eventToTrackKey }`;
             this.tracker.translateAndTrack(
                 'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.PLAY',
+                actionKey,
                 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
             );
         }
@@ -248,33 +269,12 @@ export class PlayerComponent {
             // Do something
         }
 
-        // Headset events (Android only)
-        // All media button events are listed below
+        // Headset event media-button (Android only)
         if ( message === 'music-controls-media-button' ) {
             console.log( '### MEDIA BUTTON' );
             this.tracker.translateAndTrack(
                 'TRACKING.PLAYER.CATEGORY',
                 'TRACKING.PLAYER.ACTION.MEDIA_BUTTON',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-headset-unplugged' ) {
-            console.log( '### HEADSET UNPLUGGED' );
-            this.pause();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-headset-plugged' ) {
-            console.log( '### HEADSET PLUGGED' );
-            this.play();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED',
                 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
             );
         }
