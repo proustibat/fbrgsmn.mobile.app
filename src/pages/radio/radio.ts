@@ -27,16 +27,13 @@ export class RadioPage {
 
     private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
     private streamingUrl: string;
-    private configReady = true;
-    private playerReady = false;
-    private myOnlyTrack: any;
+    private configReady = false;
     private lastSongs: Array<{ cover: { jpg: '', svg: '' }, title: string, artist: string, track: string }>;
     private shareOptions: any;
     private trackingOptions: any;
     private isPlaying = false;
     private isButtonActive = true;
     private playPauseButton = 'play';
-    private browserPopup: InAppBrowserObject;
     private hasLeft = false;
     private isLoading = true;
     private mediaObject: MediaObject;
@@ -76,8 +73,7 @@ export class RadioPage {
                 }
                 this.streamingUrl = data.streamingUrl ? data.streamingUrl : this.vars.URL_STREAMING_DEFAULT;
                 this.radioService.initLoop( data.loop_interval );
-                this.configReady = false;
-                this.initPlayer();
+                this.configReady = true;
             } ).catch( errors => this.prompt.presentMessage( {
                 classNameCss: 'error',
                 message: `⚠ ${ errors.join( ' ⚠ ' ) }`
@@ -100,13 +96,6 @@ export class RadioPage {
     protected ionViewDidLeave () {
         this.hasLeft = true;
         this.prompt.dismissLoading();
-    }
-
-    private initPlayer () {
-        this.playerReady = true;
-        this.myOnlyTrack = {
-            src: this.streamingUrl
-        };
     }
 
     private onNowPlayingChanged ( currentSong, lastSongs ) {
@@ -303,7 +292,7 @@ export class RadioPage {
     }
 
     private createMedia () {
-        this.mediaObject = this.media.create( this.myOnlyTrack.src );
+        this.mediaObject = this.media.create( this.streamingUrl );
 
         this.mediaObject.onStatusUpdate.subscribe( status => {
             if ( status === MEDIA_STATUS.RUNNING ) {
