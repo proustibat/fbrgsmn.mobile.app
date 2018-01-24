@@ -57,11 +57,13 @@ export class RadioPage {
                   private media: Media,
                   private backgroundMode: BackgroundMode
     ) {
+        console.log( 'Hello RadioPage' );
         this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
         this.plt.ready().then( ( readySource ) => {
-            console.log( 'Platform ready from', readySource );
-
-            this.ga.trackView( this.viewCtrl.name );
+            // console.log( 'Platform ready from', readySource );
+            if ( plt.is( 'cordova' ) ) {
+                this.ga.trackView( this.viewCtrl.name );
+            }
 
             // Look for streaming address in a json file on a server or local
             this.initService.getInitData().then( ( data: any ) => {
@@ -158,7 +160,6 @@ export class RadioPage {
     }
 
     private destroyMusicControls () {
-        console.log( 'destroyMusicControls' );
         if ( this.plt.is( 'cordova' ) ) {
             this.musicControls.destroy();
 
@@ -261,6 +262,7 @@ export class RadioPage {
     }
 
     private togglePlayPause () {
+        console.log( 'togglePlayPause ', this );
         this.isPlaying ? this.pause() : this.play();
 
         this.translateService
@@ -276,36 +278,6 @@ export class RadioPage {
                     result[ this.isPlaying ? 'TRACKING.PLAYER.ACTION.PAUSE' : 'TRACKING.PLAYER.ACTION.PLAY' ],
                     result[ 'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS' ] );
             }, error => console.log( error ) );
-    }
-
-    private postToFeed () {
-        // Escape HTML
-        const el: HTMLElement = document.createElement( 'textarea' );
-        el.innerHTML = this.currentSong.cover.jpg.toString();
-
-        this.translateService
-            .get( 'SHARING.CURRENT_SONG.FACEBOOK_FEED_DESCRIPTION',
-                { track: this.currentSong.track, artist: this.currentSong.artist } )
-            .subscribe( ( result: string ) => {
-                const url = `https://www.facebook.com/dialog/feed?app_id=419281238161744&name=${this.currentSong.title}
-                &display=popup&caption=http://faubourgsimone.paris/application-mobile
-                &description=${result}
-                &link=faubourgsimone.paris/application-mobile
-                &picture=${el.innerHTML}`;
-                this.browserPopup = this.iab.create( url, '_blank' );
-                // This check is because of a crash when simulated on desktop browser
-                if ( typeof this.browserPopup.on( 'loadstop' ).subscribe === 'function' ) {
-                    this.browserPopup.on( 'loadstop' ).subscribe( ( evt ) => {
-                        if ( evt.url === 'https://www.facebook.com/dialog/return/close?#_=_' ) {
-                            this.closePopUp();
-                        }
-                    } );
-                }
-            } );
-    }
-
-    private closePopUp () {
-        this.browserPopup.close();
     }
 
     private play () {

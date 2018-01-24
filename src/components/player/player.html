@@ -1,0 +1,42 @@
+<div no-padding no-margin *ngIf="options">
+
+    <div class="header-image">
+        <img no-padding no-margin class="cover" [ngClass]="options.configReady ? 'animated' : ''" src="{{options.currentSong.cover.jpg}}" srcset="{{options.currentSong.cover.svg}}" alt="Current cover song"/>
+    </div>
+
+
+    <div class="meta-info" padding>
+            <span ion-text class="label-now-playing"
+                  [ngClass]="options.configReady ? 'hidden' : ''"
+                  color="secondary" text-uppercase>
+                <span class="txt">
+                    <span>•&nbsp;</span>{{ 'RADIOPAGE.NOWPLAYING' | translate }}
+                </span>
+            </span>
+        <ion-row class="toggle-buttons" justify-content-center>
+            <button [disabled]="!options.isButtonActive" class="btn-play-pause" ion-button round icon-only
+                    color="secondary"
+                    *ngIf="options.playerReady"
+                    (click)="options.togglePlayPause()">
+                <ion-icon *ngIf="options.isButtonActive" [name]="options.playPauseButton"></ion-icon>
+                <ion-spinner name="dots" *ngIf="!options.isButtonActive"></ion-spinner>
+            </button>
+
+        </ion-row>
+        <h1 ion-text class="artist" color="primary" text-uppercase no-margin padding-horizontal><span>{{options.currentSong.artist}}</span></h1>
+        <h2 ion-text class="track" color="primary" text-capitalize padding-horizontal><span>{{options.currentSong.track}}</span></h2>
+        <share-button class="current-song"
+                      [ngClass]="options.configReady ? 'hidden' : ''"
+                      [options]="options.shareOptions"
+                      [doScreenShot]="true"
+                      [trackingOptions]="options.trackingOptions"
+                      border icon-only>
+        </share-button>
+
+        <button color="secondary" clear ion-button icon-only (click)="postToFeed()">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+
+    </div>
+
+</div>
