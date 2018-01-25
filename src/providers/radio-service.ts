@@ -5,17 +5,36 @@ import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
 import 'rxjs/add/operator/map';
 /* tslint:enable:no-import-side-effect */
+import { ICoverSong, ISong } from '../interfaces';
 
 @Injectable()
 export class RadioService {
 
+    private static TAGS = {
+        DEFAULT: [
+            'sample',
+            'jingle',
+            'faubourg simone',
+            'fabourg simone', // lol
+            'flash calepin',
+        ],
+        FRIDAY_WEAR: [
+            'Friday Wear',
+        ],
+        NOUVEAUTE: [
+            'nouveauté',
+            'nothing',
+            'nouveaute',
+            'college'
+        ]
+    };
+
     private loopInterval = 3000;
     private timer: any;
-    private currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };
-    private lastSongs: Array<{ cover: { jpg: '', svg: '' }, title: string, artist: string, track: string }>;
-    constructor ( public http: HttpClient, private vars: GlobalService, private events: Events ) {
-        console.log( 'Hello RadioService Provider' );
-    }
+    private currentSong: ISong;
+    private lastSongs: ISong[];
+
+    constructor ( public http: HttpClient, private events: Events ) { }
 
     public initLoop ( interval?: number ) {
         if ( this.timer ) {
@@ -23,7 +42,7 @@ export class RadioService {
         }
         this.getApiSongs()
             .then( ( data: any ) => {
-                const hasChanged = ( this.currentSong.title !== data.songs[0].title );
+                const hasChanged = !this.currentSong || ( this.currentSong.title !== data.songs[0].title );
                 if ( hasChanged ) {
                     this.lastSongs = data.songs.map( song => {
                         return {
@@ -45,9 +64,9 @@ export class RadioService {
             } );
     }
 
-    public getApiSongs () {
+    public getApiSongs (): Promise<any> {
         return new Promise( resolve => {
-            this.http.get( this.vars.URL_COVERS_API ).subscribe( data => {
+            this.http.get( GlobalService.URL_API_COVERS ).subscribe( data => {
                 resolve( this.filterDefaultCovers( data ) );
             }, err => {
                 return new Error( 'This request has failed ' + err );
@@ -55,60 +74,20 @@ export class RadioService {
         } );
     }
 
-    public filterDefaultCovers ( data ) {
-        const defaultTags = [
-            'sample',
-            'jingle',
-            'faubourg simone',
-            'fabourg simone', // lol
-            'flash calepin'
-        ];
+    /**
+     * We may have to change the cover returned by theAPI
+     * @param data
+     * @returns {any}
+     */
+    private filterDefaultCovers ( data ): any {
+        data.songs = data.songs.map( song => {
 
-        const defaultTagsFridayWear = [
-            'Friday Wear'
-        ];
+            let coverToGet: ICoverSong = null;
 
-        const defaultTagsNouveaute = [
-            'nouveauté',
-            'nothing',
-            'nouveaute'
-        ];
-
-        data.songs = data.songs.map( ( song ) => {
-
-            const checkIfTagFor = ( titleToCompare: string, tagArray: string[], coverIfFound: any ) : any => {
-                // todo: remoe that dirty stuff
-                /* tslint:disable:no-shadowed-variable */
-                let coverToGet = null;
-                // Vérifie si le tableau de tags comprend une expression dans
-                // le titre courant si c'est le cas, renvoie la cover associee
-                tagArray.forEach( ( tag, index ) => {
-                    if ( titleToCompare.toLowerCase().indexOf( tag.toLowerCase() ) > -1 ) {
-                        coverToGet = coverIfFound;
-                        return false;
-                    }
-                } );
-                return coverToGet;
-                /* tslint:enable:no-shadowed-variable */
-            };
-
-            let coverToGet = null;
-            if ( song.album_cover.indexOf( 'pochette-default' ) > -1 ) {
-                coverToGet = this.vars.COVER_DEFAULT;
+            if ( coverToGet == null ) {
+                coverToGet = this.getMatchedCover( song );
             }
-            // url de friday wear
-            if ( coverToGet === null ) {
-                coverToGet = checkIfTagFor( song.title, defaultTagsFridayWear, this.vars.COVER_DEFAULT_FRIDAY_WEAR );
-            }
-            // url des nouveautés
-            if ( coverToGet === null ) {
-                coverToGet = checkIfTagFor( song.title, defaultTagsNouveaute, this.vars.COVER_DEFAULT_NOUVEAUTE );
-            }
-            // url si tag par défaut
-            if ( coverToGet === null ) {
-                coverToGet = checkIfTagFor( song.title, defaultTags, this.vars.COVER_DEFAULT );
-            }
-            // url de l'api
+
             if ( coverToGet === null ) {
                 coverToGet = {
                     jpg: song.album_cover,
@@ -122,5 +101,53 @@ export class RadioService {
             };
         } );
         return data;
+    }
+
+    /**
+     * Return a special cover if title of the song contains any
+     * specific tags in RadioService.TAGS.DEFAULT,
+     * RadioService.TAGS.NOUVEAUTE or in RadioService.TAGS.FRIDAY_WEAR.
+     * Depending in which array the tag is matching,
+     * returns a default Cover from GlobalService
+     * @param song
+     * @returns {ICoverSong}
+     */
+    private getMatchedCover( song: any ): ICoverSong {
+
+        if ( song.album_cover.indexOf( 'pochette-default' ) > -1 ) {
+            return GlobalService.COVER_DEFAULT;
+        }
+
+        let cover = null;
+
+        const tagInIt = this.lookForMatch( song.title );
+
+        if ( tagInIt === RadioService.TAGS.FRIDAY_WEAR ) {
+            cover = GlobalService.COVER_DEFAULT_FRIDAY_WEAR;
+        }
+        if ( tagInIt === RadioService.TAGS.NOUVEAUTE ) {
+            cover = GlobalService.COVER_DEFAULT_NOUVEAUTE;
+        }
+        if ( tagInIt === RadioService.TAGS.DEFAULT ) {
+            cover = GlobalService.COVER_DEFAULT;
+        }
+
+        return cover;
+    }
+
+    /**
+     * Checks if title contains any tag of the arrays (default friday
+     * wear tags, default nouveaute tags, or simply default tags
+     * If an array of tags matches, returns this array
+     * @param {string} title
+     * @returns {string[]}
+     */
+    private lookForMatch( title: string ): string[] {
+        return [
+            RadioService.TAGS.FRIDAY_WEAR,
+            RadioService.TAGS.NOUVEAUTE,
+            RadioService.TAGS.DEFAULT
+        ]
+            .find( tagArray => !!( tagArray.find( tag => title.toLowerCase().indexOf( tag.toLowerCase() ) > -1 ) ) );
     }
 }

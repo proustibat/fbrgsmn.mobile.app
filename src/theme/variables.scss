@@ -27,7 +27,7 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$error-color: rgba(209, 71, 71, 0.9);
+$error-color: rgba(209, 71, 71, .9);
 
 $colors: (
   primary:    #480a0f,
@@ -87,6 +87,6 @@ $font-family-base: 'Lato', $font-family-base;
 $speed-vinyl: 4s;
 $speed-cover: 6s;
 
-$color-shadow-meta-info: rgba(206, 204, 191, 0.5);
-$color-shadow-btn-play-pause: rgba(0, 0, 0, 0.5);
+$color-shadow-meta-info: rgba(206, 204, 191, .5);
+$color-shadow-btn-play-pause: rgba(0, 0, 0, .5);
 $color-thumbnail-border: #c8c7cc;

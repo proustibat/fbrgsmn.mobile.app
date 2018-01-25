@@ -96,4 +96,6 @@
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
     <plugin name="com.darktalker.cordova.screenshot" spec="^0.1.6" />
+    <allow-navigation href="http://192.168.1.21:8101" />
+    <allow-navigation href="http://192.168.33.1:8101" />
 </widget>

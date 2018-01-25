@@ -5,12 +5,12 @@ import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/med
 import { TrackerService } from '../../providers/tracker-service';
 import { PromptService } from '../../providers/prompt-service';
 import { Events, Platform } from 'ionic-angular';
-import { MusicControls } from '@ionic-native/music-controls';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { GlobalService } from '../../providers/global-service';
+import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
 
 @Component( {
-    providers: [ MusicControls ],
+    providers: [ MusicControlsManagerProvider ],
     selector: 'player',
     templateUrl: 'player.html'
 } )
@@ -29,19 +29,21 @@ export class PlayerComponent {
     private shareOptions: any;
     private trackingOptions: any;
 
-    constructor( private translateService: TranslateService,
+    constructor( private plt: Platform,
+                 private prompt: PromptService,
+                 private translateService: TranslateService,
                  private iab: InAppBrowser,
                  private tracker: TrackerService,
-                 private prompt: PromptService,
-                 public plt: Platform,
-                 private musicControls: MusicControls,
+                 private musicControlsManager: MusicControlsManagerProvider,
                  private media: Media,
                  private backgroundMode: BackgroundMode,
                  private events: Events,
-                 private vars: GlobalService,
     ) {
-        console.log( 'Hello PlayerComponent' );
-        this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
+        this.currentSong = { cover: GlobalService.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
+
+        // Events from MusicControlsManager
+        this.events.subscribe( '[MusicControlsManager]pause', this.pause.bind( this ) );
+        this.events.subscribe( '[MusicControlsManager]play', this.play.bind( this ) );
     }
 
     public updateMeta ( currentSong ) {
@@ -49,10 +51,7 @@ export class PlayerComponent {
         this.updateShareOptions();
         this.updateTrackingOptions();
 
-        this.plt.ready().then( () => {
-            this.destroyMusicControls();
-            this.createMusicControls();
-        } );
+        this.musicControlsManager.init( this.currentSong, this.isPlaying );
     }
 
     private togglePlayPause () {
@@ -84,12 +83,10 @@ export class PlayerComponent {
 
     private pause () {
         if ( this.isPlaying ) {
-            if ( this.plt.is( 'cordova' ) &&
-                this.musicControls &&
-                typeof this.musicControls !== 'undefined' ) {
+            if ( this.plt.is( 'cordova' ) ) {
                 this.mediaObject.stop();
-                this.musicControls.updateIsPlaying( false );
             }
+            this.musicControlsManager.updatePlayState( false );
             this.playPauseButton = 'play';
             this.isPlaying = false;
             this.isLoading = true;
@@ -150,18 +147,14 @@ export class PlayerComponent {
         this.prompt.dismissLoading();
         this.isPlaying = true;
         this.isButtonActive = true;
-        if ( this.plt.is( 'cordova' ) &&
-            this.musicControls &&
-            typeof this.musicControls !== 'undefined' ) {
-            this.musicControls.updateIsPlaying( true );
-        }
+        this.musicControlsManager.updatePlayState( true );
     }
 
     private onTrackError ( event ) {
         this.prompt.dismissLoading();
         this.isButtonActive = true;
         if ( this.plt.is( 'cordova' ) ) {
-            this.musicControls.updateIsPlaying( false );
+            this.musicControlsManager.updatePlayState( false );
         } else {
             // cordova is missing, just reset the ui (setTimeout to 0 is to run this immediately)
             setTimeout( () => {
@@ -175,108 +168,6 @@ export class PlayerComponent {
                 this.pause();
             }
             this.prompt.presentMessage( { message: event.toString(), classNameCss: 'error', duration: 6000 } );
-        }
-    }
-
-    private destroyMusicControls () {
-        if ( this.plt.is( 'cordova' ) ) {
-            this.musicControls.destroy();
-
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.DESTROY',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-    }
-
-    private createMusicControls () {
-        if ( this.plt.is( 'cordova' ) ) {
-            this.musicControls.create( {
-                album: 'Faubourg Simone Radio', // iOS only
-                artist: this.currentSong.artist,
-                cover: this.currentSong.cover.jpg,
-                dismissable: true,
-                hasClose: false, // show close button, optional, default: false
-                hasNext: false, // show next button, optional, default: true
-                hasPrev: false, // show previous button, optional, default: true
-                hasScrubbing: false, // iOS only
-                isPlaying: this.isPlaying,
-                ticker: `# Faubourg Simone # ${this.currentSong.title}`, // Android only
-                track: this.currentSong.track
-            } );
-
-            this.musicControls.subscribe().subscribe( action => {
-                this.onMusicControlsEvent( action );
-            } );
-
-            // activates the observable above
-            this.musicControls.listen();
-        }
-    }
-
-    private onMusicControlsEvent ( action ) {
-        const message = JSON.parse( action ).message;
-        if ( message === 'music-controls-pause' ) {
-            console.log( '#### PAUSE' );
-            this.pause();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.PAUSE',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-play' ) {
-            console.log( '#### PLAY' );
-            this.play();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.PLAY',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-destroy' ) {
-            console.log( '#### DESTROY' );
-            this.destroyMusicControls();
-        }
-
-        // External controls (iOS only)
-        if ( message === 'music-controls-toggle-play-pause' ) {
-            console.log( '#### TOGGLE_PLAY_PAUSE IOS' );
-            // Do something
-        }
-
-        // Headset events (Android only)
-        // All media button events are listed below
-        if ( message === 'music-controls-media-button' ) {
-            console.log( '### MEDIA BUTTON' );
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.MEDIA_BUTTON',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-headset-unplugged' ) {
-            console.log( '### HEADSET UNPLUGGED' );
-            this.pause();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.HEADSET_UNPLUGGED',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-headset-plugged' ) {
-            console.log( '### HEADSET PLUGGED' );
-            this.play();
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.HEADSET_PLUGGED',
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
         }
     }
 

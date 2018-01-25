@@ -29,7 +29,7 @@
         "typedef-whitespace": [
             true,
             {
-                "call-signature": "onespace",
+                "call-signature": "nospace",
                 "index-signature": "onespace",
                 "parameter": "nospace",
                 "property-declaration": "nospace",
@@ -65,6 +65,21 @@
         "prefer-immediate-return": false,
         "use-type-alias": false,
         "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map"],
-        "no-commented-code": false
+        "no-commented-code": false,
+        "member-ordering": [true, {
+            "order": [
+                "public-static-field",
+                "public-instance-field",
+                "private-static-field",
+                "private-instance-field",
+                "public-constructor",
+                "private-constructor",
+                "public-instance-method",
+                "protected-instance-method",
+                "private-instance-method"
+            ]
+        }],
+        "no-use-before-declare": false,
+        "no-use-before-define": false
     }
 }
