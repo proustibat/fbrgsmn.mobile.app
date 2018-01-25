@@ -12,7 +12,6 @@ export class TrackerService {
     constructor ( public http: HttpClient,
                   private ga: GoogleAnalytics,
                   private translateService: TranslateService ) {
-        console.log( 'Hello TrackerService' );
     }
 
     // public trackEventWithI18n ( category: { translate: string, params?: any },

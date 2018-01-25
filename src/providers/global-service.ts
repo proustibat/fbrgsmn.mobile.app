@@ -84,8 +84,4 @@ export class GlobalService {
         count: '&count=',
         page: '&page='
     };
-
-    constructor () {
-        console.log( 'Hello GlobalService' );
-    }
 }

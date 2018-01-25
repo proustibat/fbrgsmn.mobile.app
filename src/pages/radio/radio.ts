@@ -26,16 +26,14 @@ export class RadioPage {
     private lastSongs: ISong[];
     private hasLeft = false;
 
-    constructor ( private vars: GlobalService,
-                  public plt: Platform,
-                  private ga: GoogleAnalytics,
-                  public viewCtrl: ViewController,
-                  private initService: InitService,
+    constructor ( private plt: Platform,
                   private prompt: PromptService,
+                  private ga: GoogleAnalytics,
+                  private viewCtrl: ViewController,
+                  private initService: InitService,
                   private radioService: RadioService,
                   private events: Events,
     ) {
-        console.log( 'Hello RadioPage' );
         this.plt.ready().then( ( readySource ) => {
             // console.log( 'Platform ready from', readySource );
             if ( plt.is( 'cordova' ) ) {

@@ -29,16 +29,15 @@ export class PlayerComponent {
     private shareOptions: any;
     private trackingOptions: any;
 
-    constructor( private translateService: TranslateService,
+    constructor( private plt: Platform,
+                 private prompt: PromptService,
+                 private translateService: TranslateService,
                  private iab: InAppBrowser,
                  private tracker: TrackerService,
-                 private prompt: PromptService,
-                 public plt: Platform,
                  private musicControls: MusicControls,
                  private media: Media,
                  private backgroundMode: BackgroundMode
     ) {
-        console.log( 'Hello PlayerComponent' );
         this.currentSong = { cover: GlobalService.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
     }
 
