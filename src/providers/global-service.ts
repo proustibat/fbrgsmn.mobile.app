@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ICoverSong, IUrlArchives, IUrlArchivesParams } from '../interfaces';
+import { ICoverSong, IUrlArchives, IUrlArchivesParams, PostType } from '../interfaces';
 
 @Injectable()
 export class GlobalService {
     public static DEV_MODE = true;
+
+    public static BASE_URL_API_PROD = 'http://faubourgsimone.paris';
+    public static BASE_URL_API_DEV = 'http://faubourgsimone.local';
+    public static BASE_URL = GlobalService.DEV_MODE ? GlobalService.BASE_URL_API_DEV : GlobalService.BASE_URL_API_PROD;
 
     public static URL_INFO_DEV = 'assets/config.json';
     public static URL_INFO_PROD = 'http://faubourgsimone.paris/ionic-app/info.json';
@@ -23,23 +27,17 @@ export class GlobalService {
         jpg: 'assets/images/cover-news.jpg',
         svg: 'assets/images/cover-news.svg'
     };
-
-    public static get URL_POLAS(): IUrlArchives {
+    /**
+     *
+     * @param {PostType} postType
+     * @returns {IUrlArchives}
+     * @example `GlobalService.GET_URL_ARCHIVES( PostType.pola )`
+     */
+    public static GET_URL_ARCHIVES( postType: PostType ): IUrlArchives {
+        // post type for casque category in our wordpress api is called 'nouveaute'
+        const typeKey = postType === PostType.casque ? 'nouveaute' : PostType[ postType ];
         return {
-            baseUrl: `${GlobalService.BASE_URL}/api/get_posts/?post_type=pola`,
-            params: GlobalService.URL_ARCHIVES_PARAMS
-        };
-    }
-    public static get URL_CALEPINS(): IUrlArchives {
-        return {
-            baseUrl: `${GlobalService.BASE_URL}/api/get_posts/?post_type=calepin`,
-            params: GlobalService.URL_ARCHIVES_PARAMS
-        };
-    }
-
-    public static get URL_CASQUES(): IUrlArchives {
-        return {
-            baseUrl: `${GlobalService.BASE_URL}/api/get_recent_posts/?post_type=nouveaute`,
+            baseUrl: `${GlobalService.BASE_URL}/api/get_posts/?post_type=${ typeKey }`,
             params: GlobalService.URL_ARCHIVES_PARAMS
         };
     }
@@ -81,10 +79,6 @@ export class GlobalService {
     public static getRandomMessageIn( messages: string[] ) {
         return messages[ Math.floor( Math.random() * ( messages.length - 1 ) ) ];
     }
-
-    private static BASE_URL_API_PROD = 'http://faubourgsimone.paris';
-    private static BASE_URL_API_DEV = 'http://faubourgsimone.local';
-    private static BASE_URL = GlobalService.DEV_MODE ? GlobalService.BASE_URL_API_DEV : GlobalService.BASE_URL_API_PROD;
 
     private static URL_ARCHIVES_PARAMS: IUrlArchivesParams = {
         count: '&count=',

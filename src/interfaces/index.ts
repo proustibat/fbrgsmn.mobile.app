@@ -17,3 +17,9 @@ export interface IUrlArchives {
     baseUrl: string;
     params: IUrlArchivesParams;
 }
+
+export enum PostType {
+    calepin,
+    casque,
+    pola
+}
