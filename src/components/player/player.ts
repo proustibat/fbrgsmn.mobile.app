@@ -38,10 +38,9 @@ export class PlayerComponent {
                  private media: Media,
                  private backgroundMode: BackgroundMode,
                  private events: Events,
-                 private vars: GlobalService,
     ) {
         console.log( 'Hello PlayerComponent' );
-        this.currentSong = { cover: this.vars.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
+        this.currentSong = { cover: GlobalService.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
     }
 
     public updateMeta ( currentSong ) {

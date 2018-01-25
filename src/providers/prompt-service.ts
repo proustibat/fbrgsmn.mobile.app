@@ -10,10 +10,13 @@ export class PromptService {
 
     constructor ( private loadingCtrl: LoadingController,
                  private vars: GlobalService,
-                 private toastCtrl: ToastController ) {}
+                 private toastCtrl: ToastController ) {
+    }
 
     public presentLoading ( forRadio = false ) {
-        const message = forRadio ? this.vars.getRandomMessageRadio() : this.vars.getRandomMessagePosts();
+        const message = GlobalService.getRandomMessageIn(
+            forRadio ? GlobalService.loadingMsgRadio : GlobalService.loadingMsgPosts
+        );
         this.loader = this.loadingCtrl.create( {
             content: message,
             spinner: 'dots'

@@ -5,7 +5,7 @@ import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
 import 'rxjs/add/operator/map';
 /* tslint:enable:no-import-side-effect */
-import { ISong } from '../interfaces';
+import { ICoverSong, ISong } from '../interfaces';
 
 @Injectable()
 export class RadioService {
@@ -46,7 +46,7 @@ export class RadioService {
 
     public getApiSongs () {
         return new Promise( resolve => {
-            this.http.get( this.vars.URL_COVERS_API ).subscribe( data => {
+            this.http.get( GlobalService.URL_API_COVERS ).subscribe( data => {
                 resolve( this.filterDefaultCovers( data ) );
             }, err => {
                 return new Error( 'This request has failed ' + err );
@@ -63,17 +63,17 @@ export class RadioService {
             'flash calepin'
         ];
 
-        const defaultTagsFridayWear = [
+        const dfltTagsFridayWear = [
             'Friday Wear'
         ];
 
-        const defaultTagsNouveaute = [
+        const dfltTagsNouveaute = [
             'nouveauté',
             'nothing',
             'nouveaute'
         ];
 
-        data.songs = data.songs.map( ( song ) => {
+        data.songs = data.songs.map( song => {
 
             const checkIfTagFor = ( titleToCompare: string, tagArray: string[], coverIfFound: any ) : any => {
                 // todo: remoe that dirty stuff
@@ -91,21 +91,21 @@ export class RadioService {
                 /* tslint:enable:no-shadowed-variable */
             };
 
-            let coverToGet = null;
+            let coverToGet: ICoverSong = null;
             if ( song.album_cover.indexOf( 'pochette-default' ) > -1 ) {
-                coverToGet = this.vars.COVER_DEFAULT;
+                coverToGet = GlobalService.COVER_DEFAULT;
             }
             // url de friday wear
             if ( coverToGet === null ) {
-                coverToGet = checkIfTagFor( song.title, defaultTagsFridayWear, this.vars.COVER_DEFAULT_FRIDAY_WEAR );
+                coverToGet = checkIfTagFor( song.title, dfltTagsFridayWear, GlobalService.COVER_DEFAULT_FRIDAY_WEAR );
             }
             // url des nouveautés
             if ( coverToGet === null ) {
-                coverToGet = checkIfTagFor( song.title, defaultTagsNouveaute, this.vars.COVER_DEFAULT_NOUVEAUTE );
+                coverToGet = checkIfTagFor( song.title, dfltTagsNouveaute, GlobalService.COVER_DEFAULT_NOUVEAUTE );
             }
             // url si tag par défaut
             if ( coverToGet === null ) {
-                coverToGet = checkIfTagFor( song.title, defaultTags, this.vars.COVER_DEFAULT );
+                coverToGet = checkIfTagFor( song.title, defaultTags, GlobalService.COVER_DEFAULT );
             }
             // url de l'api
             if ( coverToGet === null ) {
@@ -114,7 +114,6 @@ export class RadioService {
                     svg: song.album_cover
                 };
             }
-
             return {
                 cover: coverToGet,
                 title: song.title

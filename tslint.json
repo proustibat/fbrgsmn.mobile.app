@@ -65,6 +65,19 @@
         "prefer-immediate-return": false,
         "use-type-alias": false,
         "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map"],
-        "no-commented-code": false
+        "no-commented-code": false,
+        "member-ordering": [true, {
+            "order": [
+                "public-static-field",
+                "public-instance-field",
+                "private-static-field",
+                "private-instance-field",
+                "public-constructor",
+                "private-constructor",
+                "public-instance-method",
+                "protected-instance-method",
+                "private-instance-method"
+            ]
+        }]
     }
 }

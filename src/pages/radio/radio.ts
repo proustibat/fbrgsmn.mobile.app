@@ -51,7 +51,7 @@ export class RadioPage {
                     } );
                     data = data.content;
                 }
-                this.streamingUrl = data.streamingUrl ? data.streamingUrl : this.vars.URL_STREAMING_DEFAULT;
+                this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
                 this.radioService.initLoop( data.loop_interval );
                 this.configReady = true;
             } ).catch( errors => this.prompt.presentMessage( {

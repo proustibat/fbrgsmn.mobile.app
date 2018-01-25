@@ -1,39 +1,49 @@
 import { Injectable } from '@angular/core';
+import { ICoverSong, IUrlArchives, IUrlArchivesParams } from '../interfaces';
 
 @Injectable()
 export class GlobalService {
+    public static DEV_MODE = true;
 
-    public DEVMODE = true;
-    public BASE_URL: string;
+    public static URL_INFO_DEV = 'assets/config.json';
+    public static URL_INFO_PROD = 'http://faubourgsimone.paris/ionic-app/info.json';
 
-    public URL_INFO_DEV = 'assets/config.json';
-    public URL_INFO_PROD = 'http://faubourgsimone.paris/ionic-app/info.json';
-    public URL_STREAMING_DEFAULT = 'http://91.121.65.131:8000/;';
-    public URL_COVERS_API = 'http://ks25555.kimsufi.com/fsapi/cacheapi.json';
+    public static DEFAULT_URL_STREAMING = 'http://91.121.65.131:8000/;';
+    public static URL_API_COVERS = 'http://ks25555.kimsufi.com/fsapi/cacheapi.json';
 
-    public URL_POLAS: { baseUrl: string, params: { count: string, page: string } };
-    public URL_CALEPINS: { baseUrl: string, params: { count: string, page: string } };
-    public URL_CASQUES: { baseUrl: string, params: { count: string, page: string } };
-    public URL_CALEPIN: string;
-    public URL_CASQUE: string;
-    public URL_CASQUE_FIELDS: string;
-
-    public COVER_DEFAULT = {
+    public static COVER_DEFAULT: ICoverSong = {
         jpg: 'assets/images/cover-default.jpg',
         svg: 'assets/images/cover-default.svg'
     };
-
-    public COVER_DEFAULT_FRIDAY_WEAR = {
+    public static COVER_DEFAULT_FRIDAY_WEAR: ICoverSong = {
         jpg: 'assets/images/cover-friday-wear.jpg',
         svg: 'assets/images/cover-friday-wear.svg'
     };
-
-    public COVER_DEFAULT_NOUVEAUTE = {
+    public static COVER_DEFAULT_NOUVEAUTE: ICoverSong = {
         jpg: 'assets/images/cover-news.jpg',
         svg: 'assets/images/cover-news.svg'
     };
 
-    public loadingMsgPosts: string[] = [
+    public static URL_POLAS: IUrlArchives = {
+        baseUrl: GlobalService.BASE_URL + '/api/get_posts/?post_type=pola',
+        params: GlobalService.URL_ARCHIVES_PARAMS
+    };
+    public static URL_CALEPINS: IUrlArchives = {
+        baseUrl: GlobalService.BASE_URL + '/api/get_posts/?post_type=calepin',
+        params: GlobalService.URL_ARCHIVES_PARAMS
+    };
+
+    public static URL_CASQUES: IUrlArchives = {
+        baseUrl: GlobalService.BASE_URL + '/api/get_recent_posts/?post_type=nouveaute',
+        params: GlobalService.URL_ARCHIVES_PARAMS
+    };
+
+    public static URL_CALEPIN: string = GlobalService.BASE_URL + '/wp-json/wp/v2/calepin/';
+    public static URL_CASQUE: string = GlobalService.BASE_URL + '/wp-json/wp/v2/nouveaute/';
+    public static URL_CASQUE_FIELDS: string = GlobalService.BASE_URL + '/wp-json/acf/v2/nouveaute/';
+
+    // TODO translate
+    public static loadingMsgPosts: string[] = [
         'Tout doux beau prince !',
         'Patience beauté !',
         'Quelques secondes minouche !',
@@ -48,8 +58,7 @@ export class GlobalService {
         'Patience est mère de toutes les vertus',
         'Oui, oui, un p’tit instant voulez-vous'
     ];
-
-    public loadingMsgRadio: string[] = [
+    public static loadingMsgRadio: string[] = [
         'Paris ne s\'est pas faite en un jour !',
         'En voiture Simone !',
         'Préparation du café !',
@@ -63,55 +72,20 @@ export class GlobalService {
         'Oui, oui, un p’tit instant voulez-vous',
         'Patience est mère de toutes les vertus'
     ];
-    private BASE_URL_API_PROD = 'http://faubourgsimone.paris';
-    private BASE_URL_API_DEV = 'http://faubourgsimone.local';
+    public static getRandomMessageIn( messages: string[] ) {
+        return messages[ Math.floor( Math.random() * ( messages.length - 1 ) ) ];
+    }
+
+    private static BASE_URL_API_PROD = 'http://faubourgsimone.paris';
+    private static BASE_URL_API_DEV = 'http://faubourgsimone.local';
+    private static BASE_URL = GlobalService.DEV_MODE ? GlobalService.BASE_URL_API_DEV : GlobalService.BASE_URL_API_PROD;
+
+    private static URL_ARCHIVES_PARAMS: IUrlArchivesParams = {
+        count: '&count=',
+        page: '&page='
+    };
 
     constructor () {
         console.log( 'Hello GlobalService' );
-
-        this.BASE_URL = !this.DEVMODE ? this.BASE_URL_API_PROD : this.BASE_URL_API_DEV;
-
-        this.URL_POLAS = {
-            baseUrl: this.BASE_URL + '/api/get_posts/?post_type=pola' ,
-            params: {
-                count: '&count=',
-                page: '&page='
-            }
-        };
-
-        this.URL_CALEPINS = {
-            baseUrl: this.BASE_URL + '/api/get_posts/?post_type=calepin' ,
-            params: {
-                count: '&count=',
-                page: '&page='
-            }
-        };
-
-        this.URL_CALEPIN = this.BASE_URL + '/wp-json/wp/v2/calepin/';
-
-        this.URL_CASQUES = {
-            baseUrl: this.BASE_URL + '/api/get_recent_posts/?post_type=nouveaute' ,
-            params: {
-                count: '&count=',
-                page: '&page='
-            }
-        };
-
-        this.URL_CASQUE = this.BASE_URL + '/wp-json/wp/v2/nouveaute/';
-        this.URL_CASQUE_FIELDS = this.BASE_URL + '/wp-json/acf/v2/nouveaute/';
-    }
-
-    public getRandomMessageRadio () {
-        // return this.loadingMsgRadio[ Math.floor( Math.random() * ( this.loadingMsgRadio.length - 1 ) ) ];
-        return this.getRandomMessageIn( this.loadingMsgRadio );
-    }
-
-    public getRandomMessagePosts () {
-        // return this.loadingMsgPosts[ Math.floor( Math.random() * ( this.loadingMsgPosts.length - 1 ) ) ];
-        return this.getRandomMessageIn( this.loadingMsgPosts );
-    }
-
-    private getRandomMessageIn( messages: string[] ) {
-        return messages[ Math.floor( Math.random() * ( messages.length - 1 ) ) ];
     }
 }
