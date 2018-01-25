@@ -14,7 +14,7 @@ export class RadioService {
     private timer: any;
     private currentSong: ISong;
     private lastSongs: ISong[];
-    constructor ( public http: HttpClient, private vars: GlobalService, private events: Events ) { }
+    constructor ( public http: HttpClient, private events: Events ) { }
 
     public initLoop ( interval?: number ) {
         if ( this.timer ) {

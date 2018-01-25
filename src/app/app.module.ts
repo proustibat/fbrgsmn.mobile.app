@@ -22,6 +22,7 @@ import { SwingModule } from 'angular2-swing';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateLoader, TranslateModule, TranslateStaticLoader } from 'ng2-translate';
 import { HttpClientModule } from '@angular/common/http';
+import { MusicControlsManagerProvider } from '../providers/music-controls-manager/music-controls-manager';
 
 const appSettings = {
     backButtonText: 'Retour',
@@ -69,7 +70,8 @@ export function createTranslateLoader( http: Http ) {
     ],
     providers: [
         ...CustomProviders,
-        ...ExternalProviders
+        ...ExternalProviders,
+        MusicControlsManagerProvider
     ]
 } )
 export class AppModule {}
