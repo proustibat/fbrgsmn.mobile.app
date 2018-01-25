@@ -21,6 +21,7 @@ page-radio {
 
     .last-songs {
       ion-thumbnail img {
+        background: color($colors, 'verylight');
         border: 1px solid $color-thumbnail-border;
       }
 
