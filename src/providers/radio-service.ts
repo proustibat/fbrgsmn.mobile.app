@@ -75,7 +75,7 @@ export class RadioService {
 
         data.songs = data.songs.map( song => {
 
-            const checkIfTagFor = ( titleToCompare: string, tagArray: string[], coverIfFound: any ) : any => {
+            const checkIfTagFor = ( titleToCompare: string, tagArray: string[], coverIfFound: any ): any => {
                 // todo: remoe that dirty stuff
                 /* tslint:disable:no-shadowed-variable */
                 let coverToGet = null;

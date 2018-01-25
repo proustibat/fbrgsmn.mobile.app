@@ -24,23 +24,29 @@ export class GlobalService {
         svg: 'assets/images/cover-news.svg'
     };
 
-    public static URL_POLAS: IUrlArchives = {
-        baseUrl: GlobalService.BASE_URL + '/api/get_posts/?post_type=pola',
-        params: GlobalService.URL_ARCHIVES_PARAMS
-    };
-    public static URL_CALEPINS: IUrlArchives = {
-        baseUrl: GlobalService.BASE_URL + '/api/get_posts/?post_type=calepin',
-        params: GlobalService.URL_ARCHIVES_PARAMS
-    };
+    public static get URL_POLAS(): IUrlArchives {
+        return {
+            baseUrl: `${GlobalService.BASE_URL}/api/get_posts/?post_type=pola`,
+            params: GlobalService.URL_ARCHIVES_PARAMS
+        };
+    }
+    public static get URL_CALEPINS(): IUrlArchives {
+        return {
+            baseUrl: `${GlobalService.BASE_URL}/api/get_posts/?post_type=calepin`,
+            params: GlobalService.URL_ARCHIVES_PARAMS
+        };
+    }
 
-    public static URL_CASQUES: IUrlArchives = {
-        baseUrl: GlobalService.BASE_URL + '/api/get_recent_posts/?post_type=nouveaute',
-        params: GlobalService.URL_ARCHIVES_PARAMS
-    };
+    public static get URL_CASQUES(): IUrlArchives {
+        return {
+            baseUrl: `${GlobalService.BASE_URL}/api/get_recent_posts/?post_type=nouveaute`,
+            params: GlobalService.URL_ARCHIVES_PARAMS
+        };
+    }
 
-    public static URL_CALEPIN: string = GlobalService.BASE_URL + '/wp-json/wp/v2/calepin/';
-    public static URL_CASQUE: string = GlobalService.BASE_URL + '/wp-json/wp/v2/nouveaute/';
-    public static URL_CASQUE_FIELDS: string = GlobalService.BASE_URL + '/wp-json/acf/v2/nouveaute/';
+    public static URL_CALEPIN = `${GlobalService.BASE_URL}/wp-json/wp/v2/calepin/`;
+    public static URL_CASQUE = `${GlobalService.BASE_URL}/wp-json/wp/v2/nouveaute/`;
+    public static URL_CASQUE_FIELDS = `${GlobalService.BASE_URL}/wp-json/acf/v2/nouveaute/`;
 
     // TODO translate
     public static loadingMsgPosts: string[] = [

@@ -29,7 +29,7 @@
         "typedef-whitespace": [
             true,
             {
-                "call-signature": "onespace",
+                "call-signature": "nospace",
                 "index-signature": "onespace",
                 "parameter": "nospace",
                 "property-declaration": "nospace",
@@ -78,6 +78,8 @@
                 "protected-instance-method",
                 "private-instance-method"
             ]
-        }]
+        }],
+        "no-use-before-declare": false,
+        "no-use-before-define": false
     }
 }
