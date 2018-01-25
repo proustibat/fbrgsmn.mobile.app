@@ -4,7 +4,7 @@ import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser';
 import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
 import { TrackerService } from '../../providers/tracker-service';
 import { PromptService } from '../../providers/prompt-service';
-import { Events, Platform } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { MusicControls } from '@ionic-native/music-controls';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { GlobalService } from '../../providers/global-service';
@@ -36,8 +36,7 @@ export class PlayerComponent {
                  public plt: Platform,
                  private musicControls: MusicControls,
                  private media: Media,
-                 private backgroundMode: BackgroundMode,
-                 private events: Events,
+                 private backgroundMode: BackgroundMode
     ) {
         console.log( 'Hello PlayerComponent' );
         this.currentSong = { cover: GlobalService.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
@@ -217,63 +216,44 @@ export class PlayerComponent {
     private onMusicControlsEvent ( action ) {
         const message = JSON.parse( action ).message;
 
-        if ( message === 'music-controls-pause' ) {
-            console.log( '#### PAUSE' );
-            this.pause();
-        }
-
-        if ( message === 'music-controls-play' ) {
-            console.log( '#### PLAY' );
-            this.play();
-        }
-
         // Headset event headset-unplugged (Android only)
-        if ( message === 'music-controls-headset-unplugged' ) {
-            console.log( '### HEADSET UNPLUGGED' );
+        if ( message === ( 'music-controls-pause' || 'music-controls-headset-unplugged' ) ) {
             this.pause();
         }
 
         // Headset event headset-plugged (Android only)
-        if ( message === 'music-controls-headset-plugged' ) {
-            console.log( '### HEADSET PLUGGED' );
+        if ( message === ( 'music-controls-play' || 'music-controls-headset-plugged' ) ) {
             this.play();
         }
 
+        this.trackEventIfNeeded( message );
+
+        if ( message === 'music-controls-destroy' ) {
+            this.destroyMusicControls();
+        }
+
+        // External controls (iOS only)
+        if ( message === 'music-controls-toggle-play-pause' ) {
+            // TODO : how to know if we must call play or pause
+        }
+    }
+
+    private trackEventIfNeeded( msg ) {
         // If it's one of those events, we track on the same way with just a different action parameter
         const eventsToTrack = [
             'pause',
             'play',
             'headset-unplugged',
-            'headset-plugged'
+            'headset-plugged',
+            'media-button'
         ];
-        const indexOfEvent = eventsToTrack.map( evtName => `music-controls-${evtName}` ).indexOf( message );
+        const indexOfEvent = eventsToTrack.map( evtName => `music-controls-${ evtName }` ).indexOf( msg );
         if ( indexOfEvent !== -1 ) {
             const eventToTrackKey = eventsToTrack[ indexOfEvent ].replace( '-', '_' ).toUpperCase();
             const actionKey = `TRACKING.PLAYER.ACTION.${ eventToTrackKey }`;
             this.tracker.translateAndTrack(
                 'TRACKING.PLAYER.CATEGORY',
                 actionKey,
-                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
-            );
-        }
-
-        if ( message === 'music-controls-destroy' ) {
-            console.log( '#### DESTROY' );
-            this.destroyMusicControls();
-        }
-
-        // External controls (iOS only)
-        if ( message === 'music-controls-toggle-play-pause' ) {
-            console.log( '#### TOGGLE_PLAY_PAUSE IOS' );
-            // Do something
-        }
-
-        // Headset event media-button (Android only)
-        if ( message === 'music-controls-media-button' ) {
-            console.log( '### MEDIA BUTTON' );
-            this.tracker.translateAndTrack(
-                'TRACKING.PLAYER.CATEGORY',
-                'TRACKING.PLAYER.ACTION.MEDIA_BUTTON',
                 'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
             );
         }
