@@ -909,6 +909,9 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
+		<li class=" tsd-kind-enum tsd-is-external">
+			<a href="../enums/posttype.html" class="tsd-kind-icon">Post<wbr>Type</a>
+		</li>
 		<li class=" tsd-kind-class">
 			<a href="appmodule.html" class="tsd-kind-icon">App<wbr>Module</a>
 		</li>
@@ -929,6 +932,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-class">
 			<a href="mainheadercomponent.html" class="tsd-kind-icon">Main<wbr>Header<wbr>Component</a>
+		</li>
+		<li class=" tsd-kind-class">
+			<a href="musiccontrolsmanagerprovider.html" class="tsd-kind-icon">Music<wbr>Controls<wbr>Manager<wbr>Provider</a>
 		</li>
 		<li class=" tsd-kind-class">
 			<a href="parallaxheader.html" class="tsd-kind-icon">Parallax<wbr>Header</a>
@@ -970,12 +976,12 @@ img { max-width: 100%; }
 					<a href="playercomponent.html#mediaobject" class="tsd-kind-icon">media<wbr>Object</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="playercomponent.html#musiccontrols" class="tsd-kind-icon">music<wbr>Controls</a>
+					<a href="playercomponent.html#musiccontrolsmanager" class="tsd-kind-icon">music<wbr>Controls<wbr>Manager</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#playpausebutton" class="tsd-kind-icon">play<wbr>Pause<wbr>Button</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class">
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#plt" class="tsd-kind-icon">plt</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -996,9 +1002,6 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#translateservice" class="tsd-kind-icon">translate<wbr>Service</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="playercomponent.html#vars" class="tsd-kind-icon">vars</a>
-				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#closepopup" class="tsd-kind-icon">close<wbr>Pop<wbr>Up</a>
 				</li>
@@ -1006,19 +1009,10 @@ img { max-width: 100%; }
 					<a href="playercomponent.html#createmedia" class="tsd-kind-icon">create<wbr>Media</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a href="playercomponent.html#createmusiccontrols" class="tsd-kind-icon">create<wbr>Music<wbr>Controls</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a href="playercomponent.html#destroymusiccontrols" class="tsd-kind-icon">destroy<wbr>Music<wbr>Controls</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#onmediaerror" class="tsd-kind-icon">on<wbr>Media<wbr>Error</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#onmediastatusupdate" class="tsd-kind-icon">on<wbr>Media<wbr>Status<wbr>Update</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a href="playercomponent.html#onmusiccontrolsevent" class="tsd-kind-icon">on<wbr>Music<wbr>Controls<wbr>Event</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="playercomponent.html#ontrackerror" class="tsd-kind-icon">on<wbr>Track<wbr>Error</a>
@@ -1073,6 +1067,18 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class">
 			<a href="trackerservice.html" class="tsd-kind-icon">Tracker<wbr>Service</a>
 		</li>
+		<li class=" tsd-kind-interface tsd-is-external">
+			<a href="../interfaces/icoversong.html" class="tsd-kind-icon">ICover<wbr>Song</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-is-external">
+			<a href="../interfaces/isong.html" class="tsd-kind-icon">ISong</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-is-external">
+			<a href="../interfaces/iurlarchives.html" class="tsd-kind-icon">IUrl<wbr>Archives</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-is-external">
+			<a href="../interfaces/iurlarchivesparams.html" class="tsd-kind-icon">IUrl<wbr>Archives<wbr>Params</a>
+		</li>
 		<li class=" tsd-kind-variable tsd-is-external">
 			<a href="../globals.html#customcomponents" class="tsd-kind-icon">Custom<wbr>Components</a>
 		</li>
@@ -1125,7 +1131,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="playercomponent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 						</ul>
 					</section>
-					<section class="tsd-index-section ">
+					<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#backgroundmode" class="tsd-kind-icon">background<wbr>Mode</a></li>
@@ -1138,16 +1144,15 @@ img { max-width: 100%; }
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#isplaying" class="tsd-kind-icon">is<wbr>Playing</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#media" class="tsd-kind-icon">media</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#mediaobject" class="tsd-kind-icon">media<wbr>Object</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#musiccontrols" class="tsd-kind-icon">music<wbr>Controls</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#musiccontrolsmanager" class="tsd-kind-icon">music<wbr>Controls<wbr>Manager</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#playpausebutton" class="tsd-kind-icon">play<wbr>Pause<wbr>Button</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class"><a href="playercomponent.html#plt" class="tsd-kind-icon">plt</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#plt" class="tsd-kind-icon">plt</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#prompt" class="tsd-kind-icon">prompt</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#shareoptions" class="tsd-kind-icon">share<wbr>Options</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#streamingurl" class="tsd-kind-icon">streaming<wbr>Url</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#tracker" class="tsd-kind-icon">tracker</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#trackingoptions" class="tsd-kind-icon">tracking<wbr>Options</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#translateservice" class="tsd-kind-icon">translate<wbr>Service</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#vars" class="tsd-kind-icon">vars</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -1155,11 +1160,8 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#closepopup" class="tsd-kind-icon">close<wbr>Pop<wbr>Up</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#createmedia" class="tsd-kind-icon">create<wbr>Media</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#createmusiccontrols" class="tsd-kind-icon">create<wbr>Music<wbr>Controls</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#destroymusiccontrols" class="tsd-kind-icon">destroy<wbr>Music<wbr>Controls</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#onmediaerror" class="tsd-kind-icon">on<wbr>Media<wbr>Error</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#onmediastatusupdate" class="tsd-kind-icon">on<wbr>Media<wbr>Status<wbr>Update</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#onmusiccontrolsevent" class="tsd-kind-icon">on<wbr>Music<wbr>Controls<wbr>Event</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#ontrackerror" class="tsd-kind-icon">on<wbr>Track<wbr>Error</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#ontrackloaded" class="tsd-kind-icon">on<wbr>Track<wbr>Loaded</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="playercomponent.html#pause" class="tsd-kind-icon">pause</a></li>
@@ -1187,17 +1189,23 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Player<wbr>Component<span class="tsd-signature-symbol">(</span>translateService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TranslateService</span>, iab<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InAppBrowser</span>, tracker<span class="tsd-signature-symbol">: </span><a href="trackerservice.html" class="tsd-signature-type">TrackerService</a>, prompt<span class="tsd-signature-symbol">: </span><a href="promptservice.html" class="tsd-signature-type">PromptService</a>, plt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Platform</span>, musicControls<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MusicControls</span>, media<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Media</span>, backgroundMode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BackgroundMode</span>, events<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events</span>, vars<span class="tsd-signature-symbol">: </span><a href="globalservice.html" class="tsd-signature-type">GlobalService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="playercomponent.html" class="tsd-signature-type">PlayerComponent</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Player<wbr>Component<span class="tsd-signature-symbol">(</span>plt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Platform</span>, prompt<span class="tsd-signature-symbol">: </span><a href="promptservice.html" class="tsd-signature-type">PromptService</a>, translateService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TranslateService</span>, iab<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InAppBrowser</span>, tracker<span class="tsd-signature-symbol">: </span><a href="trackerservice.html" class="tsd-signature-type">TrackerService</a>, musicControlsManager<span class="tsd-signature-symbol">: </span><a href="musiccontrolsmanagerprovider.html" class="tsd-signature-type">MusicControlsManagerProvider</a>, media<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Media</span>, backgroundMode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BackgroundMode</span>, events<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="playercomponent.html" class="tsd-signature-type">PlayerComponent</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L30">components/player/player.ts:30</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L30">components/player/player.ts:30</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
+							<li>
+								<h5>plt: <span class="tsd-signature-type">Platform</span></h5>
+							</li>
+							<li>
+								<h5>prompt: <a href="promptservice.html" class="tsd-signature-type">PromptService</a></h5>
+							</li>
 							<li>
 								<h5>translateService: <span class="tsd-signature-type">TranslateService</span></h5>
 							</li>
@@ -1208,13 +1216,7 @@ img { max-width: 100%; }
 								<h5>tracker: <a href="trackerservice.html" class="tsd-signature-type">TrackerService</a></h5>
 							</li>
 							<li>
-								<h5>prompt: <a href="promptservice.html" class="tsd-signature-type">PromptService</a></h5>
-							</li>
-							<li>
-								<h5>plt: <span class="tsd-signature-type">Platform</span></h5>
-							</li>
-							<li>
-								<h5>musicControls: <span class="tsd-signature-type">MusicControls</span></h5>
+								<h5>musicControlsManager: <a href="musiccontrolsmanagerprovider.html" class="tsd-signature-type">MusicControlsManagerProvider</a></h5>
 							</li>
 							<li>
 								<h5>media: <span class="tsd-signature-type">Media</span></h5>
@@ -1225,16 +1227,13 @@ img { max-width: 100%; }
 							<li>
 								<h5>events: <span class="tsd-signature-type">Events</span></h5>
 							</li>
-							<li>
-								<h5>vars: <a href="globalservice.html" class="tsd-signature-type">GlobalService</a></h5>
-							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="playercomponent.html" class="tsd-signature-type">PlayerComponent</a></h4>
 					</li>
 				</ul>
 			</section>
 		</section>
-		<section class="tsd-panel-group tsd-member-group ">
+		<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="backgroundmode" class="tsd-anchor"></a>
@@ -1242,7 +1241,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">background<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BackgroundMode</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L39">components/player/player.ts:39</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L39">components/player/player.ts:39</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1252,7 +1251,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">browser<wbr>Popup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">InAppBrowserObject</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L22">components/player/player.ts:22</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L22">components/player/player.ts:22</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1262,7 +1261,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">config<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L21">components/player/player.ts:21</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L21">components/player/player.ts:21</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1272,7 +1271,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Events</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L40">components/player/player.ts:40</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L40">components/player/player.ts:40</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1282,7 +1281,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">iab<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">InAppBrowser</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L33">components/player/player.ts:33</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L35">components/player/player.ts:35</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1292,7 +1291,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">is<wbr>Button<wbr>Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L24">components/player/player.ts:24</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L24">components/player/player.ts:24</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1302,7 +1301,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">is<wbr>Loading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L27">components/player/player.ts:27</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L27">components/player/player.ts:27</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1312,7 +1311,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">is<wbr>Playing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L23">components/player/player.ts:23</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L23">components/player/player.ts:23</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1322,7 +1321,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">media<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Media</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L38">components/player/player.ts:38</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L38">components/player/player.ts:38</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1332,17 +1331,17 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">media<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MediaObject</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L26">components/player/player.ts:26</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L26">components/player/player.ts:26</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="musiccontrols" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> music<wbr>Controls</h3>
-				<div class="tsd-signature tsd-kind-icon">music<wbr>Controls<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MusicControls</span></div>
+				<a name="musiccontrolsmanager" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> music<wbr>Controls<wbr>Manager</h3>
+				<div class="tsd-signature tsd-kind-icon">music<wbr>Controls<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="musiccontrolsmanagerprovider.html" class="tsd-signature-type">MusicControlsManagerProvider</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L37">components/player/player.ts:37</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L37">components/player/player.ts:37</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1352,17 +1351,17 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">play<wbr>Pause<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;play&quot;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L25">components/player/player.ts:25</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L25">components/player/player.ts:25</a></li>
 					</ul>
 				</aside>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="plt" class="tsd-anchor"></a>
-				<h3>plt</h3>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> plt</h3>
 				<div class="tsd-signature tsd-kind-icon">plt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Platform</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L36">components/player/player.ts:36</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L32">components/player/player.ts:32</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1372,7 +1371,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">prompt<span class="tsd-signature-symbol">:</span> <a href="promptservice.html" class="tsd-signature-type">PromptService</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L35">components/player/player.ts:35</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L33">components/player/player.ts:33</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1382,7 +1381,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">share<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L29">components/player/player.ts:29</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L29">components/player/player.ts:29</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1392,7 +1391,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">streaming<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L20">components/player/player.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L20">components/player/player.ts:20</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1402,7 +1401,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">tracker<span class="tsd-signature-symbol">:</span> <a href="trackerservice.html" class="tsd-signature-type">TrackerService</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L34">components/player/player.ts:34</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L36">components/player/player.ts:36</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1412,7 +1411,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">tracking<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L30">components/player/player.ts:30</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L30">components/player/player.ts:30</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1422,17 +1421,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">translate<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TranslateService</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L32">components/player/player.ts:32</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="vars" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> vars</h3>
-				<div class="tsd-signature tsd-kind-icon">vars<span class="tsd-signature-symbol">:</span> <a href="globalservice.html" class="tsd-signature-type">GlobalService</a></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L41">components/player/player.ts:41</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L34">components/player/player.ts:34</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1449,7 +1438,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L344">components/player/player.ts:344</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L235">components/player/player.ts:235</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1466,41 +1455,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L116">components/player/player.ts:116</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-				<a name="createmusiccontrols" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Music<wbr>Controls</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<li class="tsd-signature tsd-kind-icon">create<wbr>Music<wbr>Controls<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L193">components/player/player.ts:193</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-				<a name="destroymusiccontrols" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> destroy<wbr>Music<wbr>Controls</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<li class="tsd-signature tsd-kind-icon">destroy<wbr>Music<wbr>Controls<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L181">components/player/player.ts:181</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L113">components/player/player.ts:113</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1517,7 +1472,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L134">components/player/player.ts:134</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L131">components/player/player.ts:131</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1540,36 +1495,13 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L122">components/player/player.ts:122</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L119">components/player/player.ts:119</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>status: <span class="tsd-signature-type">any</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-				<a name="onmusiccontrolsevent" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Music<wbr>Controls<wbr>Event</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Music<wbr>Controls<wbr>Event<span class="tsd-signature-symbol">(</span>action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L218">components/player/player.ts:218</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>action: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1586,7 +1518,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L160">components/player/player.ts:160</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L153">components/player/player.ts:153</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1609,7 +1541,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L148">components/player/player.ts:148</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L145">components/player/player.ts:145</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1632,7 +1564,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L85">components/player/player.ts:85</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L84">components/player/player.ts:84</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1649,7 +1581,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L75">components/player/player.ts:75</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L74">components/player/player.ts:74</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1666,7 +1598,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L317">components/player/player.ts:317</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L208">components/player/player.ts:208</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1683,7 +1615,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L99">components/player/player.ts:99</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L96">components/player/player.ts:96</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1700,7 +1632,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L58">components/player/player.ts:58</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L57">components/player/player.ts:57</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1717,7 +1649,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L47">components/player/player.ts:47</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L49">components/player/player.ts:49</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1740,7 +1672,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L283">components/player/player.ts:283</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L174">components/player/player.ts:174</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1757,7 +1689,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L299">components/player/player.ts:299</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L190">components/player/player.ts:190</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1773,7 +1705,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">current<wbr>Song<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 					</ul>
 				</aside>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1782,7 +1714,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">artist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1792,7 +1724,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1802,7 +1734,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">track<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1812,7 +1744,7 @@ img { max-width: 100%; }
 					<div class="tsd-signature tsd-kind-icon">cover<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1821,7 +1753,7 @@ img { max-width: 100%; }
 						<div class="tsd-signature tsd-kind-icon">jpg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1831,7 +1763,7 @@ img { max-width: 100%; }
 						<div class="tsd-signature tsd-kind-icon">svg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/6b24a2b/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/c5ff211/src/components/player/player.ts#L28">components/player/player.ts:28</a></li>
 							</ul>
 						</aside>
 					</section>
