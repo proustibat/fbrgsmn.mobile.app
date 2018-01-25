@@ -5,21 +5,21 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class InitService {
 
-    constructor ( public http: HttpClient, private vars: GlobalService ) {}
+    constructor ( public http: HttpClient ) {}
 
     public getInitData () {
-        if ( this.vars.DEVMODE ) {
-            return this.getFile( this.vars.URL_INFO_DEV );
+        if ( GlobalService.DEV_MODE ) {
+            return this.getFile( GlobalService.URL_INFO_DEV );
         }
 
         return new Promise( ( resolve, reject ) => {
-            return this.getFile( this.vars.URL_INFO_PROD )
+            return this.getFile( GlobalService.URL_INFO_PROD )
                 .then( data => resolve( data ) )
                 .catch( error => {
-                    return this.getFile( this.vars.URL_INFO_DEV )
+                    return this.getFile( GlobalService.URL_INFO_DEV )
                         .then( data => resolve( {
                             content: data,
-                            error: `Error when loading ${this.vars.URL_INFO_PROD}: ${error}`
+                            error: `Error when loading ${ GlobalService.URL_INFO_PROD }: ${error}`
                         } ) )
                         .catch( err => reject( [ error.message, err.message ] ) );
                 } );

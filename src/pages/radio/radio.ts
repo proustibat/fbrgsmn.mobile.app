@@ -6,6 +6,7 @@ import { InitService } from '../../providers/init-service';
 import { PromptService } from '../../providers/prompt-service';
 import { RadioService } from '../../providers/radio-service';
 import { PlayerComponent } from '../../components/player/player';
+import { ISong } from '../../interfaces';
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;
@@ -22,19 +23,17 @@ export class RadioPage {
 
     private streamingUrl: string;
     private configReady = false;
-    private lastSongs: Array<{ cover: { jpg: '', svg: '' }, title: string, artist: string, track: string }>;
+    private lastSongs: ISong[];
     private hasLeft = false;
 
-    constructor ( private vars: GlobalService,
-                  public plt: Platform,
-                  private ga: GoogleAnalytics,
-                  public viewCtrl: ViewController,
-                  private initService: InitService,
+    constructor ( private plt: Platform,
                   private prompt: PromptService,
+                  private ga: GoogleAnalytics,
+                  private viewCtrl: ViewController,
+                  private initService: InitService,
                   private radioService: RadioService,
                   private events: Events,
     ) {
-        console.log( 'Hello RadioPage' );
         this.plt.ready().then( ( readySource ) => {
             // console.log( 'Platform ready from', readySource );
             if ( plt.is( 'cordova' ) ) {
@@ -50,7 +49,7 @@ export class RadioPage {
                     } );
                     data = data.content;
                 }
-                this.streamingUrl = data.streamingUrl ? data.streamingUrl : this.vars.URL_STREAMING_DEFAULT;
+                this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
                 this.radioService.initLoop( data.loop_interval );
                 this.configReady = true;
             } ).catch( errors => this.prompt.presentMessage( {

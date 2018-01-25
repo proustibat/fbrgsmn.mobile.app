@@ -11,21 +11,22 @@ export class PromptService {
     constructor ( private loadingCtrl: LoadingController,
                  private vars: GlobalService,
                  private toastCtrl: ToastController ) {
-        console.log( 'Hello PromptService Provider' );
     }
 
     public presentLoading ( forRadio = false ) {
-        const message = forRadio ? this.vars.getRandomMessageRadio() : this.vars.getRandomMessagePosts();
+        const message = GlobalService.getRandomMessageIn(
+            forRadio ? GlobalService.loadingMsgRadio : GlobalService.loadingMsgPosts
+        );
         this.loader = this.loadingCtrl.create( {
             content: message,
             spinner: 'dots'
         } );
-        this.loader.present().catch( reason => console.log( `Error when presenting loader: ${ reason }` ) );
+        this.loader.present().catch( this.onError );
     }
 
     public dismissLoading () {
         if ( this.loader ) {
-            this.loader.dismiss().catch( reason => console.log( `Error when dismissing loader: ${reason}` ) );
+            this.loader.dismiss().catch( this.onError );
         }
     }
 
@@ -41,7 +42,7 @@ export class PromptService {
         if ( this.messageToast ) {
             this.messageToast
                 .dismiss()
-                .catch( reason => console.log( `Error when dismissing toast: ${ reason }` ) );
+                .catch( this.onError );
         }
 
         this.messageToast = this.toastCtrl.create( {
@@ -63,6 +64,10 @@ export class PromptService {
 
         this.messageToast
             .present()
-            .catch( reason => console.log( `Error when presenting toast: ${ reason })` ) );
+            .catch( this.onError );
+    }
+
+    private onError( reason ) {
+        console.log( `[PromptService] Error: ${ reason }` );
     }
 }

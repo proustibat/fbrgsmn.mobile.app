@@ -14,6 +14,7 @@ import { BackgroundMode } from '@ionic-native/background-mode';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Screenshot } from '@ionic-native/screenshot';
 import { Media } from '@ionic-native/media';
+import { MusicControls } from '@ionic-native/music-controls';
 
 export const CustomProviders = [
     GlobalService,
@@ -32,5 +33,6 @@ export const ExternalProviders = [
     SocialSharing,
     Screenshot,
     Media,
+    MusicControls,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
 ];
