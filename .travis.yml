@@ -44,7 +44,7 @@ before_install:
 #  - npm install -g ionic@3.19.0 cordova@8.0.0
 
 install:
-#  - npm install
+  - npm install
 #  - ionic cordova platform add android ios
 
 script:
