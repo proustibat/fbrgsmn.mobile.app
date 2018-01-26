@@ -91,9 +91,38 @@ It runs [Protractor](). Protractor is a Node.js program, and runs end-to-end tes
 
 ## Code documentation is [available here](https://proustibat.github.io/fbrgsmn.mobile.app/)
 
-## Contribute
+### Tests linting
+By default, tests are removed from `tslint` and `tslint:codeclimate` scripts because of incompatible rules. 
+They should be checked with `npm run tslint:tests`
+
+## Contributing
 - Issue Tracker: [https://github.com/proustibat/fbrgsmn.mobile.app/issues](https://github.com/proustibat/fbrgsmn.mobile.app/issues)
 - Source Code: [https://github.com/proustibat/fbrgsmn.mobile.app](https://github.com/proustibat/fbrgsmn.mobile.app)
+
+### Check your contribution before submitting it
+Be sure your code is alright: run `npm run all-custom-lint` and `npm run lint`. 
+Also run `npm run test-ci` to be sure your work will be accepted on our [Travis CI](https://travis-ci.org/proustibat/fbrgsmn.mobile.app) process.
+
+### Use Gitflow Worklow
+We use [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+Please follow this branching model.
+Once your branch is pushed (hotfix or feature), make a pull request [here](https://github.com/proustibat/fbrgsmn.mobile.app/pulls).
+Travis will check if tests are passed and we'll accept your PR depending on results.
+
+### Update the documentation
+If you update the code documentation or add commented code, you could check your changes by running `npm run typedoc`, it will create a 'documentation' folder. This will be published automatically on the [public documentation](https://proustibat.github.io/fbrgsmn.mobile.app/)
+
+### About linting
+Config files are in source code: 
+- tslint.json ( + tslint-tests.json + tslint-tests.json)
+- tsconfig.json ( contains typedoc options )
+- .stylelintrc
+- .scss-lint.yml
+- .editorconfig
+- .codeclimate.yml
+Don't hesitate to create an issue if you wanna change its and discuss about theses changes.
+
+
 
 ## Support
 If you are having issues, please let us know: tech.team@faubourgsimone.com
