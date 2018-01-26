@@ -7,11 +7,11 @@ env:
     # generate token at https://github.com/settings/tokens/new
     # generate secure with travis encrypt -r username/repository GH_TOKEN=[the token you created before]
 
-language: node_js
-node_js: '8'
-cache:
-  directories:
-    - node_modules
+#language: node_js
+#node_js: '8'
+#cache:
+#  directories:
+#    - node_modules
 
 # create a user token here: https://sonarcloud.io/account/security
 # run `travis encrypt your-token-here`
@@ -22,12 +22,12 @@ addons:
     token:
       secure: "lW+tEV58WNGeMaXhF6hkBglx2Jmd38+Sh7zm5W7T0VKe1U6vWsHF1qKd9kUrq2r8fcpx8kQDTkbd3qK3lrl63lcqBqco+SaEfiMUT3OliRFVRlSbCljSfAMpLrnsNShZZvxnxFDKmyaxPHKjwXAJVkjDBXUsZomQTd39ZGaZoiREpupR3ncNq3Ub0z36w/K4otqZVoLotlpzqDFRlVSlWhGPG5xC4YrJvKosWf/6x237mrO+0HJadegVxh9/3EjCr9rZF6PxhsCEiYn9ofHrpLPcgd5XFCP3fw1f8UtmxlnQA0L1g+9cvHvQggFxmUQ5bmNrZAySNXRJY5biZ8d50ZhtCBtsnO8XFTQ+/AWOrcpQEbTiGiowBG9d6EJOXLq3XGce4NIs0qwFbn4WhwCEvLuJeuw2StEXr8BLnjsoYkJ9pzxRQ6Lw2E1cZ9CQ0yOVXPeFE/DSqZhzKIQSLPvCrlL1eYaGqGcrEQu+hUi0OeAGEWbpfN+NihMA60MLfISnPH3BzDPpEvQEbnbNQzd1ba1XKM00m3uUnHmrjKoDqFO9pBr2putUN/C8hlul25grCcHvtWVKagbsWnClPo2vp0GwzsflM59gHXTChtlQEbhMKihrre7zLuOwSZHcj/50kN1j8Tt3OaVkuMycEYTjtT3u5r4HNcKGcV4M1c3VUQ8="
 
-before_install:
-  - npm install -g ionic@3.19.0 cordova@8.0.0
+#before_install:
+#  - npm install -g ionic@3.19.0 cordova@8.0.0
 
-install:
-  - npm install
-  - ionic cordova platform add android ios
+#install:
+#  - npm install
+#  - ionic cordova platform add android ios
 
 script:
 #  - npm run all-custom-lint
