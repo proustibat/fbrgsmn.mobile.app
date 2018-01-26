@@ -10,7 +10,7 @@
 #    git checkout master
 
 echo -e "#####################################################"
-echo -e " START DEPLOYING DOCUMENTATION"
+echo -e " START DEPLOYING DOCUMENTATION AND COVERAGE"
 echo -e "#####################################################"
 
 # stop executing if any errors occur, by default bash will just continue past any errors to run the next command
