@@ -1,0 +1,89 @@
+{
+    "extends": ["tslint:latest", "tslint-ionic-rules", "tslint-sonarts"],
+    "exclude": [
+        "src/app/app.component.spec.ts"
+    ],
+    "rulesDirectory": [
+        "node_modules/tslint/lib/rules"
+    ],
+    "rules": {
+        "indent": [true, "spaces", 4],
+        "ter-indent": [
+            true, 4
+        ],
+        "no-console": [false],
+        "quotemark": [true, "single"],
+        "trailing-comma": false,
+        "semicolon": [true, "always"],
+        "eofline": true,
+        "whitespace": [true,
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-module",
+            "check-type",
+            "check-branch",
+            "check-typecast",
+            "check-preblock"
+        ],
+        "space-within-parens": [true, 1],
+        "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
+        "arrow-parens": [false, "ban-single-arg-parens"],
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "onespace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            },
+            {
+                "call-signature": "onespace",
+                "index-signature": "onespace",
+                "parameter": "onespace",
+                "property-declaration": "onespace",
+                "variable-declaration": "onespace"
+            }
+        ],
+        "no-consecutive-blank-lines": [true, 1],
+        "await-promise": false,
+        "no-unused-variable": false,
+        "no-accessor-field-mismatch": false,
+        "no-array-delete": false,
+        "no-collection-size-mischeck": false,
+        "no-dead-store": false,
+        "no-element-overwrite": false,
+        "no-gratuitous-expressions": false,
+        "no-ignored-initial-value": false,
+        "no-ignored-return": false,
+        "no-misleading-array-reverse": false,
+        "no-return-type-any": false,
+        "no-self-assignment": false,
+        "no-unused-array": false,
+        "no-use-of-empty-return-value": false,
+        "no-useless-cast": false,
+        "no-useless-intersection": false,
+        "no-variable-usage-before-declaration": false,
+        "prefer-immediate-return": false,
+        "use-type-alias": false,
+        "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map"],
+        "no-commented-code": false,
+        "member-ordering": [true, {
+            "order": [
+                "public-static-field",
+                "public-instance-field",
+                "private-static-field",
+                "private-instance-field",
+                "public-constructor",
+                "private-constructor",
+                "public-instance-method",
+                "protected-instance-method",
+                "private-instance-method"
+            ]
+        }],
+        "no-use-before-declare": false,
+        "no-use-before-define": false,
+        "no-implicit-dependencies": false
+    }
+}
