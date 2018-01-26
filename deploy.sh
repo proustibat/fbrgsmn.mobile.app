@@ -72,7 +72,7 @@ touch .nojekyll
 git status
 # We then add all changes, commit them, using our rev from earlier, and then push to upstream.
 #git add -A .
-git add documentation coverage
+git add -f documentation coverage
 git commit -m "docs(typedoc and coverage) at ${rev} by TravisCI"
 # The -q keeps this a bit more quiet, and you can control the noisiness
 # of all these different git commands with a judicious sprinkling of -q.
