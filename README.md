@@ -72,6 +72,23 @@ ionic cordova emulate ios --target="iPhone-8"
 ionic cordova build ios android
 ```
 
+## Test
+Config files are in 'test-config' folder. Mocks file are in 'test-config/mocks', if you need to add some, please add it here.
+
+### Unit testing
+```bash
+npm run test
+```
+It starts [Karma](https://karma-runner.github.io/2.0/index.html) to watch tests and work on them. 
+Each file of the sources matches a test file with '.spec.ts' extension. We choose the [Jasmine](https://jasmine.github.io/) framework (v2.8), so if you're not familiar, please read the [documentation](https://jasmine.github.io/api/2.8/global)
+
+### E2E Testing
+```bash
+npm run e2e
+```
+It runs [Protractor](). Protractor is a Node.js program, and runs end-to-end tests that are also written in JavaScript and run with node. Protractor uses WebDriver to control browsers and simulate user actions.
+*Note that you need to run* `ionic serve -l` **before** *running e2e tests*
+
 ## Code documentation is [available here](https://proustibat.github.io/fbrgsmn.mobile.app/)
 
 ## Contribute
