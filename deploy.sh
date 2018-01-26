@@ -21,9 +21,9 @@ set -o errexit -o nounset
 # if not we just simply abort the deploy, no errors. So this way we can see the
 # result of the tests when we make pull request between different branches or
 # commit against a different branch than the master.
-if [ "$TRAVIS_BRANCH" != "develop" ]
+if [ "$TRAVIS_BRANCH" != "master" ]
 then
-  echo "This commit was made against the $TRAVIS_BRANCH and not the develop! No deploy!"
+  echo "This commit was made against the $TRAVIS_BRANCH and not the master! No deploy!"
   exit 0
 fi
 
