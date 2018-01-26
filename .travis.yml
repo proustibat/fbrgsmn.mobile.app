@@ -60,11 +60,8 @@ script:
 # If we are here, we run bash deploy.sh
 after_success:
   - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run typedoc && npm run test-coverage; fi
-#  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash sonar.sh; fi
-
-
-deploy:
   - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash deploy.sh; fi
+
 
 #after_script:
 #  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
