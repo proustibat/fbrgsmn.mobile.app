@@ -7,11 +7,11 @@ env:
     # generate token at https://github.com/settings/tokens/new
     # generate secure with travis encrypt -r username/repository GH_TOKEN=[the token you created before]
 
-#language: node_js
-#node_js: '8'
-#cache:
-#  directories:
-#    - node_modules
+language: node_js
+node_js: '8'
+cache:
+  directories:
+    - node_modules
 
 # create a user token here: https://sonarcloud.io/account/security
 # run `travis encrypt your-token-here`
