@@ -15,13 +15,15 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { Screenshot } from '@ionic-native/screenshot';
 import { Media } from '@ionic-native/media';
 import { MusicControls } from '@ionic-native/music-controls';
+import { MusicControlsManagerProvider } from './music-controls-manager/music-controls-manager';
 
 export const CustomProviders = [
     GlobalService,
     InitService,
     PromptService,
     RadioService,
-    TrackerService
+    TrackerService,
+    MusicControlsManagerProvider
 ];
 
 export const ExternalProviders = [

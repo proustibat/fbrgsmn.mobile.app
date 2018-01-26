@@ -5,19 +5,29 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { TranslateService } from 'ng2-translate';
+// import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 import { RadioPage } from '../pages/radio/radio';
 
 @Component( {
     templateUrl: 'app.html'
 } )
+
 export class FbrgSmnApp {
 
     @ViewChild( Nav ) public nav: Nav;
     public rootPage: any = TabsPage;
     public pages: Array<{title: string, component: any, tabIndex: number }>;
 
+    /**
+     * The Main App Class
+     * @param {Platform} platform
+     * @param {StatusBar} statusBar
+     * @param {SplashScreen} splashScreen
+     * @param {GoogleAnalytics} ga
+     * @param {TranslateService} translate
+     */
     constructor ( platform: Platform,
                   statusBar: StatusBar,
                   splashScreen: SplashScreen,
@@ -56,6 +66,10 @@ export class FbrgSmnApp {
         ];
     }
 
+    /**
+     * openPage method
+     * @param page
+     */
     public openPage ( page ) {
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
