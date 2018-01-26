@@ -19,8 +19,6 @@ import { CustomComponents, CustomDirectives, ExternalComponents } from '../compo
 
 // Libs
 import { SwingModule } from 'angular2-swing';
-// import { Http } from '@angular/http';
-// import { TranslateLoader, TranslateModule, TranslateStaticLoader } from 'ng2-translate';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -37,10 +35,6 @@ const appSettings = {
     tabsHighlight: true,
     tabsPlacement: 'bottom'
 };
-
-// export function createTranslateLoader( http: Http ) {
-//     return new TranslateStaticLoader( http, './assets/i18n', '.json' );
-// }
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory( http: HttpClient ) {
@@ -74,11 +68,6 @@ export function HttpLoaderFactory( http: HttpClient ) {
                 useFactory: ( HttpLoaderFactory ),
             }
         } )
-        // TranslateModule.forRoot( {
-        //     deps: [ Http ],
-        //     provide: TranslateLoader,
-        //     useFactory: ( createTranslateLoader )
-        // } )
     ],
     providers: [
         ...CustomProviders,

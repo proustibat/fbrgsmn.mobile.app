@@ -1,5 +1,8 @@
 {
     "extends": ["tslint:latest", "tslint-ionic-rules", "tslint-sonarts"],
+    "exclude": [
+        "src/app/app.component.spec.ts"
+    ],
     "rulesDirectory": [
         "node_modules/tslint/lib/rules"
     ],

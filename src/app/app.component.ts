@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-// import { TranslateService } from 'ng2-translate';
 import { TranslateService } from '@ngx-translate/core';
 
 import { RadioPage } from '../pages/radio/radio';
