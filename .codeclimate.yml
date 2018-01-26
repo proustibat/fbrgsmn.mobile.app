@@ -3,6 +3,8 @@ version: "2"
 exclude_patterns:
 - resources
 - documentation
+- test-config
+- e2e
 
 plugins:
   tslint:

@@ -1,46 +1,46 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2015"
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "dom",
+            "es2015"
+        ],
+        "module": "es2015",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "include": [
+        "src/**/*.ts"
     ],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "target": "es5"
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/*.spec.ts",
-    "src/**/__tests__/*.ts"
-  ],
-  "compileOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  },
-  "typedocOptions": {
-    "out": "documentation",
-    "theme": "minimal",
-    "name": "Faubourg Simone Mobile App",
-    "hideGenerator": "true",
-    "readme": "README.md",
-    "mode": "file",
-    "ignoreCompilerErrors": "true",
-    "experimentalDecorators": "true",
-    "emitDecoratorMetadata": "true",
-    "target": "ES5",
-    "moduleResolution": "node",
-    "preserveConstEnums": "true",
-    "stripInternal": "true",
-    "suppressExcessPropertyErrors": "true",
-    "suppressImplicitAnyIndexErrors": "true",
-    "module": "commonjs"
-  }
+    "exclude": [
+        "node_modules",
+        "src/**/*.spec.ts",
+        "src/**/__tests__/*.ts"
+    ],
+    "compileOnSave": false,
+    "atom": {
+        "rewriteTsconfig": false
+    },
+    "typedocOptions": {
+        "out": "documentation",
+        "theme": "minimal",
+        "name": "Faubourg Simone Mobile App",
+        "hideGenerator": "true",
+        "readme": "README.md",
+        "mode": "file",
+        "ignoreCompilerErrors": "true",
+        "experimentalDecorators": "true",
+        "emitDecoratorMetadata": "true",
+        "target": "ES5",
+        "moduleResolution": "node",
+        "preserveConstEnums": "true",
+        "stripInternal": "true",
+        "suppressExcessPropertyErrors": "true",
+        "suppressImplicitAnyIndexErrors": "true",
+        "module": "commonjs"
+    }
 }

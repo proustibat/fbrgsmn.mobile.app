@@ -19,10 +19,9 @@ import { CustomComponents, CustomDirectives, ExternalComponents } from '../compo
 
 // Libs
 import { SwingModule } from 'angular2-swing';
-import { Http, HttpModule } from '@angular/http';
-import { TranslateLoader, TranslateModule, TranslateStaticLoader } from 'ng2-translate';
-import { HttpClientModule } from '@angular/common/http';
-import { MusicControlsManagerProvider } from '../providers/music-controls-manager/music-controls-manager';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const appSettings = {
     backButtonText: 'Retour',
@@ -37,8 +36,9 @@ const appSettings = {
     tabsPlacement: 'bottom'
 };
 
-export function createTranslateLoader( http: Http ) {
-    return new TranslateStaticLoader( http, './assets/i18n', '.json' );
+// AoT requires an exported function for factories
+export function HttpLoaderFactory( http: HttpClient ) {
+    return new TranslateHttpLoader( http, './assets/i18n/', '.json' );
 }
 
 @NgModule( {
@@ -61,17 +61,17 @@ export function createTranslateLoader( http: Http ) {
         IonicModule.forRoot( FbrgSmnApp, appSettings ),
         SwingModule,
         HttpClientModule,
-        HttpModule,
         TranslateModule.forRoot( {
-            deps: [ Http ],
-            provide: TranslateLoader,
-            useFactory: ( createTranslateLoader )
+            loader: {
+                deps: [ HttpClient ],
+                provide: TranslateLoader,
+                useFactory: ( HttpLoaderFactory ),
+            }
         } )
     ],
     providers: [
         ...CustomProviders,
-        ...ExternalProviders,
-        MusicControlsManagerProvider
+        ...ExternalProviders
     ]
 } )
 export class AppModule {}

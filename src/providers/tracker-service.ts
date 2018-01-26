@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 /* tslint:enable:no-import-side-effect */
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { TranslateService } from 'ng2-translate';
+// import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class TrackerService {

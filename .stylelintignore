@@ -6,3 +6,5 @@ plugins
 resources
 www
 *.html
+test-config
+e2e
