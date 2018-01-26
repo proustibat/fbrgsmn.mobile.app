@@ -83,6 +83,7 @@
             ]
         }],
         "no-use-before-declare": false,
-        "no-use-before-define": false
+        "no-use-before-define": false,
+        "no-implicit-dependencies": false
     }
 }

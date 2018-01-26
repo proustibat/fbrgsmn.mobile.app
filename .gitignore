@@ -40,3 +40,5 @@ sonar-project.properties
 documentation
 *.backup
 codeclimate-out.html
+coverage
+deploy.sh.bak
