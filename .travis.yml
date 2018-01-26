@@ -6,7 +6,7 @@ env:
     - secure: "atFmfjSNIePl2h2Qd2MK7SJHuzkCV9H7ND9WYILQovviq4zJBVtfNwGy7fLg2E91AnmhzuIJilECLSFuiazRHxcBk6xJyqfrcDBuWdSBhWLnpV3CIwvgQfNvNU55lrwReYjC3ZTpCnPBFFxOECS46MLkbH7GBPIlEDTuj+w+itd/iPy4qljfmNG3+ex5sWTGys2J/ssqQO9hXrwXoCsSp7fNu6BpE95eSqfWH0kwLrSKiBonMLXXp8NUQsobGijCj7cGoImdZeWeqCpMwqUpIfeKGa1y5Urh8fAbaV2xgDV+24+EUBKLjaKJU7DUAgb4UlwswyvLLObxnUubtzOB7WOEi7djrMAaeLXSA+q0Pnk12xWZY0MzmSrxjYXR7kGjb31s//zwwJcnM5NdMM1MrHEm0KX2dtBRjLpOF/L7voNqrqOvHqFv18dmaungzFYT49k2HXZHIgcwpvkW5woMfgw6lKR/jrSOi+HdLJ90g8Ju4vfw9vvU1/GIer59SR+hQVmCWsf2oU5SLuPnDfssD2qU+11oYKMfCnZTrwlzJ2N2QNskKF17/QLmR9QVyY3lmttMsyM8ilf4NJ3VmUhDgpmsss2ffTl4RrTDzkAhBpf/6AvBo4hwdqIGcaNqASXFI/rCSIaOzVfnKkLQTl4XAsXA/2ckCkhEHBYzNvPay34="
     # generate token at https://github.com/settings/tokens/new
     # generate secure with travis encrypt -r username/repository GH_TOKEN=[the token you created before]
-#    - CC_TEST_REPORTER_ID: 5e81078668dc11edc4d6dbab7b21579c59d4238bbd3216c2f5279acdfbe5d1c8
+    - CC_TEST_REPORTER_ID: 5e81078668dc11edc4d6dbab7b21579c59d4238bbd3216c2f5279acdfbe5d1c8
 
 language: node_js
 node_js: '8'
@@ -49,11 +49,11 @@ before_script:
 #  - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 
 script:
-  - npm run all-custom-lint
+#  - npm run all-custom-lint
+  - npm run test-ci
 #  - ionic cordova build android ios
   - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash sonar.sh; fi
 #  - npm run lint
-#  - npm run test-ci
 #  - npm run test-coverage
 
 
