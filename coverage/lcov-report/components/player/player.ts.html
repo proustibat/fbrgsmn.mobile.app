@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/player/player.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">components/player</a> player.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.96% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/112</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.35% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.98% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/106</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, Input } from '@angular/core';
+// import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
+import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser';
+import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
+import { TrackerService } from '../../providers/tracker-service';
+import { PromptService } from '../../providers/prompt-service';
+import { Events, Platform } from 'ionic-angular';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { GlobalService } from '../../providers/global-service';
+import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
+&nbsp;
+@Component( {
+    providers: [ MusicControlsManagerProvider ],
+    selector: 'player',
+    templateUrl: 'player.html'
+} )
+&nbsp;
+export class PlayerComponent {
+&nbsp;
+    @Input() private streamingUrl: string;
+    @Input() private configReady: boolean;
+    private browserPopup: InAppBrowserObject;
+    private <span class="cstat-no" title="statement not covered" >isPlaying = false;</span>
+    private <span class="cstat-no" title="statement not covered" >isButtonActive = true;</span>
+    private <span class="cstat-no" title="statement not covered" >playPauseButton = 'play';</span>
+    private mediaObject: MediaObject;
+    private <span class="cstat-no" title="statement not covered" >isLoading = true;</span>
+    private <span class="cstat-no" title="statement not covered" >currentSong = { cover: { jpg: '', svg: '' }, title: '', artist: '', track: '' };</span>
+    private shareOptions: any;
+    private trackingOptions: any;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor( private <span class="cstat-no" title="statement not covered" ></span>plt: Platform,</span>
+                 private <span class="cstat-no" title="statement not covered" >prompt: PromptService,</span>
+                 private <span class="cstat-no" title="statement not covered" >translateService: TranslateService,</span>
+                 private <span class="cstat-no" title="statement not covered" >iab: InAppBrowser,</span>
+                 private <span class="cstat-no" title="statement not covered" >tracker: TrackerService,</span>
+                 private <span class="cstat-no" title="statement not covered" >musicControlsManager: MusicControlsManagerProvider,</span>
+                 private <span class="cstat-no" title="statement not covered" >media: Media,</span>
+                 private <span class="cstat-no" title="statement not covered" >backgroundMode: BackgroundMode,</span>
+                 private <span class="cstat-no" title="statement not covered" >events: Events,</span>
+    ) {
+<span class="cstat-no" title="statement not covered" >        this.currentSong = { cover: GlobalService.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };</span>
+&nbsp;
+        // Events from MusicControlsManager
+<span class="cstat-no" title="statement not covered" >        this.events.subscribe( '[MusicControlsManager]pause', this.pause.bind( this ) );</span>
+<span class="cstat-no" title="statement not covered" >        this.events.subscribe( '[MusicControlsManager]play', this.play.bind( this ) );</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public updateMeta ( </span>currentSong ) {
+<span class="cstat-no" title="statement not covered" >        this.currentSong = currentSong;</span>
+<span class="cstat-no" title="statement not covered" >        this.updateShareOptions();</span>
+<span class="cstat-no" title="statement not covered" >        this.updateTrackingOptions();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.musicControlsManager.init( this.currentSong, this.isPlaying );</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private togglePlayPause () {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.translateService</span>
+            .get( [
+                'TRACKING.PLAYER.CATEGORY',
+                this.isPlaying ? 'TRACKING.PLAYER.ACTION.PAUSE' : 'TRACKING.PLAYER.ACTION.PLAY',
+                'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS'
+            ] )
+            .subscribe( <span class="fstat-no" title="function not covered" >( </span>result: string ) =&gt; {
+<span class="cstat-no" title="statement not covered" >                this.tracker.trackEventWithData(</span>
+                    result[ 'TRACKING.PLAYER.CATEGORY' ],
+                    result[ this.isPlaying ? 'TRACKING.PLAYER.ACTION.PAUSE' : 'TRACKING.PLAYER.ACTION.PLAY' ],
+                    result[ 'TRACKING.PLAYER.LABEL.PLAYER_BUTTONS' ] );
+            }, <span class="fstat-no" title="function not covered" >error =&gt; <span class="cstat-no" title="statement not covered" >console.log( error ) </span>);</span>
+        // Do this after the tracking, otherwise `isPlaying will had been changed`
+<span class="cstat-no" title="statement not covered" >        this.isPlaying ? this.pause() : this.play();</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private play () {</span>
+<span class="cstat-no" title="statement not covered" >        if ( !this.isPlaying ) {</span>
+<span class="cstat-no" title="statement not covered" >            this.isButtonActive = false;</span>
+<span class="cstat-no" title="statement not covered" >            this.prompt.presentLoading( true );</span>
+<span class="cstat-no" title="statement not covered" >            this.startStreamingMedia();</span>
+<span class="cstat-no" title="statement not covered" >            this.isPlaying = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.playPauseButton = 'pause';</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private pause () {</span>
+<span class="cstat-no" title="statement not covered" >        if ( this.isPlaying ) {</span>
+<span class="cstat-no" title="statement not covered" >            if ( this.plt.is( 'cordova' ) ) {</span>
+<span class="cstat-no" title="statement not covered" >                this.mediaObject.stop();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            this.musicControlsManager.updatePlayState( false );</span>
+<span class="cstat-no" title="statement not covered" >            this.playPauseButton = 'play';</span>
+<span class="cstat-no" title="statement not covered" >            this.isPlaying = false;</span>
+<span class="cstat-no" title="statement not covered" >            this.isLoading = true;</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private startStreamingMedia () {</span>
+<span class="cstat-no" title="statement not covered" >        if ( this.plt.is( 'cordova' ) ) {</span>
+&nbsp;
+            // This is the first launch, we need to create the media object
+<span class="cstat-no" title="statement not covered" >            if ( !this.mediaObject ) {</span>
+<span class="cstat-no" title="statement not covered" >                this.createMedia();</span>
+            }
+&nbsp;
+            // Play the file
+<span class="cstat-no" title="statement not covered" >            this.mediaObject.play();</span>
+        } else {
+            // TODO: fallback for browser ?
+<span class="cstat-no" title="statement not covered" >            this.onTrackError( 'Cordova is missing! ' +</span>
+                'If you\'re on a mobile device, please contact us at tech.team@faubourgsimone.com' );
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private createMedia () {</span>
+<span class="cstat-no" title="statement not covered" >        this.mediaObject = this.media.create( this.streamingUrl );</span>
+<span class="cstat-no" title="statement not covered" >        this.mediaObject.onStatusUpdate.subscribe( this.onMediaStatusUpdate.bind( this ) );</span>
+<span class="cstat-no" title="statement not covered" >        this.mediaObject.onError.subscribe( this.onMediaError.bind( this ) );</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private onMediaStatusUpdate( </span>status ) {
+<span class="cstat-no" title="statement not covered" >        if ( status === MEDIA_STATUS.RUNNING ) {</span>
+<span class="cstat-no" title="statement not covered" >            this.backgroundMode.enable();</span>
+<span class="cstat-no" title="statement not covered" >            this.onTrackLoaded();</span>
+&nbsp;
+        }
+<span class="cstat-no" title="statement not covered" >        if ( ( status === MEDIA_STATUS.STOPPED || status === MEDIA_STATUS.PAUSED )</span>
+            &amp;&amp; this.backgroundMode.isEnabled() ) {
+<span class="cstat-no" title="statement not covered" >            this.backgroundMode.disable();</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private onMediaError( </span>error: MEDIA_ERROR ) {
+        const possibleErrors = <span class="cstat-no" title="statement not covered" >[</span>
+            MEDIA_ERROR.SUPPORTED,
+            MEDIA_ERROR.DECODE,
+            MEDIA_ERROR.ABORTED,
+            MEDIA_ERROR.NETWORK];
+<span class="cstat-no" title="statement not covered" >        if ( possibleErrors.indexOf( error ) &gt; 1 ) {</span>
+<span class="cstat-no" title="statement not covered" >            this.onTrackError( error );</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            console.log( 'Media returns impossible error status !' );</span>
+<span class="cstat-no" title="statement not covered" >            this.onTrackError( { isFalseError: true } );</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private onTrackLoaded ( </span>event? ) {
+<span class="cstat-no" title="statement not covered" >        this.isLoading = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.prompt.dismissLoading();</span>
+<span class="cstat-no" title="statement not covered" >        this.isPlaying = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.isButtonActive = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.musicControlsManager.updatePlayState( true );</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private onTrackError ( </span>event ) {</span>
+<span class="cstat-no" title="statement not covered" >        this.prompt.dismissLoading();</span>
+<span class="cstat-no" title="statement not covered" >        this.isButtonActive = true;</span>
+<span class="cstat-no" title="statement not covered" >        if ( this.plt.is( 'cordova' ) ) {</span>
+<span class="cstat-no" title="statement not covered" >            this.musicControlsManager.updatePlayState( false );</span>
+        } else {
+            // cordova is missing, just reset the ui (setTimeout to 0 is to run this immediately)
+<span class="cstat-no" title="statement not covered" >            setTimeout( <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >                this.playPauseButton = 'play';</span>
+<span class="cstat-no" title="statement not covered" >                this.isPlaying = false;</span>
+<span class="cstat-no" title="statement not covered" >                this.isLoading = true;</span>
+            }, 0 );
+        }
+<span class="cstat-no" title="statement not covered" >        if ( !event.isFalseError ) {</span>
+<span class="cstat-no" title="statement not covered" >            if ( this.isPlaying ) {</span>
+<span class="cstat-no" title="statement not covered" >                this.pause();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            this.prompt.presentMessage( { message: event.toString(), classNameCss: 'error', duration: 6000 } );</span>
+        }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private updateShareOptions () {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.translateService</span>
+            .get(
+                [ 'SHARING.CURRENT_SONG.MESSAGE', 'SHARING.CURRENT_SONG.SUBJECT', 'SHARING.CURRENT_SONG.URL' ],
+                { title: this.currentSong.title }
+            )
+            .subscribe( <span class="fstat-no" title="function not covered" >( </span>result: string ) =&gt; {
+<span class="cstat-no" title="statement not covered" >                this.shareOptions = {</span>
+                    image: this.currentSong.cover.jpg,
+                    message: result[ 'SHARING.CURRENT_SONG.MESSAGE' ],
+                    subject: result[ 'SHARING.CURRENT_SONG.SUBJECT' ],
+                    url: result[ 'SHARING.CURRENT_SONG.URL' ]
+                };
+            } );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private updateTrackingOptions () {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.translateService</span>
+            .get( [
+                'TRACKING.SHARE.CURRENT_SONG.CATEGORY',
+                'TRACKING.SHARE.CURRENT_SONG.ACTION',
+                'TRACKING.SHARE.CURRENT_SONG.LABEL'
+            ], {
+                title: this.currentSong.title
+            } )
+            .subscribe( <span class="fstat-no" title="function not covered" >( </span>result: string ) =&gt; {
+<span class="cstat-no" title="statement not covered" >                this.trackingOptions = {</span>
+                    action: result[ 'TRACKING.SHARE.CURRENT_SONG.ACTION' ],
+                    category: result[ 'TRACKING.SHARE.CURRENT_SONG.CATEGORY' ],
+                    label: result[ 'TRACKING.SHARE.CURRENT_SONG.LABEL' ]
+                };
+            } );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private postToFeed () {</span></span>
+        // Escape HTML
+        const el: HTMLElement = <span class="cstat-no" title="statement not covered" >document.createElement( 'textarea' );</span>
+<span class="cstat-no" title="statement not covered" >        el.innerHTML = this.currentSong.cover.jpg.toString();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.translateService</span>
+            .get( 'SHARING.CURRENT_SONG.FACEBOOK_FEED_DESCRIPTION',
+                { track: this.currentSong.track, artist: this.currentSong.artist } )
+            .subscribe( <span class="fstat-no" title="function not covered" >( </span>result: string ) =&gt; {
+                const baseUrl = <span class="cstat-no" title="statement not covered" >'https://www.facebook.com/dialog/feed';</span>
+                const url = `${<span class="cstat-no" title="statement not covered" >baseUrl}?app_id=419281238161744&amp;name=${this.currentSong.title}</span>
+                &amp;display=popup&amp;caption=http://faubourgsimone.paris/application-mobile
+                &amp;description=${result}
+                &amp;link=faubourgsimone.paris/application-mobile
+                &amp;picture=${el.innerHTML}`;
+<span class="cstat-no" title="statement not covered" >                this.browserPopup = this.iab.create( url, '_blank' );</span>
+                // This check is because of a crash when simulated on desktop browser
+<span class="cstat-no" title="statement not covered" >                if ( typeof this.browserPopup.on( 'loadstop' ).subscribe === 'function' ) {</span>
+<span class="cstat-no" title="statement not covered" >                    this.browserPopup.on( 'loadstop' ).subscribe( <span class="fstat-no" title="function not covered" >( </span>evt ) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if ( evt.url === 'https://www.facebook.com/dialog/return/close?#_=_' ) {</span>
+<span class="cstat-no" title="statement not covered" >                            this.closePopUp();</span>
+                        }
+                    } );
+                }
+            } );
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private closePopUp () {</span>
+<span class="cstat-no" title="statement not covered" >        this.browserPopup.close();</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jan 27 2018 16:02:10 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

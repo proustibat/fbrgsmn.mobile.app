@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for providers/radio-service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">providers</a> radio-service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.88% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.02% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/47</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { GlobalService } from './global-service';
+import { Events } from 'ionic-angular';
+/* tslint:disable:no-import-side-effect */
+import 'rxjs/add/operator/map';
+/* tslint:enable:no-import-side-effect */
+import { ICoverSong, ISong } from '../interfaces';
+&nbsp;
+@Injectable()
+export class RadioService {
+&nbsp;
+    private static TAGS = {
+        DEFAULT: [
+            'sample',
+            'jingle',
+            'faubourg simone',
+            'fabourg simone', // lol
+            'flash calepin',
+        ],
+        FRIDAY_WEAR: [
+            'Friday Wear',
+        ],
+        NOUVEAUTE: [
+            'nouveauté',
+            'nothing',
+            'nouveaute',
+            'college'
+        ]
+    };
+&nbsp;
+    private <span class="cstat-no" title="statement not covered" >loopInterval = 3000;</span>
+    private timer: any;
+    private currentSong: ISong;
+    private lastSongs: ISong[];
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor ( public <span class="cstat-no" title="statement not covered" ></span>http: HttpClient,</span> private <span class="cstat-no" title="statement not covered" >events: Events </span>) { }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    public initLoop ( </span>interval?: number ) {</span>
+<span class="cstat-no" title="statement not covered" >        if ( this.timer ) {</span>
+<span class="cstat-no" title="statement not covered" >            clearTimeout( this.timer );</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.getApiSongs()</span>
+            .then( <span class="fstat-no" title="function not covered" >( </span>data: any ) =&gt; {
+                const hasChanged = <span class="cstat-no" title="statement not covered" >!this.currentSong || ( this.currentSong.title !== data.songs[0].title );</span>
+<span class="cstat-no" title="statement not covered" >                if ( hasChanged ) {</span>
+<span class="cstat-no" title="statement not covered" >                    this.lastSongs = data.songs.map( <span class="fstat-no" title="function not covered" >song =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >                        return {</span>
+                            artist: song.title.split( ' - ' )[0],
+                            cover: song.cover,
+                            title: song.title || '',
+                            track: song.title.split( ' - ' )[1]
+                        };
+                    } );
+<span class="cstat-no" title="statement not covered" >                    this.currentSong = this.lastSongs.shift();</span>
+<span class="cstat-no" title="statement not covered" >                    this.events.publish( '[RadioService]now-playing-change', this.currentSong, this.lastSongs );</span>
+                }
+<span class="cstat-no" title="statement not covered" >                this.timer = setTimeout( <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>this.initLoop(),</span> interval ? interval : this.loopInterval );</span>
+            } )
+            .catch( <span class="fstat-no" title="function not covered" >error =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                console.log( error );</span>
+                // TODO : verifier que c'est entendu
+<span class="cstat-no" title="statement not covered" >                this.events.publish( '[RadioService]error', error );</span>
+            } );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    public getApiSongs (): Promise&lt;any&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        return new Promise( <span class="fstat-no" title="function not covered" >resolve =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >            this.http.get( GlobalService.URL_API_COVERS ).subscribe( <span class="fstat-no" title="function not covered" >data =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >                resolve( this.filterDefaultCovers( data ) );</span>
+            }, <span class="fstat-no" title="function not covered" >err =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                return new Error( 'This request has failed ' + err );</span>
+            } );
+        } );
+    }
+&nbsp;
+    /**
+     * We may have to change the cover returned by theAPI
+     * @param data
+     * @returns {any}
+     */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private filterDefaultCovers ( </span>data ): any {</span>
+<span class="cstat-no" title="statement not covered" >        data.songs = data.songs.map( <span class="fstat-no" title="function not covered" >song =&gt; {</span></span>
+&nbsp;
+            let coverToGet: ICoverSong = <span class="cstat-no" title="statement not covered" >null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ( coverToGet == null ) {</span>
+<span class="cstat-no" title="statement not covered" >                coverToGet = this.getMatchedCover( song );</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ( coverToGet === null ) {</span>
+<span class="cstat-no" title="statement not covered" >                coverToGet = {</span>
+                    jpg: song.album_cover,
+                    svg: song.album_cover
+                };
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return {</span>
+                cover: coverToGet,
+                title: song.title
+            };
+        } );
+<span class="cstat-no" title="statement not covered" >        return data;</span>
+    }
+&nbsp;
+    /**
+     * Return a special cover if title of the song contains any
+     * specific tags in RadioService.TAGS.DEFAULT,
+     * RadioService.TAGS.NOUVEAUTE or in RadioService.TAGS.FRIDAY_WEAR.
+     * Depending in which array the tag is matching,
+     * returns a default Cover from GlobalService
+     * @param song
+     * @returns {ICoverSong}
+     */
+<span class="fstat-no" title="function not covered" >    private getMatchedCover( </span>song: any ): ICoverSong {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if ( song.album_cover.indexOf( 'pochette-default' ) &gt; -1 ) {</span>
+<span class="cstat-no" title="statement not covered" >            return GlobalService.COVER_DEFAULT;</span>
+        }
+&nbsp;
+        let cover = <span class="cstat-no" title="statement not covered" >null;</span>
+&nbsp;
+        const tagInIt = <span class="cstat-no" title="statement not covered" >this.lookForMatch( song.title );</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if ( tagInIt === RadioService.TAGS.FRIDAY_WEAR ) {</span>
+<span class="cstat-no" title="statement not covered" >            cover = GlobalService.COVER_DEFAULT_FRIDAY_WEAR;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if ( tagInIt === RadioService.TAGS.NOUVEAUTE ) {</span>
+<span class="cstat-no" title="statement not covered" >            cover = GlobalService.COVER_DEFAULT_NOUVEAUTE;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if ( tagInIt === RadioService.TAGS.DEFAULT ) {</span>
+<span class="cstat-no" title="statement not covered" >            cover = GlobalService.COVER_DEFAULT;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return cover;</span>
+    }
+&nbsp;
+    /**
+     * Checks if title contains any tag of the arrays (default friday
+     * wear tags, default nouveaute tags, or simply default tags
+     * If an array of tags matches, returns this array
+     * @param {string} title
+     * @returns {string[]}
+     */
+<span class="fstat-no" title="function not covered" >    private lookForMatch( </span>title: string ): string[] {
+<span class="cstat-no" title="statement not covered" >        return [</span>
+            RadioService.TAGS.FRIDAY_WEAR,
+            RadioService.TAGS.NOUVEAUTE,
+            RadioService.TAGS.DEFAULT
+        ]
+            .find( <span class="fstat-no" title="function not covered" >tagArray =&gt; <span class="cstat-no" title="statement not covered" >!!( tagArray.find( <span class="fstat-no" title="function not covered" >tag =&gt; <span class="cstat-no" title="statement not covered" >title.toLowerCase().indexOf( tag.toLowerCase() ) &gt; -1 </span>) ) </span>);</span></span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jan 27 2018 16:02:10 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

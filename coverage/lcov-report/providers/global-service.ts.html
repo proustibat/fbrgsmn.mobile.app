@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for providers/global-service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">providers</a> global-service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/24</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { ICoverSong, IUrlArchives, IUrlArchivesParams, PostType } from '../interfaces';
+&nbsp;
+@Injectable()
+export class GlobalService {
+    public static DEV_MODE = true;
+&nbsp;
+    public static BASE_URL_API_PROD = 'http://faubourgsimone.paris';
+    public static BASE_URL_API_DEV = 'http://faubourgsimone.local';
+    public static BASE_URL = GlobalService.DEV_MODE ? GlobalService.BASE_URL_API_DEV : <span class="branch-1 cbranch-no" title="branch not covered" >GlobalService.BASE_URL_API_PROD;</span>
+&nbsp;
+    public static URL_INFO_DEV = 'assets/config.json';
+    public static URL_INFO_PROD = 'http://faubourgsimone.paris/ionic-app/info.json';
+&nbsp;
+    public static DEFAULT_URL_STREAMING = 'http://91.121.65.131:8000/;';
+    public static URL_API_COVERS = 'http://ks25555.kimsufi.com/fsapi/cacheapi.json';
+&nbsp;
+    public static COVER_DEFAULT: ICoverSong = {
+        jpg: 'assets/images/cover-default.jpg',
+        svg: 'assets/images/cover-default.svg'
+    };
+    public static COVER_DEFAULT_FRIDAY_WEAR: ICoverSong = {
+        jpg: 'assets/images/cover-friday-wear.jpg',
+        svg: 'assets/images/cover-friday-wear.svg'
+    };
+    public static COVER_DEFAULT_NOUVEAUTE: ICoverSong = {
+        jpg: 'assets/images/cover-news.jpg',
+        svg: 'assets/images/cover-news.svg'
+    };
+    /**
+     *
+     * @param {PostType} postType
+     * @returns {IUrlArchives}
+     * @example `GlobalService.GET_URL_ARCHIVES( PostType.pola )`
+     */
+<span class="fstat-no" title="function not covered" >    public static GET_URL_ARCHIVES( </span>postType: PostType ): IUrlArchives {
+        // post type for casque category in our wordpress api is called 'nouveaute'
+        const typeKey = <span class="cstat-no" title="statement not covered" >postType === PostType.casque ? 'nouveaute' : PostType[ postType ];</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+            baseUrl: `${GlobalService.BASE_URL}/api/get_posts/?post_type=${ typeKey }`,
+            params: GlobalService.URL_ARCHIVES_PARAMS
+        };
+    }
+&nbsp;
+    public static URL_CALEPIN = `${GlobalService.BASE_URL}/wp-json/wp/v2/calepin/`;
+    public static URL_CASQUE = `${GlobalService.BASE_URL}/wp-json/wp/v2/nouveaute/`;
+    public static URL_CASQUE_FIELDS = `${GlobalService.BASE_URL}/wp-json/acf/v2/nouveaute/`;
+&nbsp;
+    // TODO translate
+    public static loadingMsgPosts: string[] = [
+        'Tout doux beau prince !',
+        'Patience beauté !',
+        'Quelques secondes minouche !',
+        'Effeuillage imminent.',
+        'On prépare les magrets.',
+        'On vous beurre les tartines.',
+        'Bien attend qui parratend.',
+        'Patience et longueur de temps font plus que force ni que rage.',
+        'Prends patience, tu verras des miracles',
+        'Qui va piano va sano',
+        'Goutte à goutte on emplit la cuve.',
+        'Patience est mère de toutes les vertus',
+        'Oui, oui, un p’tit instant voulez-vous'
+    ];
+    public static loadingMsgRadio: string[] = [
+        'Paris ne s\'est pas faite en un jour !',
+        'En voiture Simone !',
+        'Préparation du café !',
+        'Préchauffage du transistor !',
+        'Mixage du son et de l\'avoine en cours !',
+        'Déploiement de l\'antenne !',
+        'On cherche la prise Jack !',
+        'On vous envoie la sauce !',
+        'Propagation des ondes',
+        'Recherche de la ionosphere',
+        'Oui, oui, un p’tit instant voulez-vous',
+        'Patience est mère de toutes les vertus'
+    ];
+<span class="fstat-no" title="function not covered" >    public static getRandomMessageIn( </span>messages: string[] ) {
+<span class="cstat-no" title="statement not covered" >        return messages[ Math.floor( Math.random() * ( messages.length - 1 ) ) ];</span>
+    }
+&nbsp;
+    private static URL_ARCHIVES_PARAMS: IUrlArchivesParams = {
+        count: '&amp;count=',
+        page: '&amp;page='
+    };
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jan 27 2018 16:02:10 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
