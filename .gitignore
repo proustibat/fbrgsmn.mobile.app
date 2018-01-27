@@ -42,3 +42,4 @@ documentation
 codeclimate-out.html
 coverage
 deploy.sh.bak
+.travis.yml.bak

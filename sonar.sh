@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo -e "#####################################################"
+echo -e " START SONAR SCRIPT"
+echo -e "#####################################################"
+
 function readJson {
   UNAMESTR=`uname`
   if [[ "$UNAMESTR" == 'Linux' ]]; then
