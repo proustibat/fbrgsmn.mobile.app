@@ -46,7 +46,6 @@ script:
   - npm run all-custom-lint
   - ionic cordova build android ios
   - npm run test-ci
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash sonar.sh; fi
 
 
 # Here we want to check out where we are.
@@ -56,6 +55,7 @@ script:
 # If we are here, we run bash deploy.sh
 after_success:
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run typedoc && npm run test-coverage; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash sonar.sh; fi
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash deploy.sh; fi
 
 
