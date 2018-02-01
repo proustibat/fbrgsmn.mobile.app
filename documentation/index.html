@@ -1014,7 +1014,7 @@ img { max-width: 100%; }
 				<thead>
 					<tr>
 						<th><a href='https://play.google.com/store/apps/details?id=com.mfkr.faubourg.simone&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="150"/></a> <br/> <a href='https://itunes.apple.com/fr/app/faubourg-simone-radio/id617687434&pcampaignid=GITHUB'><img alt='Get it on Apple Store' src='https://devimages-cdn.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg' width="132"/></a></th>
-						<th style="text-align:left"><a href="https://travis-ci.org/proustibat/fbrgsmn.mobile.app"><img src="https://travis-ci.org/proustibat/fbrgsmn.mobile.app.svg?branch=master" alt="Build Status"></a> <br/> <a href="https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app"><img src="https://sonarcloud.io/api/badges/gate?key=fbrgsmn.mobile.app" alt="Sonar quality gate"></a> </br> <a href="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app"><img src="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app/badges/gpa.svg" alt="Code Climate"></a></th>
+						<th style="text-align:left"><a href="https://travis-ci.org/proustibat/fbrgsmn.mobile.app"><img src="https://travis-ci.org/proustibat/fbrgsmn.mobile.app.svg?branch=master" alt="Build Status"></a> <br/> <a href="https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app"><img src="https://sonarcloud.io/api/badges/gate?key=fbrgsmn.mobile.app" alt="Sonar quality gate"></a> </br> <a href="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app"><img src="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app/badges/gpa.svg" alt="Code Climate"></a> </br> <a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=coverage"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=coverage" alt="Sonar Coverage"></a></th>
 						<th style="text-align:left"><a href="https://github.com/proustibat/fbrgsmn.mobile.app/commits/master"><img src="https://img.shields.io/maintenance/yes/2018.svg" alt="Maintenance"></a> <br/> <a href="https://github.com/proustibat/fbrgsmn.mobile.app/commits/master"><img src="https://img.shields.io/github/last-commit/proustibat/fbrgsmn.mobile.app.svg" alt="GitHub last commit"></a> <br/> <a href="https://sonarcloud.io/component_measures?id=fbrgsmn.mobile.app&amp;metric=open_issues"><img src="https://sonarcloud.io/api/badges/measure?key=fbrgsmn.mobile.app&amp;metric=open_issues" alt="Open issues"></a></th>
 						<th style="text-align:left"><a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/proustibat/fbrgsmn.mobile.app.svg" alt="Greenkeeper badge"></a> <br/> <a href="https://david-dm.org/proustibat/fbrgsmn.mobile.app"><img src="https://david-dm.org/proustibat/fbrgsmn.mobile.app/status.svg" alt="Dependencies Status"></a> <br/> <a href="https://david-dm.org/proustibat/fbrgsmn.mobile.app?type=dev"><img src="https://david-dm.org/proustibat/fbrgsmn.mobile.app/dev-status.svg" alt="DevDependencies Status"></a></th>
 					</tr>
@@ -1087,54 +1087,56 @@ ionic cordova prepare
 				<li>Issue Tracker: <a href="https://github.com/proustibat/fbrgsmn.mobile.app/issues">https://github.com/proustibat/fbrgsmn.mobile.app/issues</a></li>
 				<li>Source Code: <a href="https://github.com/proustibat/fbrgsmn.mobile.app">https://github.com/proustibat/fbrgsmn.mobile.app</a></li>
 			</ul>
-			<h3 id="recommandations">Recommandations</h3>
-			<h4 id="check-your-contribution-before-submitting-it">Check your contribution before submitting it</h4>
-			<p>Be sure your code is alright: run <code>npm run all-custom-lint</code> and <code>npm run lint</code>.
-			Also run <code>npm run test-ci</code> to be sure your work will be accepted on our <a href="https://travis-ci.org/proustibat/fbrgsmn.mobile.app">Travis CI</a> process.</p>
-			<h4 id="use-gitflow-worklow">Use Gitflow Worklow</h4>
+			<h2 id="recommandations">Recommandations</h2>
+			<h3 id="use-gitflow-worklow">Use Gitflow Worklow</h3>
 			<p>We use <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a>.
 				Please follow this branching model.
 				Once your branch is pushed (hotfix or feature), make a pull request <a href="https://github.com/proustibat/fbrgsmn.mobile.app/pulls">here</a>.
 			Travis will check if tests are passed and we&#39;ll accept your PR depending on results.</p>
-			<h4 id="update-the-documentation">Update the documentation</h4>
-			<p>If you update the code documentation or add commented code, you could check your changes by running <code>npm run typedoc</code>, it will create a &#39;documentation&#39; folder. This will be published automatically on the <a href="https://proustibat.github.io/fbrgsmn.mobile.app/">public documentation</a></p>
-			<h4 id="about-linting">About linting</h4>
-			<p>Config files are in source code: </p>
+			<h3 id="check-your-contribution-before-submitting-it">Check your contribution before submitting it</h3>
+			<h4 id="linting">Linting</h4>
+			<p>Be sure your code is alright: run <code>npm run all-custom-lint</code> and <code>npm run lint</code>.
+			Also run <code>npm run test-ci</code> to be sure your work will be accepted on our <a href="https://travis-ci.org/proustibat/fbrgsmn.mobile.app">Travis CI</a> process.</p>
+			<p><strong>Config files are in source code:</strong> </p>
 			<ul>
-				<li>tslint.json ( + tslint-tests.json + tslint-tests.json)</li>
+				<li>tslint.json ( and tslint-tests.json, tslint-tests.json, tslint-codeclimate.json)</li>
 				<li>tsconfig.json ( contains typedoc options )</li>
 				<li>.stylelintrc</li>
 				<li>.scss-lint.yml</li>
 				<li>.editorconfig</li>
-				<li>.codeclimate.yml
-				Don&#39;t hesitate to create an issue if you wanna change its and discuss about theses changes.</li>
+				<li>.codeclimate.yml</li>
 			</ul>
+			<p>Don&#39;t hesitate to create an issue if you wanna change its and discuss about theses changes.</p>
+			<p>If you wanna be perfect :-) install <a href="https://github.com/codeclimate/codeclimate#installation">CodeClimate</a> and use <code>npm run codeclimate:analyze</code> to see what will displayed on our <a href="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app">CodeClimate Dashboard</a> </p>
+			<h4 id="tests-and-coverage">Tests and Coverage</h4>
+			<p>Please run or add unit tests and e2e tests if needed. Make sure it covers the right parts. You can use <code>npm run test-coverage</code> to see the code coverage. It will create a coverage folder, the same that is automatically published <a href="https://proustibat.github.io/fbrgsmn.mobile.app/coverage/">here</a> </p>
+			<h3 id="update-the-documentation">Update the documentation</h3>
+			<p>If you update the code documentation or add commented code, you could check your changes by running <code>npm run typedoc</code>, it will create a &#39;documentation&#39; folder. This will be published automatically on the <a href="https://proustibat.github.io/fbrgsmn.mobile.app/">public documentation</a></p>
 			<h2 id="support">Support</h2>
 			<p>If you are having issues, please let us know: tech.team@faubourgsimone.com</p>
 			<h2 id="license">License</h2>
 			<p>The project is licensed under the <a href="LICENSE">GNU Affero General Public License v3.0 license</a></p>
 			<hr>
-			<h2 id="tools">Tools</h2>
+			<h2 id="tools-summary">Tools Summary</h2>
 			<h3 id="travis-ci">Travis CI</h3>
-			<ul>
-				<li>linting</li>
-				<li>sonar scan</li>
-				<li>build</li>
-				<li>tests</li>
-				<li>documentation</li>
-				<li>deploy documentation and coverage</li>
-			</ul>
+			<p>Triggered at each push action on the repo (on any branches).
+				You could see our dashboard <a href="https://travis-ci.org/proustibat/fbrgsmn.mobile.app">here</a>
+				Used to run tests, linting, generate code coverage results and code documentation.
+			Then it publishes it on our <a href="https://proustibat.github.io/fbrgsmn.mobile.app/">public results</a>.</p>
 			<h3 id="codeclimate">CodeClimate</h3>
-			<ul>
-				<li>tslint and coverage</li>
-			</ul>
+			<p><a href="https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app">Our dashboard</a> is updated at each push.</p>
 			<h3 id="sonarqube">Sonarqube</h3>
 			<p>We use <strong><a href="https://www.sonarqube.org/">Sonarqube</a></strong> on <a href="https://about.sonarcloud.io/get-started/">Sonarcloud.io</a> to keep our code safe.
-			The dashboard is available here: <a href="https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app">https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app</a></p>
+			Our dashboard is available here: <a href="https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app">https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app</a></p>
 			<h3 id="greenkeeper">Greenkeeper</h3>
+			<p>It&#39;s a real-time monitoring and automatic updates for npm dependencies. If an update is available on our dependencies, it updates it on a specific branch and creates a pull request. Travis will then be triggered, if tests are passed we can accept the pull request.
+			Learn more about it <a href="https://greenkeeper.io/">here</a></p>
 			<h3 id="typedoc">Typedoc</h3>
+			<p>A documentation generator for TypeScript projects: our results are <a href="https://proustibat.github.io/fbrgsmn.mobile.app/documentation/">here</a>
+			Learn more about it <a href="http://typedoc.org/">here</a></p>
 			<h3 id="commitizen">Commitizen</h3>
-			<p>We use <a href="https://github.com/commitizen/cz-cli">commitizen</a>, so if you wanna contribute to the project and create a pull request, use it by running <code>git cz</code> instead of <code>git commit</code>.</p>
+			<p>If you wanna contribute to the project and create a pull request, use it by running <code>git cz</code> instead of <code>git commit</code>.
+			Learn more about it <a href="https://github.com/commitizen/cz-cli">here</a></p>
 			<hr>
 			<h2 id="a-glance-at-our-actual-sonarqube-metrics">A glance at our actual Sonarqube metrics</h2>
 			<h4 id="complexity">Complexity</h4>
@@ -1306,7 +1308,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">Custom<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><a href="classes/mainheadercomponent.html" class="tsd-signature-type">MainHeaderComponent</a><span class="tsd-signature-symbol"> | </span><a href="classes/sharebuttoncomponent.html" class="tsd-signature-type">ShareButtonComponent</a><span class="tsd-signature-symbol"> | </span><a href="classes/playercomponent.html" class="tsd-signature-type">PlayerComponent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[MainHeaderComponent,ShareButtonComponent,PlayerComponent]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/components/index.ts#L6">components/index.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/components/index.ts#L6">components/index.ts:6</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1316,7 +1318,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">Custom<wbr>Directives<span class="tsd-signature-symbol">:</span> <a href="classes/parallaxheader.html" class="tsd-signature-type">ParallaxHeader</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[ParallaxHeader]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/components/index.ts#L16">components/index.ts:16</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/components/index.ts#L16">components/index.ts:16</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1326,7 +1328,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">Custom<wbr>Providers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><a href="classes/globalservice.html" class="tsd-signature-type">GlobalService</a><span class="tsd-signature-symbol"> | </span><a href="classes/musiccontrolsmanagerprovider.html" class="tsd-signature-type">MusicControlsManagerProvider</a><span class="tsd-signature-symbol"> | </span><a href="classes/initservice.html" class="tsd-signature-type">InitService</a><span class="tsd-signature-symbol"> | </span><a href="classes/promptservice.html" class="tsd-signature-type">PromptService</a><span class="tsd-signature-symbol"> | </span><a href="classes/radioservice.html" class="tsd-signature-type">RadioService</a><span class="tsd-signature-symbol"> | </span><a href="classes/trackerservice.html" class="tsd-signature-type">TrackerService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[GlobalService,InitService,PromptService,RadioService,TrackerService,MusicControlsManagerProvider]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/providers/index.ts#L20">providers/index.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/providers/index.ts#L20">providers/index.ts:20</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1336,7 +1338,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">External<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/components/index.ts#L12">components/index.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/components/index.ts#L12">components/index.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1346,7 +1348,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">External<wbr>Providers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">SplashScreen</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GoogleAnalytics</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">InAppBrowser</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">BackgroundMode</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">SocialSharing</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Screenshot</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Media</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MusicControls</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[StatusBar,SplashScreen,GoogleAnalytics,InAppBrowser,BackgroundMode,SocialSharing,Screenshot,Media,MusicControls,{ provide: ErrorHandler, useClass: IonicErrorHandler }]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/providers/index.ts#L29">providers/index.ts:29</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/providers/index.ts#L29">providers/index.ts:29</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1356,7 +1358,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">FB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/pages/radio/radio.ts#L13">pages/radio/radio.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/pages/radio/radio.ts#L13">pages/radio/radio.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1366,7 +1368,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">Pages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><a href="classes/radiopage.html" class="tsd-signature-type">RadioPage</a><span class="tsd-signature-symbol"> | </span><a href="classes/tabspage.html" class="tsd-signature-type">TabsPage</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[TabsPage,RadioPage]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/pages/index.ts#L4">pages/index.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/pages/index.ts#L4">pages/index.ts:4</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1376,7 +1378,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">cordova<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/pages/radio/radio.ts#L12">pages/radio/radio.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/pages/radio/radio.ts#L12">pages/radio/radio.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1393,7 +1395,7 @@ ionic cordova prepare
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L40">app/app.module.ts:40</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L40">app/app.module.ts:40</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1415,7 +1417,7 @@ ionic cordova prepare
 				<div class="tsd-signature tsd-kind-icon">app<wbr>Settings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L26">app/app.module.ts:26</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L26">app/app.module.ts:26</a></li>
 					</ul>
 				</aside>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -1424,7 +1426,7 @@ ionic cordova prepare
 					<div class="tsd-signature tsd-kind-icon">back<wbr>Button<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Retour&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L27">app/app.module.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L27">app/app.module.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1434,7 +1436,7 @@ ionic cordova prepare
 					<div class="tsd-signature tsd-kind-icon">statusbar<wbr>Padding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L32">app/app.module.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L32">app/app.module.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1444,7 +1446,7 @@ ionic cordova prepare
 					<div class="tsd-signature tsd-kind-icon">tabs<wbr>Hide<wbr>OnSub<wbr>Pages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L33">app/app.module.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L33">app/app.module.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1454,7 +1456,7 @@ ionic cordova prepare
 					<div class="tsd-signature tsd-kind-icon">tabs<wbr>Highlight<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L35">app/app.module.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L35">app/app.module.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1464,7 +1466,7 @@ ionic cordova prepare
 					<div class="tsd-signature tsd-kind-icon">tabs<wbr>Placement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;bottom&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/587a4fd/src/app/app.module.ts#L36">app/app.module.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/f8fb67e/src/app/app.module.ts#L36">app/app.module.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
