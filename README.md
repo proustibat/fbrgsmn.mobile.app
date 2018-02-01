@@ -100,30 +100,36 @@ They should be checked with `npm run tslint:tests`
 - Source Code: [https://github.com/proustibat/fbrgsmn.mobile.app](https://github.com/proustibat/fbrgsmn.mobile.app)
 
 
-### Recommandations
-#### Check your contribution before submitting it
-Be sure your code is alright: run `npm run all-custom-lint` and `npm run lint`. 
-Also run `npm run test-ci` to be sure your work will be accepted on our [Travis CI](https://travis-ci.org/proustibat/fbrgsmn.mobile.app) process.
+## Recommandations
 
-#### Use Gitflow Worklow
+### Use Gitflow Worklow
 We use [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 Please follow this branching model.
 Once your branch is pushed (hotfix or feature), make a pull request [here](https://github.com/proustibat/fbrgsmn.mobile.app/pulls).
 Travis will check if tests are passed and we'll accept your PR depending on results.
 
-#### Update the documentation
-If you update the code documentation or add commented code, you could check your changes by running `npm run typedoc`, it will create a 'documentation' folder. This will be published automatically on the [public documentation](https://proustibat.github.io/fbrgsmn.mobile.app/)
+### Check your contribution before submitting it
+#### Linting
+Be sure your code is alright: run `npm run all-custom-lint` and `npm run lint`. 
+Also run `npm run test-ci` to be sure your work will be accepted on our [Travis CI](https://travis-ci.org/proustibat/fbrgsmn.mobile.app) process.
 
-#### About linting
-Config files are in source code: 
-- tslint.json ( + tslint-tests.json + tslint-tests.json)
+**Config files are in source code:** 
+- tslint.json ( and tslint-tests.json, tslint-tests.json, tslint-codeclimate.json)
 - tsconfig.json ( contains typedoc options )
 - .stylelintrc
 - .scss-lint.yml
 - .editorconfig
 - .codeclimate.yml
+
 Don't hesitate to create an issue if you wanna change its and discuss about theses changes.
 
+If you wanna be perfect :-) install [CodeClimate](https://github.com/codeclimate/codeclimate#installation) and use `npm run codeclimate:analyze` to see what will displayed on our [CodeClimate Dashboard](https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app) 
+
+#### Tests and Coverage
+Please run or add unit tests and e2e tests if needed. Make sure it covers the right parts. You can use `npm run test-coverage` to see the code coverage. It will create a coverage folder, the same that is automatically published [here](https://proustibat.github.io/fbrgsmn.mobile.app/coverage/) 
+
+### Update the documentation
+If you update the code documentation or add commented code, you could check your changes by running `npm run typedoc`, it will create a 'documentation' folder. This will be published automatically on the [public documentation](https://proustibat.github.io/fbrgsmn.mobile.app/)
 
 
 ## Support
@@ -134,29 +140,29 @@ The project is licensed under the [GNU Affero General Public License v3.0 licens
 
 --------------------
 
-## Tools
+## Tools Summary
 
 ### Travis CI
-- linting
-- sonar scan
-- build
-- tests
-- documentation
-- deploy documentation and coverage
+Triggered at each push action on the repo (on any branches).
+You could see our dashboard [here](https://travis-ci.org/proustibat/fbrgsmn.mobile.app)
+Used to run tests, linting, generate code coverage results and code documentation. 
+Then it publishes it on our [public results](https://proustibat.github.io/fbrgsmn.mobile.app/).
 
 ### CodeClimate
-- tslint and coverage
+[Our dashboard]((https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app)) is updated at each push.
 
 ### Sonarqube
 We use **[Sonarqube](https://www.sonarqube.org/)** on [Sonarcloud.io](https://about.sonarcloud.io/get-started/) to keep our code safe.
-The dashboard is available here: [https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app](https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app)
+Our dashboard is available here: [https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app](https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app)
 
-### Greenkeeper
+### [Greenkeeper](https://greenkeeper.io/)
+It's a real-time monitoring and automatic updates for npm dependencies. If an update is available on our dependencies, it updates it on a specific branch and creates a pull request. Travis will then be triggered, if tests are passed we can accept the pull request.
 
-### Typedoc
+### [Typedoc](http://typedoc.org/)
+A documentation generator for TypeScript projects: our results are [here](https://proustibat.github.io/fbrgsmn.mobile.app/documentation/)
 
-### Commitizen
-We use [commitizen](https://github.com/commitizen/cz-cli), so if you wanna contribute to the project and create a pull request, use it by running `git cz` instead of `git commit`.
+### [Commitizen](https://github.com/commitizen/cz-cli)
+If you wanna contribute to the project and create a pull request, use it by running `git cz` instead of `git commit`.
 
 --------------------
 
