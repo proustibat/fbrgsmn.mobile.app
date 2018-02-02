@@ -7,6 +7,7 @@ import { PromptService } from '../../providers/prompt-service';
 import { RadioService } from '../../providers/radio-service';
 import { PlayerComponent } from '../../components/player/player';
 import { ISong } from '../../interfaces';
+import {HttpEvent, HttpEventType} from "@angular/common/http";
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;
@@ -19,12 +20,14 @@ declare let FB: any;
 } )
 export class RadioPage {
 
+    // private apiData:any;
+
     @ViewChild( 'player' ) private player: PlayerComponent;
 
     private streamingUrl: string;
-    private configReady = false;
+    private configReady: boolean;
     private lastSongs: ISong[];
-    private hasLeft = false;
+    private hasLeft: boolean;
 
     constructor ( private plt: Platform,
                   private prompt: PromptService,
@@ -34,6 +37,9 @@ export class RadioPage {
                   private radioService: RadioService,
                   private events: Events,
     ) {
+        this.configReady = false;
+        this.hasLeft = false;
+
         this.plt.ready().then( ( readySource ) => {
             // console.log( 'Platform ready from', readySource );
             if ( plt.is( 'cordova' ) ) {
@@ -86,4 +92,24 @@ export class RadioPage {
     private onRadioServiceError ( error ) {
         this.prompt.presentMessage( { message: error.toString(), classNameCss: 'error' } );
     }
+    //
+    // private populateUsers() {
+    //     this.radioService.getDataAPI().subscribe( ( event: HttpEvent<any> ) => {
+    //         switch ( event.type ) {
+    //             case HttpEventType.Sent:
+    //                 console.log( 'Request sent!' );
+    //                 break;
+    //             case HttpEventType.ResponseHeader:
+    //                 console.log( 'Response header received!' );
+    //                 break;
+    //             case HttpEventType.DownloadProgress:
+    //                 const kbLoaded = Math.round( event.loaded / 1024 );
+    //                 console.log( `Download in progress! ${ kbLoaded }Kb loaded` );
+    //                 break;
+    //             case HttpEventType.Response:
+    //                 console.log( '😺 Done!',  event.body );
+    //                 this.apiData = event.body;
+    //         }
+    //     } );
+    // }
 }

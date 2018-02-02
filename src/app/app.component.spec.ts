@@ -88,6 +88,7 @@ describe( 'FbrgSmnApp Component', () => {
     } );
 
     it( 'should be created', () => {
+        expect( component ).toBeDefined();
         expect( component instanceof FbrgSmnApp ).toBe( true );
     } );
 

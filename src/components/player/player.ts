@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-// import { TranslateService } from 'ng2-translate';
 import { TranslateService } from '@ngx-translate/core';
 import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser';
 import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';

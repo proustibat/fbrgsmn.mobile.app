@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 import { GlobalService } from './global-service';
 import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
@@ -9,6 +9,7 @@ import { ICoverSong, ISong } from '../interfaces';
 
 @Injectable()
 export class RadioService {
+    private products:any;
 
     private static TAGS = {
         DEFAULT: [
@@ -24,8 +25,7 @@ export class RadioService {
         NOUVEAUTE: [
             'nouveauté',
             'nothing',
-            'nouveaute',
-            'college'
+            'nouveaute'
         ]
     };
 
@@ -72,6 +72,13 @@ export class RadioService {
                 return new Error( 'This request has failed ' + err );
             } );
         } );
+    }
+
+    public getThisFuckingData() {
+        const req = new HttpRequest( 'GET', GlobalService.URL_API_COVERS, {
+            reportProgress: true
+        } );
+        return this.http.request( req );
     }
 
     /**
@@ -149,5 +156,11 @@ export class RadioService {
             RadioService.TAGS.DEFAULT
         ]
             .find( tagArray => !!( tagArray.find( tag => title.toLowerCase().indexOf( tag.toLowerCase() ) > -1 ) ) );
+    }
+
+    private someAsyncFunction() {
+        return new Promise( resolve  => {
+            setTimeout( resolve, 1000, 'coucou' );
+        } );
     }
 }
