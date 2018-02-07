@@ -20,7 +20,7 @@ export class PlayerComponent {
     @Input() private streamingUrl: string;
     @Input() private configReady: boolean;
     private browserPopup: InAppBrowserObject;
-    private isPlaying = false;
+    public isPlaying = false;
     private isButtonActive = true;
     private playPauseButton = 'play';
     private mediaObject: MediaObject;
@@ -113,7 +113,7 @@ export class PlayerComponent {
     private createMedia () {
         this.mediaObject = this.media.create( this.streamingUrl );
         this.mediaObject.onStatusUpdate.subscribe( this.onMediaStatusUpdate.bind( this ) );
-        this.mediaObject.onError.subscribe( this.onMediaError.bind( this ) );
+        // this.mediaObject.onError.subscribe( this.onMediaError.bind( this ) );
     }
 
     private onMediaStatusUpdate( status ) {
