@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed, async, fakeAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, fakeAsync } from '@angular/core/testing';
 import { Events, IonicModule, LoadingController, Platform, ToastController } from 'ionic-angular';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -12,7 +12,7 @@ import { HttpLoaderFactory } from '../../app/app.module';
 
 import { PlatformMock } from '../../../test-config/mocks/platform-browser';
 import { GoogleAnalyticsMock } from '@ionic-native-mocks/google-analytics';
-import {InAppBrowserMock, InAppBrowserObjectMock} from '@ionic-native-mocks/in-app-browser';
+import { InAppBrowserMock, InAppBrowserObjectMock } from '@ionic-native-mocks/in-app-browser';
 import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
 // import { MediaMock } from '@ionic-native-mocks/media';
 import { BackgroundModeMock } from '@ionic-native-mocks/background-mode';
@@ -25,9 +25,9 @@ import { MusicControlsManagerProvider } from '../../providers/music-controls-man
 import { PlayerComponent } from './player';
 import { ShareButtonComponent } from '../../components/share-button/share-button';
 import { LoadingControllerMock, MediaMock, MediaObjectMock, PromptServiceMock } from '../../../test-config/mocks/ionic';
-import {Observable} from "rxjs/Rx";
-import {EventEmitter} from "@angular/core";
-import {Subscriber} from "rxjs/Subscriber";
+// import { Observable } from 'rxjs/Rx';
+// import { EventEmitter } from '@angular/core';
+// import { Subscriber } from 'rxjs/Subscriber';
 
 describe( 'PlayerComponent', () => {
     let component: PlayerComponent;
@@ -142,16 +142,6 @@ describe( 'PlayerComponent', () => {
         expect( player.isLoading ).toBeTruthy();
     } );
 
-    // it( 'should call listener when event is published', () => {
-    //     const eventParams = [{}, {}, {}];
-    //
-    //     const listener = jasmine.createSpy( 'listener' );
-    //     events.subscribe( 'test', listener );
-    //     events.publish( 'test', ...eventParams );
-    //
-    //     expect( listener ).toHaveBeenCalledWith( ...eventParams );
-    // } );
-
     it( 'startStreamingMedia: should create the media if it doesn\'t exist', async () => {
         const player = ( component as any );
         player.mediaObject = undefined;
@@ -173,22 +163,5 @@ describe( 'PlayerComponent', () => {
         player.startStreamingMedia();
         expect( player.mediaObject.play ).toHaveBeenCalled();
     } );
-
-    // it( 'creates Media', async () => {
-    //     const player = ( component as any );
-    //     player.media = new MediaMock();
-    //     // player.mediaObject = new MediaObjectMock();
-    //     const fakeCreateMedia = () => {
-    //         player.mediaObject = new MediaObjectMock();
-    //         player.mediaObject.onStatusUpdate = new Observable<any>( ( subscriber: Subscriber<string> ) => subscriber.complete() );
-    //         spyOn( player.mediaObject.onStatusUpdate, 'subscribe' ).and.callFake( () => {} );
-    //     };
-    //     spyOn( player.media, 'create' ).and.callFake( fakeCreateMedia );
-    //
-    //     player.createMedia();
-    //
-    //     expect( player.media.create ).toHaveBeenCalledWith( player.streamingUrl );
-    //     // expect( spy.calls.any() ).toHaveBeenCalled();
-    // } );
 
 } );

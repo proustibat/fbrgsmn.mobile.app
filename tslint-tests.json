@@ -69,6 +69,7 @@
         "use-type-alias": false,
         "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map", "@angular/core/testing"],
         "no-commented-code": false,
+        "no-empty": false,
         "member-ordering": [true, {
             "order": [
                 "public-static-field",
