@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
-import { IonicModule } from 'ionic-angular/index';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { GoogleAnalyticsMock } from '@ionic-native-mocks/google-analytics';
+import { IonicModule, ToastController } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Screenshot } from '@ionic-native/screenshot';
 
@@ -15,10 +14,10 @@ import { GlobalService } from '../../providers/global-service';
 import { PromptService } from '../../providers/prompt-service';
 import { TrackerService } from '../../providers/tracker-service';
 
+import { GoogleAnalyticsMock } from '@ionic-native-mocks/google-analytics';
+import { ToastControllerMock } from 'ionic-mocks';
 import { SocialSharingMock } from '@ionic-native-mocks/social-sharing';
 import { ScreenshotMock } from '@ionic-native-mocks/screenshot';
-import {ToastControllerMock} from "ionic-mocks";
-import {ToastController} from "ionic-angular";
 
 describe( 'ShareButtonComponent', () => {
     let component: ShareButtonComponent;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpRequest} from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { GlobalService } from './global-service';
 import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
@@ -9,8 +9,6 @@ import { ICoverSong, ISong } from '../interfaces';
 
 @Injectable()
 export class RadioService {
-    private products:any;
-
     private static TAGS = {
         DEFAULT: [
             'sample',
@@ -159,7 +157,7 @@ export class RadioService {
     }
 
     private someAsyncFunction() {
-        return new Promise( resolve  => {
+        return new Promise( resolve => {
             setTimeout( resolve, 1000, 'coucou' );
         } );
     }

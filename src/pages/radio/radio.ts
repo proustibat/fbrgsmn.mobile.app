@@ -7,7 +7,7 @@ import { PromptService } from '../../providers/prompt-service';
 import { RadioService } from '../../providers/radio-service';
 import { PlayerComponent } from '../../components/player/player';
 import { ISong } from '../../interfaces';
-import {HttpEvent, HttpEventType} from "@angular/common/http";
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;

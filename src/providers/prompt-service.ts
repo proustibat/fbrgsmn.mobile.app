@@ -9,7 +9,6 @@ export class PromptService {
     private messageToast: Toast;
 
     constructor ( private loadingCtrl: LoadingController,
-                 private vars: GlobalService,
                  private toastCtrl: ToastController ) {
     }
 
