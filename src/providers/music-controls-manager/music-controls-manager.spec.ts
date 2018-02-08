@@ -9,7 +9,7 @@ import { HttpLoaderFactory } from '../../app/app.module';
 
 import { Events, Platform } from 'ionic-angular';
 import { MusicControls } from '@ionic-native/music-controls';
-import { TrackerService } from '../tracker-service';
+import { TrackerService } from '../tracker-service/tracker-service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import { PlatformMock } from '../../../test-config/mocks/platform-browser';

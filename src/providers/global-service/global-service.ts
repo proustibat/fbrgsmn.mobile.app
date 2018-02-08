@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICoverSong, IUrlArchives, IUrlArchivesParams, PostType } from '../interfaces';
+import { ICoverSong, IUrlArchives, IUrlArchivesParams, PostType } from '../../interfaces/index';
 
 @Injectable()
 export class GlobalService {

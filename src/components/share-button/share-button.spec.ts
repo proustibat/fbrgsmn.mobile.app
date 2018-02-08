@@ -10,9 +10,9 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { HttpLoaderFactory } from '../../app/app.module';
 
 import { ShareButtonComponent } from '../../components/share-button/share-button';
-import { GlobalService } from '../../providers/global-service';
-import { PromptService } from '../../providers/prompt-service';
-import { TrackerService } from '../../providers/tracker-service';
+import { GlobalService } from '../../providers/global-service/global-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
 
 import { GoogleAnalyticsMock } from '@ionic-native-mocks/google-analytics';
 import { ToastControllerMock } from 'ionic-mocks';

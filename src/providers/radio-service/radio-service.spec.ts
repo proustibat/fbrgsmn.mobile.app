@@ -4,7 +4,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Events } from 'ionic-angular';
 import { EventsMock } from 'ionic-mocks';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { GlobalService } from './global-service';
+import { GlobalService } from '../global-service/global-service';
 
 describe( 'Provider: RadioService', () => {
 

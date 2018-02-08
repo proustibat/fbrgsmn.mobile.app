@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MusicControls } from '@ionic-native/music-controls';
 import { Events, Platform } from 'ionic-angular';
-import { TrackerService } from '../tracker-service';
+import { TrackerService } from '../tracker-service/tracker-service';
 import { ISong } from '../../interfaces';
 
 @Injectable()

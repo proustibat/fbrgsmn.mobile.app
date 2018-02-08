@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { PromptService } from '../../providers/prompt-service';
-import { TrackerService } from '../../providers/tracker-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
 import { Screenshot } from '@ionic-native/screenshot';
 
 @Component( {

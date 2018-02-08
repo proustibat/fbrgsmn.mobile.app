@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { Events, NavController, Platform, ViewController } from 'ionic-angular';
-import { GlobalService } from '../../providers/global-service';
+import { GlobalService } from '../../providers/global-service/global-service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { InitService } from '../../providers/init-service';
-import { PromptService } from '../../providers/prompt-service';
-import { RadioService } from '../../providers/radio-service';
+import { InitService } from '../../providers/init-service/init-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { RadioService } from '../../providers/radio-service/radio-service';
 import { PlayerComponent } from '../../components/player/player';
 import { ISong } from '../../interfaces';
 import { HttpEvent, HttpEventType } from '@angular/common/http';

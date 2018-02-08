@@ -17,9 +17,9 @@ import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
 import { BackgroundModeMock } from '@ionic-native-mocks/background-mode';
 import { ToastControllerMock } from 'ionic-mocks';
 
-import { GlobalService } from '../../providers/global-service';
-import { PromptService } from '../../providers/prompt-service';
-import { TrackerService } from '../../providers/tracker-service';
+import { GlobalService } from '../../providers/global-service/global-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
 import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
 import { PlayerComponent } from './player';
 import { ShareButtonComponent } from '../../components/share-button/share-button';

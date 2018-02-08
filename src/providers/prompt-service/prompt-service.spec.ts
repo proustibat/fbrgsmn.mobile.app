@@ -1,8 +1,8 @@
 import { TestBed, fakeAsync, getTestBed, tick } from '@angular/core/testing';
 import { LoadingController, Toast, ToastController } from 'ionic-angular';
 import { PromptService } from './prompt-service';
-import { GlobalService } from './global-service';
-import { LoadingControllerMock, MockToastCtrl } from '../../test-config/mocks/ionic';
+import { GlobalService } from '../global-service/global-service';
+import { LoadingControllerMock, MockToastCtrl } from '../../../test-config/mocks/ionic/index';
 import { Observable } from 'rxjs';
 
 describe( 'Provider: PromptService', () => {

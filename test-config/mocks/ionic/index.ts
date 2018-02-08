@@ -1,7 +1,7 @@
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NavOptions } from 'ionic-angular/navigation/nav-util';
-import { PromptService } from '../../../src/providers/prompt-service';
+import { PromptService } from '../../../src/providers/prompt-service/prompt-service';
 // import { Observable } from 'rxjs/Observable';
 import { Observable  } from 'rxjs';
 import { EventEmitter } from '@angular/core';

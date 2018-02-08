@@ -23,11 +23,11 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { HttpLoaderFactory } from '../../app/app.module';
 
 import { RadioPage } from './radio';
-import { GlobalService } from '../../providers/global-service';
-import { InitService } from '../../providers/init-service';
-import { PromptService } from '../../providers/prompt-service';
-import { RadioService } from '../../providers/radio-service';
-import { TrackerService } from '../../providers/tracker-service';
+import { GlobalService } from '../../providers/global-service/global-service';
+import { InitService } from '../../providers/init-service/init-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { RadioService } from '../../providers/radio-service/radio-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
 import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
 
 import { MainHeaderComponent } from '../../components/main-header/main-header';

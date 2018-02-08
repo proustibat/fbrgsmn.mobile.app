@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser';
 import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
-import { TrackerService } from '../../providers/tracker-service';
-import { PromptService } from '../../providers/prompt-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
 import { Events, Platform } from 'ionic-angular';
 import { BackgroundMode } from '@ionic-native/background-mode';
-import { GlobalService } from '../../providers/global-service';
+import { GlobalService } from '../../providers/global-service/global-service';
 import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
 
 @Component( {

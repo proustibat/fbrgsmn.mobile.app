@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest } from '@angular/common/http';
-import { GlobalService } from './global-service';
+import { GlobalService } from '../global-service/global-service';
 import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
 import 'rxjs/add/operator/map';
 /* tslint:enable:no-import-side-effect */
-import { ICoverSong, ISong } from '../interfaces';
+import { ICoverSong, ISong } from '../../interfaces/index';
 
 @Injectable()
 export class RadioService {
