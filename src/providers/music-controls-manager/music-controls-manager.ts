@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { MusicControls } from '@ionic-native/music-controls';
 import { Events, Platform } from 'ionic-angular';
-import { TrackerService } from '../tracker-service';
+import { TrackerService } from '../tracker-service/tracker-service';
 import { ISong } from '../../interfaces';
 
 @Injectable()
 export class MusicControlsManagerProvider {
+
+    private currentSong: ISong;
+    private isPlaying: boolean;
 
     constructor( private plt: Platform,
                  private musicControls: MusicControls,
@@ -14,14 +17,9 @@ export class MusicControlsManagerProvider {
     ) {}
 
     public init ( currentSong: ISong, isPlaying: boolean ) {
-        this.plt.ready().then( () => {
-            if ( this.plt.is( 'cordova' ) &&
-                this.musicControls &&
-                typeof this.musicControls !== 'undefined' ) {
-                this.destroyMusicControls();
-                this.createMusicControls( currentSong, isPlaying );
-            }
-        } );
+        this.currentSong = currentSong;
+        this.isPlaying = isPlaying;
+        this.plt.ready().then( this.onPlatformReady.bind( this ) );
     }
 
     public updatePlayState( isPlaying: boolean ) {
@@ -29,6 +27,15 @@ export class MusicControlsManagerProvider {
             this.musicControls &&
             typeof this.musicControls !== 'undefined' ) {
             this.musicControls.updateIsPlaying( isPlaying );
+        }
+    }
+
+    private onPlatformReady() {
+        if ( this.plt.is( 'cordova' ) &&
+            this.musicControls &&
+            typeof this.musicControls !== 'undefined' ) {
+            this.destroyMusicControls();
+            this.createMusicControls( this.currentSong, this.isPlaying );
         }
     }
 
@@ -47,9 +54,7 @@ export class MusicControlsManagerProvider {
             track: currentSong.track
         } );
 
-        this.musicControls.subscribe().subscribe( action => {
-            this.onMusicControlsEvent( action );
-        } );
+        this.musicControls.subscribe().subscribe( this.onMusicControlsEvent.bind( this ) );
 
         // activates the observable above
         this.musicControls.listen();

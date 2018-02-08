@@ -1,0 +1,106 @@
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ParallaxHeader } from './parallax-header';
+import { Component, DebugElement } from '@angular/core';
+import { Content, DomController, IonicModule } from 'ionic-angular';
+import {
+    mockConfig, mockDomController, mockElementRef, mockPlatform,
+    mockRenderer, mockElementRefEle, mockZone
+} from 'ionic-angular/util/mock-providers';
+import {By} from "@angular/platform-browser";
+
+@Component( {
+    template: `<ion-content class="radio-page-cover" parallax-header>
+        <div class="main-content">
+            <div class="header-image"><img class="cover" alt="Current cover song"/>
+            </div>
+        </div>
+    </ion-content>`
+} )
+class TestParallaxHeaderComponent {
+}
+
+describe( 'ParallaxHeader', () => {
+    let component: TestParallaxHeaderComponent;
+    let fixture: ComponentFixture<TestParallaxHeaderComponent>;
+    let contentEl: DebugElement;
+
+    let content: Content;
+    let contentElementRef: any;
+    let dom: DomController;
+    let config = mockConfig();
+
+    beforeEach( async( () => {
+        TestBed.configureTestingModule( {
+            declarations: [ TestParallaxHeaderComponent, ParallaxHeader ],
+            imports: [
+                IonicModule
+            ]
+        } );
+
+        fixture = TestBed.createComponent( TestParallaxHeaderComponent );
+        component = fixture.componentInstance;
+        contentEl = fixture.debugElement.query( By.css( '.scroll-content' ) );
+
+        console.log( contentEl );
+        // contentElementRef = mockElementRef();
+        // dom = mockDomController();
+        // content = new Content(
+        //     config,
+        //     mockPlatform(),
+        //     dom,
+        //     contentElementRef,
+        //     mockRenderer(),
+        //     null, null,
+        //     mockZone(),
+        //     null,
+        //     null
+        // );
+        // const ele = document.createElement( 'div' );
+        // ele.className = 'scroll-content';
+        // content._scrollContent = mockElementRefEle( ele );
+        //
+        // content.getContentDimensions = function() {
+        //     return mockGetContentDimensions( 1000, 500, 500 );
+        // };
+
+    } ) );
+
+    afterEach( () => {
+        fixture.destroy();
+    } );
+
+    it( 'translates cover image on scroll', () => {
+        // inputEl.triggerEventHandler( 'mouseover', null );
+        contentEl.nativeElement.scrollTo( 0, 101 );
+        // transform: translate3d(0px, 25.25px, 0px) scale(1, 1);
+
+        fixture.detectChanges();
+        // expect( inputEl.nativeElement.style.backgroundColor ).toBe( 'blue' );
+        //
+        // inputEl.triggerEventHandler( 'mouseout', null );
+        // fixture.detectChanges();
+        // expect( inputEl.nativeElement.style.backgroundColor ).toBe( 'inherit' );
+
+        console.log( '#####################################' );
+        console.log( contentEl.nativeElement.scrollY );
+        expect( true ).toBe( true );
+    } );
+
+} );
+function mockGetContentDimensions( scrollHeight: any, scrollTop: any, contentHeight: any ): any {
+    return {
+        scrollHeight: scrollHeight,
+        scrollTop: scrollTop,
+        contentHeight: contentHeight,
+
+        contentTop: null,
+        contentBottom: null,
+        contentWidth: null,
+        contentLeft: null,
+        contentRight: null,
+        scrollBottom: null,
+        scrollWidth: null,
+        scrollLeft: null,
+        scrollRight: null
+    };
+}

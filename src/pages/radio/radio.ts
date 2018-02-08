@@ -1,12 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { Events, NavController, Platform, ViewController } from 'ionic-angular';
-import { GlobalService } from '../../providers/global-service';
+import { GlobalService } from '../../providers/global-service/global-service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { InitService } from '../../providers/init-service';
-import { PromptService } from '../../providers/prompt-service';
-import { RadioService } from '../../providers/radio-service';
+import { InitService } from '../../providers/init-service/init-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { RadioService } from '../../providers/radio-service/radio-service';
 import { PlayerComponent } from '../../components/player/player';
 import { ISong } from '../../interfaces';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 /* tslint:disable:no-unused-variable */
 declare let cordova: any;
@@ -19,12 +20,14 @@ declare let FB: any;
 } )
 export class RadioPage {
 
+    // private apiData:any;
+
     @ViewChild( 'player' ) private player: PlayerComponent;
 
     private streamingUrl: string;
-    private configReady = false;
+    private configReady: boolean;
     private lastSongs: ISong[];
-    private hasLeft = false;
+    private hasLeft: boolean;
 
     constructor ( private plt: Platform,
                   private prompt: PromptService,
@@ -34,39 +37,18 @@ export class RadioPage {
                   private radioService: RadioService,
                   private events: Events,
     ) {
-        this.plt.ready().then( ( readySource ) => {
-            // console.log( 'Platform ready from', readySource );
-            if ( plt.is( 'cordova' ) ) {
-                this.ga.trackView( this.viewCtrl.name );
-            }
+        this.configReady = false;
+        this.hasLeft = false;
 
-            // Look for streaming address in a json file (remote or local)
-            this.initService.getInitData().then( ( data: any ) => {
-                if ( data.error ) {
-                    this.prompt.presentMessage( {
-                        classNameCss: 'error',
-                        message: `${ data.error.toString() } => Resolved by loading local config`
-                    } );
-                    data = data.content;
-                }
-                this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
-                this.radioService.initLoop( data.loop_interval );
-                this.configReady = true;
-            } ).catch( errors => this.prompt.presentMessage( {
-                classNameCss: 'error',
-                message: `⚠ ${ errors.join( ' ⚠ ' ) }`
-            } ) );
-        } );
+        this.plt.ready().then( this.onPlatformReady.bind( this ) );
     }
 
     protected ionViewDidLoad () {
         // Event from RadioService
-        this.events.subscribe( '[RadioService]now-playing-change', ( currentSong, lastSongs ) => {
-            this.onNowPlayingChanged( currentSong, lastSongs );
-        } );
+        this.events.subscribe( '[RadioService]now-playing-change', this.onNowPlayingChanged.bind( this ) );
         // Event from RadioService
         // TODO: verifier
-        this.events.subscribe( '[RadioService]error', error => this.onRadioServiceError( error ) );
+        this.events.subscribe( '[RadioService]error', this.onRadioServiceError.bind( this ) );
     }
 
     protected ionViewDidEnter () {
@@ -78,6 +60,34 @@ export class RadioPage {
         this.prompt.dismissLoading();
     }
 
+    private onPlatformReady () {
+        // console.log( 'Platform ready from', readySource );
+        if ( this.plt.is( 'cordova' ) ) {
+            this.ga.trackView( this.viewCtrl.name );
+        }
+
+        // Look for streaming address in a json file (remote or local)
+        this.initService.getInitData()
+            .then( ( data: any ) => {
+                if ( data.error ) {
+                    this.prompt.presentMessage( {
+                        classNameCss: 'error',
+                        message: `${ data.error.toString() } => Resolved by loading local config`
+                    } );
+                    data = data.content;
+                }
+                this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
+                this.radioService.initLoop( data.loop_interval );
+                this.configReady = true;
+            } )
+            .catch( errors => {
+                this.prompt.presentMessage( {
+                    classNameCss: 'error',
+                    message: `⚠ ${ errors.join( ' ⚠ ' ) }`
+                } );
+            } );
+    }
+
     private onNowPlayingChanged ( currentSong, lastSongs ) {
         this.lastSongs = lastSongs;
         this.player.updateMeta( currentSong );
@@ -86,4 +96,24 @@ export class RadioPage {
     private onRadioServiceError ( error ) {
         this.prompt.presentMessage( { message: error.toString(), classNameCss: 'error' } );
     }
+    //
+    // private populateUsers() {
+    //     this.radioService.getDataAPI().subscribe( ( event: HttpEvent<any> ) => {
+    //         switch ( event.type ) {
+    //             case HttpEventType.Sent:
+    //                 console.log( 'Request sent!' );
+    //                 break;
+    //             case HttpEventType.ResponseHeader:
+    //                 console.log( 'Response header received!' );
+    //                 break;
+    //             case HttpEventType.DownloadProgress:
+    //                 const kbLoaded = Math.round( event.loaded / 1024 );
+    //                 console.log( `Download in progress! ${ kbLoaded }Kb loaded` );
+    //                 break;
+    //             case HttpEventType.Response:
+    //                 console.log( '😺 Done!',  event.body );
+    //                 this.apiData = event.body;
+    //         }
+    //     } );
+    // }
 }

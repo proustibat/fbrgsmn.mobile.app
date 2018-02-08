@@ -60,17 +60,23 @@ module.exports = config => {
         coverageIstanbulReporter: {
             // reports can be any that are listed here: https://github.com/istanbuljs/istanbuljs/tree/aae256fb8b9a3d19414dcf069c592e88712c32c6/packages/istanbul-reports/lib
             reports: ['html', 'lcov', 'text-summary', 'lcovonly'],
+
             // if using webpack and pre-loaders, work around webpack breaking the source path
             fixWebpackSourcePaths: true,
+
             // stop istanbul outputting messages like `File [${filename}] ignored, nothing could be mapped`
-            skipFilesWithNoCoverage: true
+            skipFilesWithNoCoverage: true,
+
+            // Combines coverage information from multiple browsers into one report rather than outputting a report
+            // for each browser.
+            combineBrowserReports: true,
         },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        // reporters: ['progress', 'mocha', 'coverage-istanbul'],
-        reporters: config.coverage ? ['kjhtml', 'dots', 'coverage-istanbul'] : ['kjhtml', 'dots'],
+        reporters: [ 'progress', 'kjhtml', 'dots', 'coverage-istanbul'],
+        // reporters: config.coverage ? [ 'progress', 'kjhtml', 'dots', 'coverage-istanbul'] : [ 'progress', 'kjhtml', 'dots'],
 
         // web server port
         port: 9876,
@@ -96,7 +102,7 @@ module.exports = config => {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true,
+        singleRun: false,
 
         // Concurrency level
         // how many browser should be started simultaneous
