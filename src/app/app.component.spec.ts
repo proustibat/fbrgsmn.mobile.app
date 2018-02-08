@@ -37,7 +37,7 @@ import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
 
 import { StatusBarMock } from '@ionic-native-mocks/status-bar';
 import { SplashScreenMock } from '@ionic-native-mocks/splash-screen';
-import {TabsPage} from "../pages/tabs/tabs";
+import { TabsPage } from '../pages/tabs/tabs';
 
 describe( 'FbrgSmnApp Component', () => {
     let fixture;

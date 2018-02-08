@@ -37,6 +37,7 @@ import { ShareButtonComponent } from '../../components/share-button/share-button
 describe( 'RadioPage', () => {
     let component: RadioPage;
     let fixture: ComponentFixture<RadioPage>;
+    let originalTimeout;
 
     beforeEach( async( () => {
         TestBed.configureTestingModule( {
@@ -75,6 +76,9 @@ describe( 'RadioPage', () => {
     } ) );
 
     beforeEach( () => {
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
         // create component and test fixture
         fixture = TestBed.createComponent( RadioPage );
 
@@ -85,27 +89,105 @@ describe( 'RadioPage', () => {
     afterEach( () => {
         fixture.destroy();
         component = null;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     } );
 
     it( 'should be created', async () => {
-        expect( fixture ).toBeTruthy();
-        expect( fixture ).toBeDefined();
-
         expect( component ).toBeTruthy();
         expect( component ).toBeDefined();
         expect( component instanceof RadioPage ).toBe( true );
     } );
 
-    // it( 'should have expected <h3> text', () => {
-    //     fixture.detectChanges();
-    //     const h3 = de.nativeElement;
-    //     expect( h3.innerText ).toMatch( /ionic/i,
-    //         '<h3> should say something about "Ionic"' );
-    // } );
-    //
-    // it( 'should show the favicon as <img>', () => {
-    //     fixture.detectChanges();
-    //     const img: HTMLImageElement = fixture.debugElement.query( By.css( 'img' ) ).nativeElement;
-    //     expect( img.src ).toContain( 'assets/icon/favicon.ico' );
-    // } );
+    it( 'should getInitData from initService and prepare service', async ( done ) => {
+        const radioComponent = ( component as any );
+
+        spyOn( radioComponent.radioService, 'initLoop' ).and.callThrough();
+        const spySuccess = spyOn( radioComponent.initService, 'getInitData' ).and.returnValue(
+            Promise.resolve( {
+                streamingUrl: 'fakeUrl'
+            } )
+        );
+
+        radioComponent.onPlatformReady();
+
+        spySuccess.calls.mostRecent().returnValue.then( () => {
+            expect( radioComponent.initService.getInitData ).toHaveBeenCalled();
+            expect( radioComponent.streamingUrl ).toBeDefined();
+            expect( radioComponent.configReady ).toBeTruthy();
+            expect( radioComponent.radioService.initLoop ).toHaveBeenCalled();
+            done();
+        } );
+
+    } );
+
+    it( 'should prompt error if getInitData returns wrong data', async ( done ) => {
+        const radioComponent = ( component as any );
+
+        spyOn( radioComponent.prompt, 'presentMessage' ).and.callFake( () => {} );
+        const fakeData = {
+            content: 'myFakeContent',
+            error: 'fakeError',
+        };
+        const spyError = spyOn( radioComponent.initService, 'getInitData' ).and.returnValue(
+            Promise.resolve( fakeData )
+        );
+
+        radioComponent.onPlatformReady();
+
+        spyError.calls.mostRecent().returnValue.then( ( data: any ) => {
+            expect( radioComponent.prompt.presentMessage ).toHaveBeenCalled();
+            expect( data ).toEqual( fakeData );
+            done();
+        } );
+    } );
+
+    it( 'should prompt error if getInitData fails', async ( done ) => {
+        const radioComponent = ( component as any );
+
+        spyOn( radioComponent.prompt, 'presentMessage' ).and.callFake( () => {} );
+        const spyError = spyOn( radioComponent.initService, 'getInitData' ).and.returnValue(
+            Promise.reject( [ 'fakeReason1', 'fakeReason2' ] )
+        );
+
+        radioComponent.onPlatformReady();
+
+        spyError.calls.mostRecent().returnValue.catch( errors  => {
+            // TODO check if prompt message have been called
+            expect().nothing();
+            done();
+        } );
+    } );
+
+    it( 'ionViewDidLoad', async () => {
+        const radioComponent = ( component as any );
+        radioComponent.ionViewDidLoad();
+        expect().nothing();
+    } );
+
+    it( 'ionViewDidEnter', async () => {
+        const radioComponent = ( component as any );
+        radioComponent.ionViewDidEnter();
+        expect().nothing();
+    } );
+
+    it( 'ionViewDidLeave', async () => {
+        const radioComponent = ( component as any );
+        radioComponent.ionViewDidLeave();
+        expect().nothing();
+    } );
+
+    it( 'onNowPlayingChanged', async () => {
+        const radioComponent = ( component as any );
+        spyOn( radioComponent.player, 'updateMeta' ).and.callFake( () => {} );
+
+        radioComponent.onNowPlayingChanged( {}, [] );
+        expect( radioComponent.player.updateMeta ).toHaveBeenCalledWith( {} );
+    } );
+
+    it( 'onRadioServiceError', async () => {
+        const radioComponent = ( component as any );
+        spyOn( radioComponent.prompt, 'presentMessage' ).and.callFake( () => {} );
+        radioComponent.onRadioServiceError( 'fakeError' );
+        expect( radioComponent.prompt.presentMessage ).toHaveBeenCalled();
+    } );
 } );

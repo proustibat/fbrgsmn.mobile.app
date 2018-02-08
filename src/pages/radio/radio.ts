@@ -40,14 +40,35 @@ export class RadioPage {
         this.configReady = false;
         this.hasLeft = false;
 
-        this.plt.ready().then( ( readySource ) => {
-            // console.log( 'Platform ready from', readySource );
-            if ( plt.is( 'cordova' ) ) {
-                this.ga.trackView( this.viewCtrl.name );
-            }
+        this.plt.ready().then( this.onPlatformReady.bind( this ) );
+    }
 
-            // Look for streaming address in a json file (remote or local)
-            this.initService.getInitData().then( ( data: any ) => {
+    protected ionViewDidLoad () {
+        // Event from RadioService
+        this.events.subscribe( '[RadioService]now-playing-change', this.onNowPlayingChanged.bind( this ) );
+        // Event from RadioService
+        // TODO: verifier
+        this.events.subscribe( '[RadioService]error', this.onRadioServiceError.bind( this ) );
+    }
+
+    protected ionViewDidEnter () {
+        this.hasLeft = false;
+    }
+
+    protected ionViewDidLeave () {
+        this.hasLeft = true;
+        this.prompt.dismissLoading();
+    }
+
+    private onPlatformReady () {
+        // console.log( 'Platform ready from', readySource );
+        if ( this.plt.is( 'cordova' ) ) {
+            this.ga.trackView( this.viewCtrl.name );
+        }
+
+        // Look for streaming address in a json file (remote or local)
+        this.initService.getInitData()
+            .then( ( data: any ) => {
                 if ( data.error ) {
                     this.prompt.presentMessage( {
                         classNameCss: 'error',
@@ -58,30 +79,13 @@ export class RadioPage {
                 this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
                 this.radioService.initLoop( data.loop_interval );
                 this.configReady = true;
-            } ).catch( errors => this.prompt.presentMessage( {
-                classNameCss: 'error',
-                message: `⚠ ${ errors.join( ' ⚠ ' ) }`
-            } ) );
-        } );
-    }
-
-    protected ionViewDidLoad () {
-        // Event from RadioService
-        this.events.subscribe( '[RadioService]now-playing-change', ( currentSong, lastSongs ) => {
-            this.onNowPlayingChanged( currentSong, lastSongs );
-        } );
-        // Event from RadioService
-        // TODO: verifier
-        this.events.subscribe( '[RadioService]error', error => this.onRadioServiceError( error ) );
-    }
-
-    protected ionViewDidEnter () {
-        this.hasLeft = false;
-    }
-
-    protected ionViewDidLeave () {
-        this.hasLeft = true;
-        this.prompt.dismissLoading();
+            } )
+            .catch( errors => {
+                this.prompt.presentMessage( {
+                    classNameCss: 'error',
+                    message: `⚠ ${ errors.join( ' ⚠ ' ) }`
+                } );
+            } );
     }
 
     private onNowPlayingChanged ( currentSong, lastSongs ) {
