@@ -27,11 +27,11 @@ export class FbrgSmnApp {
      * @param {GoogleAnalytics} ga
      * @param {TranslateService} translate
      */
-    constructor ( platform: Platform,
-                  statusBar: StatusBar,
-                  splashScreen: SplashScreen,
+    constructor ( private platform: Platform,
+                  private statusBar: StatusBar,
+                  private splashScreen: SplashScreen,
                   private ga: GoogleAnalytics,
-                  translate: TranslateService ) {
+                  private translate: TranslateService ) {
         platform.ready().then( () => {
             if ( platform.is( 'cordova' ) ) {
                 // Okay, so the platform is ready and our plugins are available.

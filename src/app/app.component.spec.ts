@@ -37,6 +37,7 @@ import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
 
 import { StatusBarMock } from '@ionic-native-mocks/status-bar';
 import { SplashScreenMock } from '@ionic-native-mocks/splash-screen';
+import {TabsPage} from "../pages/tabs/tabs";
 
 describe( 'FbrgSmnApp Component', () => {
     let fixture;
@@ -87,13 +88,23 @@ describe( 'FbrgSmnApp Component', () => {
         component = fixture.componentInstance;
     } );
 
-    it( 'should be created', () => {
+    it( 'should be created even if platform is not cordova', () => {
+        component.platform.is = () => false;
         expect( component ).toBeDefined();
         expect( component instanceof FbrgSmnApp ).toBe( true );
     } );
 
-    it( 'should have one pages', () => {
-        expect( component.pages.length ).toBe( 1 );
+    it( 'should be created when platform is not cordova', () => {
+        component.platform.is = () => true;
+        expect( component ).toBeDefined();
+        expect( component instanceof FbrgSmnApp ).toBe( true );
     } );
 
+    it( 'initialises with a root page of TabsPage', () => {
+        expect( component.rootPage ).toBe( TabsPage );
+    } );
+
+    it( 'should have one page', () => {
+        expect( component.pages.length ).toBe( 1 );
+    } );
 } );
