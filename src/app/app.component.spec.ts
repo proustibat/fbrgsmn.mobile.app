@@ -5,11 +5,11 @@ import { IonicModule, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MusicControlsManagerProvider } from '../providers/music-controls-manager/music-controls-manager';
-import { PromptService } from '../providers/prompt-service';
-import { TrackerService } from '../providers/tracker-service';
-import { InitService } from '../providers/init-service';
-import { GlobalService } from '../providers/global-service';
-import { RadioService } from '../providers/radio-service';
+import { PromptService } from '../providers/prompt-service/prompt-service';
+import { TrackerService } from '../providers/tracker-service/tracker-service';
+import { InitService } from '../providers/init-service/init-service';
+import { GlobalService } from '../providers/global-service/global-service';
+import { RadioService } from '../providers/radio-service/radio-service';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { BackgroundMode } from '@ionic-native/background-mode';
@@ -37,6 +37,7 @@ import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
 
 import { StatusBarMock } from '@ionic-native-mocks/status-bar';
 import { SplashScreenMock } from '@ionic-native-mocks/splash-screen';
+import { TabsPage } from '../pages/tabs/tabs';
 
 describe( 'FbrgSmnApp Component', () => {
     let fixture;
@@ -87,12 +88,23 @@ describe( 'FbrgSmnApp Component', () => {
         component = fixture.componentInstance;
     } );
 
-    it( 'should be created', () => {
+    it( 'should be created even if platform is not cordova', () => {
+        component.platform.is = () => false;
+        expect( component ).toBeDefined();
         expect( component instanceof FbrgSmnApp ).toBe( true );
     } );
 
-    it( 'should have one pages', () => {
-        expect( component.pages.length ).toBe( 1 );
+    it( 'should be created when platform is not cordova', () => {
+        component.platform.is = () => true;
+        expect( component ).toBeDefined();
+        expect( component instanceof FbrgSmnApp ).toBe( true );
     } );
 
+    it( 'initialises with a root page of TabsPage', () => {
+        expect( component.rootPage ).toBe( TabsPage );
+    } );
+
+    it( 'should have one page', () => {
+        expect( component.pages.length ).toBe( 1 );
+    } );
 } );

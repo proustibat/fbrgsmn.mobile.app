@@ -27,6 +27,7 @@ export class ParallaxHeader {
         // this.renderer.setElementStyle(this.header, 'webkitTransformOrigin', 'center bottom');
         // this.renderer.setElementStyle(this.header, 'background-size', 'cover');
         this.renderer.setStyle( mainContent, 'position', 'absolute' );
+
     }
 
     private onWindowResize ( ev ) {
@@ -34,6 +35,8 @@ export class ParallaxHeader {
     }
 
     private onContentScroll ( ev ) {
+
+        console.log( this.element.nativeElement.getElementsByClassName( 'scroll-content' )[ 0 ].scrollTop );
 
         ev.domWrite( () => {
             this.updateParallaxHeader( ev );

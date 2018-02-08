@@ -1,13 +1,12 @@
 import { Component, Input } from '@angular/core';
-// import { TranslateService } from 'ng2-translate';
 import { TranslateService } from '@ngx-translate/core';
 import { InAppBrowser, InAppBrowserObject } from '@ionic-native/in-app-browser';
 import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
-import { TrackerService } from '../../providers/tracker-service';
-import { PromptService } from '../../providers/prompt-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
 import { Events, Platform } from 'ionic-angular';
 import { BackgroundMode } from '@ionic-native/background-mode';
-import { GlobalService } from '../../providers/global-service';
+import { GlobalService } from '../../providers/global-service/global-service';
 import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
 
 @Component( {
@@ -159,9 +158,7 @@ export class PlayerComponent {
         } else {
             // cordova is missing, just reset the ui (setTimeout to 0 is to run this immediately)
             setTimeout( () => {
-                this.playPauseButton = 'play';
-                this.isPlaying = false;
-                this.isLoading = true;
+                this.resetUi();
             }, 0 );
         }
         if ( !event.isFalseError ) {
@@ -170,6 +167,12 @@ export class PlayerComponent {
             }
             this.prompt.presentMessage( { message: event.toString(), classNameCss: 'error', duration: 6000 } );
         }
+    }
+
+    private resetUi() {
+        this.playPauseButton = 'play';
+        this.isPlaying = false;
+        this.isLoading = true;
     }
 
     private updateShareOptions () {

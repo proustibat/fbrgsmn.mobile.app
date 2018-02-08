@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { GlobalService } from './global-service';
+import { HttpClient, HttpRequest } from '@angular/common/http';
+import { GlobalService } from '../global-service/global-service';
 import { Events } from 'ionic-angular';
 /* tslint:disable:no-import-side-effect */
 import 'rxjs/add/operator/map';
 /* tslint:enable:no-import-side-effect */
-import { ICoverSong, ISong } from '../interfaces';
+import { ICoverSong, ISong } from '../../interfaces/index';
 
 @Injectable()
 export class RadioService {
-
     private static TAGS = {
         DEFAULT: [
             'sample',
@@ -24,8 +23,7 @@ export class RadioService {
         NOUVEAUTE: [
             'nouveauté',
             'nothing',
-            'nouveaute',
-            'college'
+            'nouveaute'
         ]
     };
 
@@ -72,6 +70,13 @@ export class RadioService {
                 return new Error( 'This request has failed ' + err );
             } );
         } );
+    }
+
+    public getThisFuckingData() {
+        const req = new HttpRequest( 'GET', GlobalService.URL_API_COVERS, {
+            reportProgress: true
+        } );
+        return this.http.request( req );
     }
 
     /**
@@ -149,5 +154,11 @@ export class RadioService {
             RadioService.TAGS.DEFAULT
         ]
             .find( tagArray => !!( tagArray.find( tag => title.toLowerCase().indexOf( tag.toLowerCase() ) > -1 ) ) );
+    }
+
+    private someAsyncFunction() {
+        return new Promise( resolve => {
+            setTimeout( resolve, 1000, 'coucou' );
+        } );
     }
 }

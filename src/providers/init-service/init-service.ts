@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GlobalService } from './global-service';
+import { GlobalService } from '../global-service/global-service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

@@ -1,21 +1,46 @@
 Error.stackTraceLimit = Infinity;
 
-require('core-js/es6');
-require('core-js/es7/reflect');
+// ES6
+import 'core-js/es6';
+// import 'core-js/es6/date';
+// import 'core-js/es6/function';
+// import 'core-js/es6/number';
+// import 'core-js/es6/parse-float';
+// import 'core-js/es6/regexp';
+// import 'core-js/es6/typed';
+// reflect-metadata
+import 'core-js/es7/reflect';
 
-require('zone.js/dist/zone');
-require('zone.js/dist/long-stack-trace-zone');
-require('zone.js/dist/proxy');
-require('zone.js/dist/sync-test');
-require('zone.js/dist/jasmine-patch');
-require('zone.js/dist/async-test');
-require('zone.js/dist/fake-async-test');
+import 'core-js/fn/array/join';
 
-var appContext = require.context('../src', true, /\.spec\.ts/);
+// zone.js
+import 'zone.js/dist/zone';
+import 'zone.js/dist/proxy';
+import 'zone.js/dist/sync-test';
+import 'zone.js/dist/async-test';
+import 'zone.js/dist/jasmine-patch';
 
-appContext.keys().forEach(appContext);
+/**
+ * Includes:
+ * - zone.js
+ * - ES7 reflection,
+ * - ES6 polyfills, except for:
+ * new regexp features, math features, symbols, typed arrays, weak maps / weak sets
+ */
+// import 'ionic-angular/polyfills/polyfills';
 
-var testing = require('@angular/core/testing');
-var browser = require('@angular/platform-browser-dynamic/testing');
+// TestBed initialization
+import { TestBed } from '@angular/core/testing';
+import {
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting,
+} from '@angular/platform-browser-dynamic/testing';
+TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
 
-testing.TestBed.initTestEnvironment(browser.BrowserDynamicTestingModule, browser.platformBrowserDynamicTesting());
+// load all specs in ./src
+var appContext = require.context( '../src', true, /\.spec\.ts/ );
+appContext.keys().map( appContext );
+

@@ -4,11 +4,11 @@ import { ErrorHandler } from '@angular/core';
 import { IonicErrorHandler } from 'ionic-angular';
 
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { GlobalService } from './global-service';
-import { InitService } from './init-service';
-import { PromptService } from './prompt-service';
-import { RadioService } from './radio-service';
-import { TrackerService } from './tracker-service';
+import { GlobalService } from './global-service/global-service';
+import { InitService } from './init-service/init-service';
+import { PromptService } from './prompt-service/prompt-service';
+import { RadioService } from './radio-service/radio-service';
+import { TrackerService } from './tracker-service/tracker-service';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { SocialSharing } from '@ionic-native/social-sharing';

@@ -1,6 +1,6 @@
 import { Loading, LoadingController, Toast, ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { GlobalService } from './global-service';
+import { GlobalService } from '../global-service/global-service';
 
 @Injectable()
 export class PromptService {
@@ -9,7 +9,6 @@ export class PromptService {
     private messageToast: Toast;
 
     constructor ( private loadingCtrl: LoadingController,
-                 private vars: GlobalService,
                  private toastCtrl: ToastController ) {
     }
 

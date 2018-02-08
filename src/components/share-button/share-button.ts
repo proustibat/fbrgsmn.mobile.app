@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { PromptService } from '../../providers/prompt-service';
-import { TrackerService } from '../../providers/tracker-service';
+import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { TrackerService } from '../../providers/tracker-service/tracker-service';
 import { Screenshot } from '@ionic-native/screenshot';
 
 @Component( {
@@ -28,20 +28,24 @@ export class ShareButtonComponent {
     private onClick () {
         if ( this.doScreenShot ) {
             this.screenshot.URI( 100 ).then(
-                result => {
-                    this.options.image = result.URI;
-                    this.shareIt( this.options );
-                },
-                error => {
-                    console.log( 'Error: ', error );
-                    this.prompt.presentMessage( {
-                        classNameCss: 'error',
-                        message: `Une erreur s'est produite lors de la screenshot : \n ${ error.toString() }`
-                    } );
-                } );
+                result => { this.onScreenshotComplete( result ); },
+                error => { this.onScreenshotError( error ); }
+            );
         } else {
             this.shareIt( this.options );
         }
+    }
+
+    private onScreenshotComplete ( result ) {
+        this.options.image = result.URI;
+        this.shareIt( this.options );
+    }
+    private onScreenshotError ( error ) {
+        console.log( 'Error: ', error );
+        this.prompt.presentMessage( {
+            classNameCss: 'error',
+            message: `Une erreur s'est produite lors de la screenshot : \n ${ error.toString() }`
+        } );
     }
 
     private shareIt ( options ) {
