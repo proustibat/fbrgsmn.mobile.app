@@ -3,7 +3,7 @@ import { Events, IonicModule, LoadingController, Platform, ToastController } fro
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { MusicControls } from '@ionic-native/music-controls';
-import { Media, MediaObject } from '@ionic-native/media';
+import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
 import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -14,7 +14,6 @@ import { PlatformMock } from '../../../test-config/mocks/platform-browser';
 import { GoogleAnalyticsMock } from '@ionic-native-mocks/google-analytics';
 import { InAppBrowserMock, InAppBrowserObjectMock } from '@ionic-native-mocks/in-app-browser';
 import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
-// import { MediaMock } from '@ionic-native-mocks/media';
 import { BackgroundModeMock } from '@ionic-native-mocks/background-mode';
 import { ToastControllerMock } from 'ionic-mocks';
 
@@ -142,6 +141,17 @@ describe( 'PlayerComponent', () => {
         expect( player.isLoading ).toBeTruthy();
     } );
 
+    it( 'pauses correctly if cordova is not the platform', async () => {
+        const player = ( component as any );
+        player.mediaObject = new MediaObjectMock();
+        player.isPlaying = true;
+        player.plt.is = () => false;
+        spyOn( player.mediaObject, 'stop' ).and.callFake( () => {} );
+        player.pause();
+        expect( player.mediaObject.stop ).not.toHaveBeenCalled();
+
+    } );
+
     it( 'startStreamingMedia: should create the media if it doesn\'t exist', async () => {
         const player = ( component as any );
         player.mediaObject = undefined;
@@ -164,4 +174,119 @@ describe( 'PlayerComponent', () => {
         expect( player.mediaObject.play ).toHaveBeenCalled();
     } );
 
+    it( 'startStreamingMedia: should call onTrackError if cordova is not the platform', async () => {
+        const player = ( component as any );
+        player.plt.is = () => false;
+        spyOn( player, 'onTrackError' ).and.callFake( () => {} );
+
+        player.startStreamingMedia();
+
+        expect( player.onTrackError ).toHaveBeenCalled();
+    } );
+
+    it( 'calls onTrackLoaded on MEDIA_STATUS.RUNNING event received', async () => {
+        const player = ( component as any );
+        spyOn( player, 'onTrackLoaded' ).and.callThrough();
+        spyOn( player.prompt, 'dismissLoading' ).and.callThrough();
+        spyOn( player.musicControlsManager, 'updatePlayState' ).and.callThrough();
+
+        player.onMediaStatusUpdate( MEDIA_STATUS.RUNNING );
+
+        expect( player.onTrackLoaded ).toHaveBeenCalled();
+        expect( player.isLoading ).toBeFalsy();
+        expect( player.prompt.dismissLoading ).toHaveBeenCalled();
+        expect( player.isPlaying ).toBeTruthy();
+        expect( player.isButtonActive ).toBeTruthy();
+        expect( player.musicControlsManager.updatePlayState ).toHaveBeenCalledWith( true );
+    } );
+
+    it( 'disables background on MEDIA_STATUS.STOPPED & MEDIA_STATUS.PAUSED events received', async () => {
+        const player = ( component as any );
+        spyOn( player.backgroundMode, 'disable' ).and.callThrough();
+
+        player.onMediaStatusUpdate( MEDIA_STATUS.STOPPED );
+        expect( player.backgroundMode.disable ).toHaveBeenCalled();
+
+        player.onMediaStatusUpdate( MEDIA_STATUS.PAUSED );
+        expect( player.backgroundMode.disable ).toHaveBeenCalled();
+    } );
+
+    it( 'calls onTrackError when receiving MediaError status', async () => {
+        const player = ( component as any );
+        spyOn( player, 'onTrackError' ).and.callThrough();
+
+        player.onMediaError( MEDIA_ERROR.NETWORK );
+        expect( player.onTrackError ).toHaveBeenCalledWith( MEDIA_ERROR.NETWORK );
+
+        player.onMediaError( -999 );
+        expect( player.onTrackError ).toHaveBeenCalledWith( { isFalseError: true } );
+    } );
+
+    it( 'updates musicControlsManager when receiving onTrackError and pauses player if playing', async () => {
+        const player = ( component as any );
+        player.isPlaying = true;
+        spyOn( player, 'pause' ).and.callFake( () => {} );
+        spyOn( player.musicControlsManager, 'updatePlayState' ).and.callThrough();
+
+        player.onTrackError( MEDIA_ERROR.NETWORK );
+
+        expect( player.pause ).toHaveBeenCalled();
+        expect( player.musicControlsManager.updatePlayState ).toHaveBeenCalledWith( false );
+
+    } );
+
+    it( 'resets the UI onTrackError when cordova is not the platform', async ( done ) => {
+        const player = ( component as any );
+        spyOn( player, 'resetUi' ).and.callThrough();
+        player.plt.is = () => false;
+
+        player.onTrackError( MEDIA_ERROR.NETWORK );
+
+        setTimeout( () => {
+            expect( player.resetUi ).toHaveBeenCalled();
+            expect( player.playPauseButton ).toEqual( 'play' );
+            expect( player.isPlaying ).toBeFalsy();
+            expect( player.isLoading ).toBeTruthy();
+            done();
+        }, 1 );
+    } );
+
+    it( 'togglePlayPause toggles correctly depending on isPlaying variable',  async () => {
+        const player = ( component as any );
+
+        spyOn( player, 'play' ).and.callFake( () => {} );
+        spyOn( player, 'pause' ).and.callFake( () => {} );
+
+        player.isPlaying = false;
+        player.togglePlayPause();
+        expect( player.play ).toHaveBeenCalled();
+
+        player.isPlaying = true;
+        player.togglePlayPause();
+        expect( player.pause ).toHaveBeenCalled();
+    } );
+
+    it( 'updates data',  async () => {
+        const player = ( component as any );
+
+        spyOn( player, 'updateShareOptions' ).and.callFake( () => {} );
+        spyOn( player, 'updateTrackingOptions' ).and.callFake( () => {} );
+        spyOn( player.musicControlsManager, 'init' ).and.callFake( () => {} );
+
+        player.isPlaying = true;
+        const currentSong = 'blabliblou';
+        player.updateMeta( currentSong );
+
+        expect( player.updateShareOptions ).toHaveBeenCalled();
+        expect( player.updateTrackingOptions ).toHaveBeenCalled();
+        expect( player.musicControlsManager.init ).toHaveBeenCalledWith( currentSong, player.isPlaying );
+
+    } );
+
+    it( 'updates share options and tracking options',  async () => {
+        const player = ( component as any );
+        player.updateShareOptions();
+        player.updateTrackingOptions();
+        expect().nothing();
+    } );
 } );

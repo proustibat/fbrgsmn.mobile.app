@@ -158,9 +158,7 @@ export class PlayerComponent {
         } else {
             // cordova is missing, just reset the ui (setTimeout to 0 is to run this immediately)
             setTimeout( () => {
-                this.playPauseButton = 'play';
-                this.isPlaying = false;
-                this.isLoading = true;
+                this.resetUi();
             }, 0 );
         }
         if ( !event.isFalseError ) {
@@ -169,6 +167,12 @@ export class PlayerComponent {
             }
             this.prompt.presentMessage( { message: event.toString(), classNameCss: 'error', duration: 6000 } );
         }
+    }
+
+    private resetUi() {
+        this.playPauseButton = 'play';
+        this.isPlaying = false;
+        this.isLoading = true;
     }
 
     private updateShareOptions () {
