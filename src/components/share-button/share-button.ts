@@ -28,20 +28,24 @@ export class ShareButtonComponent {
     private onClick () {
         if ( this.doScreenShot ) {
             this.screenshot.URI( 100 ).then(
-                result => {
-                    this.options.image = result.URI;
-                    this.shareIt( this.options );
-                },
-                error => {
-                    console.log( 'Error: ', error );
-                    this.prompt.presentMessage( {
-                        classNameCss: 'error',
-                        message: `Une erreur s'est produite lors de la screenshot : \n ${ error.toString() }`
-                    } );
-                } );
+                result => { this.onScreenshotComplete( result ); },
+                error => { this.onScreenshotError( error ); }
+            );
         } else {
             this.shareIt( this.options );
         }
+    }
+
+    private onScreenshotComplete ( result ) {
+        this.options.image = result.URI;
+        this.shareIt( this.options );
+    }
+    private onScreenshotError ( error ) {
+        console.log( 'Error: ', error );
+        this.prompt.presentMessage( {
+            classNameCss: 'error',
+            message: `Une erreur s'est produite lors de la screenshot : \n ${ error.toString() }`
+        } );
     }
 
     private shareIt ( options ) {
