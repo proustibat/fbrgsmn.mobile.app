@@ -31,7 +31,6 @@ import { LoadingControllerMock, MediaMock, MediaObjectMock, PromptServiceMock } 
 describe( 'PlayerComponent', () => {
     let component: PlayerComponent;
     let fixture: ComponentFixture<PlayerComponent>;
-    let events: Events;
 
     beforeEach( async( () => {
         TestBed.configureTestingModule( {
@@ -73,8 +72,6 @@ describe( 'PlayerComponent', () => {
 
         // get test component from the fixture
         component = fixture.componentInstance;
-
-        events = new Events();
     } );
 
     afterEach( () => {

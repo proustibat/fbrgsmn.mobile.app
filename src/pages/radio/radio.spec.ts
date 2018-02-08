@@ -117,7 +117,6 @@ describe( 'RadioPage', () => {
             expect( radioComponent.radioService.initLoop ).toHaveBeenCalled();
             done();
         } );
-
     } );
 
     it( 'should prompt error if getInitData returns wrong data', async ( done ) => {
