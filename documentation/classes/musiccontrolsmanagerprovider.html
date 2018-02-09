@@ -925,9 +925,6 @@ img { max-width: 100%; }
 			<a href="globalservice.html" class="tsd-kind-icon">Global<wbr>Service</a>
 		</li>
 		<li class=" tsd-kind-class">
-			<a href="homepage.html" class="tsd-kind-icon">Home<wbr>Page</a>
-		</li>
-		<li class=" tsd-kind-class">
 			<a href="initservice.html" class="tsd-kind-icon">Init<wbr>Service</a>
 		</li>
 		<li class=" tsd-kind-class">
@@ -940,7 +937,13 @@ img { max-width: 100%; }
 					<a href="musiccontrolsmanagerprovider.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="musiccontrolsmanagerprovider.html#currentsong" class="tsd-kind-icon">current<wbr>Song</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="musiccontrolsmanagerprovider.html#events" class="tsd-kind-icon">events</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a href="musiccontrolsmanagerprovider.html#isplaying" class="tsd-kind-icon">is<wbr>Playing</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a href="musiccontrolsmanagerprovider.html#musiccontrols" class="tsd-kind-icon">music<wbr>Controls</a>
@@ -962,6 +965,9 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="musiccontrolsmanagerprovider.html#onmusiccontrolsevent" class="tsd-kind-icon">on<wbr>Music<wbr>Controls<wbr>Event</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a href="musiccontrolsmanagerprovider.html#onplatformready" class="tsd-kind-icon">on<wbr>Platform<wbr>Ready</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a href="musiccontrolsmanagerprovider.html#trackeventifneeded" class="tsd-kind-icon">track<wbr>Event<wbr>IfNeeded</a>
@@ -1062,7 +1068,9 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#currentsong" class="tsd-kind-icon">current<wbr>Song</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#events" class="tsd-kind-icon">events</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#isplaying" class="tsd-kind-icon">is<wbr>Playing</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#musiccontrols" class="tsd-kind-icon">music<wbr>Controls</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#plt" class="tsd-kind-icon">plt</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#tracker" class="tsd-kind-icon">tracker</a></li>
@@ -1075,6 +1083,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#destroymusiccontrols" class="tsd-kind-icon">destroy<wbr>Music<wbr>Controls</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="musiccontrolsmanagerprovider.html#init" class="tsd-kind-icon">init</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#onmusiccontrolsevent" class="tsd-kind-icon">on<wbr>Music<wbr>Controls<wbr>Event</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#onplatformready" class="tsd-kind-icon">on<wbr>Platform<wbr>Ready</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="musiccontrolsmanagerprovider.html#trackeventifneeded" class="tsd-kind-icon">track<wbr>Event<wbr>IfNeeded</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="musiccontrolsmanagerprovider.html#updateplaystate" class="tsd-kind-icon">update<wbr>Play<wbr>State</a></li>
 						</ul>
@@ -1094,7 +1103,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L8">providers/music-controls-manager/music-controls-manager.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L11">providers/music-controls-manager/music-controls-manager.ts:11</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1120,12 +1129,32 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="currentsong" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> current<wbr>Song</h3>
+				<div class="tsd-signature tsd-kind-icon">current<wbr>Song<span class="tsd-signature-symbol">:</span> <a href="../interfaces/isong.html" class="tsd-signature-type">ISong</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L10">providers/music-controls-manager/music-controls-manager.ts:10</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 				<a name="events" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> events</h3>
 				<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Events</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L13">providers/music-controls-manager/music-controls-manager.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L16">providers/music-controls-manager/music-controls-manager.ts:16</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<a name="isplaying" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Playing</h3>
+				<div class="tsd-signature tsd-kind-icon">is<wbr>Playing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L11">providers/music-controls-manager/music-controls-manager.ts:11</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1135,7 +1164,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">music<wbr>Controls<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MusicControls</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L11">providers/music-controls-manager/music-controls-manager.ts:11</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L14">providers/music-controls-manager/music-controls-manager.ts:14</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1145,7 +1174,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">plt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Platform</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L10">providers/music-controls-manager/music-controls-manager.ts:10</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L13">providers/music-controls-manager/music-controls-manager.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1155,7 +1184,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">tracker<span class="tsd-signature-symbol">:</span> <a href="trackerservice.html" class="tsd-signature-type">TrackerService</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L12">providers/music-controls-manager/music-controls-manager.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L15">providers/music-controls-manager/music-controls-manager.ts:15</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1172,7 +1201,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L35">providers/music-controls-manager/music-controls-manager.ts:35</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L42">providers/music-controls-manager/music-controls-manager.ts:42</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1198,7 +1227,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L104">providers/music-controls-manager/music-controls-manager.ts:104</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L109">providers/music-controls-manager/music-controls-manager.ts:109</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1215,7 +1244,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L16">providers/music-controls-manager/music-controls-manager.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L19">providers/music-controls-manager/music-controls-manager.ts:19</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1241,7 +1270,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L58">providers/music-controls-manager/music-controls-manager.ts:58</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L63">providers/music-controls-manager/music-controls-manager.ts:63</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1250,6 +1279,23 @@ img { max-width: 100%; }
 								<h5>action: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+				<a name="onplatformready" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Platform<wbr>Ready</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<li class="tsd-signature tsd-kind-icon">on<wbr>Platform<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L33">providers/music-controls-manager/music-controls-manager.ts:33</a></li>
+							</ul>
+						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
@@ -1264,7 +1310,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L83">providers/music-controls-manager/music-controls-manager.ts:83</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L88">providers/music-controls-manager/music-controls-manager.ts:88</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1287,7 +1333,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/b1b52bd/src/providers/music-controls-manager/music-controls-manager.ts#L27">providers/music-controls-manager/music-controls-manager.ts:27</a></li>
+								<li>Defined in <a href="https://github.com/proustibat/fbrgsmn.mobile.app/blob/175572e/src/providers/music-controls-manager/music-controls-manager.ts#L25">providers/music-controls-manager/music-controls-manager.ts:25</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
