@@ -24,6 +24,15 @@
 		.col-sm {
 			padding-top: 1rem;
 		}
+
+		.coverage-stats.hidden {
+			display: none;
+		}
+		.coverage-stats {
+			width: 200px;
+			margin-bottom: 1rem;
+		}
+
 	</style>
 </head>
 <body>
@@ -51,8 +60,9 @@
 					<p class="lead">We generate code coverage with <a href="https://karma-runner.github.io/2.0/index.html" target="_blank">Karma</a>. Our tests are written with <a href="https://jasmine.github.io/" target="_blank">Jasmine</a> .</p>
 					<hr class="my-4">
 					<p>Wanna some details about how many lines or blocks of our code are executed while the unit tests are running?</p>
+					<table class="coverage-stats hidden"></table>
 					<p class="lead">
-						<a class="btn btn-primary btn-lg" href="coverage" role="button">See the results</a>
+						<a class="btn btn-primary btn-lg" href="coverage" role="button">See details</a>
 					</p>
 				</div>
 			</div>
@@ -74,8 +84,26 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    $( document ).ready( function() {
+        $.get( 'coverage/index.html', function( data ) {
+            const html = data,
+                htmlDoc = $.parseHTML( html ),
+                $html = $( htmlDoc ),
+                $stats = $html.find( '.pad1y' );
+            $stats.each( function( index ) {
+                const title = $( this ).find('.quiet');
+                const percent = $( this ).find('.strong');
+                $('.coverage-stats').append( `<tr><td>${ title.html() }</td><td>${ percent.html() }</td></tr>` );
+            });
+
+            $('.coverage-stats').removeClass( 'hidden' );
+        });
+    }, 'xml' );
+</script>
 </body>
 </html>
