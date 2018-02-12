@@ -68,18 +68,14 @@ export class RadioPage {
 
         // Look for streaming address in a json file (remote or local)
         this.initService.getInitData()
-            .then( ( data: any ) => {
-                this.onData( data );
-            } )
+            .then( this.onData.bind( this ) )
             .catch( () => {
                 this.prompt.presentMessage( {
                     classNameCss: 'error',
                     message: `⚠ Error when loading prod config => Try to resolved by loading local config`
                 } );
                 this.initService.getInitData( true )
-                    .then( ( data: any ) => {
-                        this.onData( data );
-                    } )
+                    .then( this.onData.bind( this ) )
                     .catch( errors => {
                         this.prompt.presentMessage( {
                             classNameCss: 'error',
@@ -103,24 +99,4 @@ export class RadioPage {
     private onRadioServiceError ( error ) {
         this.prompt.presentMessage( { message: error.toString(), classNameCss: 'error' } );
     }
-    //
-    // private populateUsers() {
-    //     this.radioService.getDataAPI().subscribe( ( event: HttpEvent<any> ) => {
-    //         switch ( event.type ) {
-    //             case HttpEventType.Sent:
-    //                 console.log( 'Request sent!' );
-    //                 break;
-    //             case HttpEventType.ResponseHeader:
-    //                 console.log( 'Response header received!' );
-    //                 break;
-    //             case HttpEventType.DownloadProgress:
-    //                 const kbLoaded = Math.round( event.loaded / 1024 );
-    //                 console.log( `Download in progress! ${ kbLoaded }Kb loaded` );
-    //                 break;
-    //             case HttpEventType.Response:
-    //                 console.log( '😺 Done!',  event.body );
-    //                 this.apiData = event.body;
-    //         }
-    //     } );
-    // }
 }
