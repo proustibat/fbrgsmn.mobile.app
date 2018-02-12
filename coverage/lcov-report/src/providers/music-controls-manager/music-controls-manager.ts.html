@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/providers/music-controls-manager/music-controls-manager.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/providers/music-controls-manager</a> music-controls-manager.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>42/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/40</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { MusicControls } from '@ionic-native/music-controls';
+import { Events, Platform } from 'ionic-angular';
+import { TrackerService } from '../tracker-service/tracker-service';
+import { ISong } from '../../interfaces';
+&nbsp;
+@Injectable()
+export class MusicControlsManagerProvider {
+&nbsp;
+    private currentSong: ISong;
+    private isPlaying: boolean;
+&nbsp;
+    constructor( private plt: Platform,
+                 private musicControls: MusicControls,
+                 private tracker: TrackerService,
+                 private events: Events,
+    ) {}
+&nbsp;
+    public init ( currentSong: ISong, isPlaying: boolean ) {
+        this.currentSong = currentSong;
+        this.isPlaying = isPlaying;
+        this.plt.ready().then( this.onPlatformReady.bind( this ) );
+    }
+&nbsp;
+    public updatePlayState( isPlaying: boolean ) {
+        if ( this.plt.is( 'cordova' ) &amp;&amp;
+            this.musicControls &amp;&amp;
+            typeof this.musicControls !== 'undefined' ) {
+            this.musicControls.updateIsPlaying( isPlaying );
+        }
+    }
+&nbsp;
+    private onPlatformReady() {
+        if ( this.plt.is( 'cordova' ) &amp;&amp;
+            this.musicControls &amp;&amp;
+            typeof this.musicControls !== 'undefined' ) {
+            this.destroyMusicControls();
+            this.createMusicControls( this.currentSong, this.isPlaying );
+        }
+    }
+&nbsp;
+    private createMusicControls ( currentSong: ISong, isPlaying: boolean ) {
+        this.musicControls.create( {
+            album: 'Faubourg Simone Radio', // iOS only
+            artist: currentSong.artist,
+            cover: currentSong.cover.jpg,
+            dismissable: true,
+            hasClose: false, // show close button, optional, default: false
+            hasNext: false, // show next button, optional, default: true
+            hasPrev: false, // show previous button, optional, default: true
+            hasScrubbing: false, // iOS only
+            isPlaying,
+            ticker: `# Faubourg Simone # ${ currentSong.title }`, // Android only
+            track: currentSong.track
+        } );
+&nbsp;
+        this.musicControls.subscribe().subscribe( this.onMusicControlsEvent.bind( this ) );
+&nbsp;
+        // activates the observable above
+        this.musicControls.listen();
+    }
+&nbsp;
+    private onMusicControlsEvent ( action ) {
+        const message = JSON.parse( action ).message;
+&nbsp;
+        // Headset event headset-unplugged (Android only)
+        if ( message === 'music-controls-pause' || message === 'music-controls-headset-unplugged' ) {
+            this.events.publish( '[MusicControlsManager]pause' );
+        }
+&nbsp;
+        // Headset event headset-plugged (Android only)
+        if ( message === 'music-controls-play' || message === 'music-controls-headset-plugged' ) {
+            this.events.publish( '[MusicControlsManager]play' );
+        }
+&nbsp;
+        this.trackEventIfNeeded( message );
+&nbsp;
+        if ( message === 'music-controls-destroy' ) {
+            this.destroyMusicControls();
+        }
+&nbsp;
+        // External controls (iOS only)
+        if ( message === 'music-controls-toggle-play-pause' ) {
+            // TODO : how to know if we must call play or pause
+        }
+    }
+&nbsp;
+    private trackEventIfNeeded( msg ) {
+        // If it's one of those events, we track on the same way with just a different action parameter
+        const eventsToTrack = [
+            'pause',
+            'play',
+            'headset-unplugged',
+            'headset-plugged',
+            'media-button'
+        ];
+        const indexOfEvent = eventsToTrack.map( evtName =&gt; `music-controls-${ evtName }` ).indexOf( msg );
+        if ( indexOfEvent !== -1 ) {
+            const eventToTrackKey = eventsToTrack[ indexOfEvent ].replace( '-', '_' ).toUpperCase();
+            const actionKey = `TRACKING.PLAYER.ACTION.${ eventToTrackKey }`;
+            this.tracker.translateAndTrack(
+                'TRACKING.PLAYER.CATEGORY',
+                actionKey,
+                'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+            );
+        }
+    }
+&nbsp;
+    private destroyMusicControls () {
+        this.musicControls.destroy();
+&nbsp;
+        // this.tracker.translateAndTrack(
+        //     'TRACKING.PLAYER.CATEGORY',
+        //     'TRACKING.PLAYER.ACTION.DESTROY',
+        //     'TRACKING.PLAYER.LABEL.MUSIC_CONTROLS'
+        // );
+    }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 12 2018 19:09:48 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
