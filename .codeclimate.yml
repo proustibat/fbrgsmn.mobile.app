@@ -1,6 +1,11 @@
 version: "2"
 
 exclude_patterns:
+- node_modules
+- coverage
+- platforms
+- plugins
+- www
 - resources
 - documentation
 - test-config
@@ -50,6 +55,11 @@ plugins:
         enabled: false
   duplication:
     enabled: true
+    config:
+      languages:
+        javascript:
+          filters:
+          - "(TSParameterProperty ___)"
     exclude_patterns:
     - "**/*.spec.ts"
   sonar-java:
