@@ -98,6 +98,25 @@ describe( 'RadioPage', () => {
         expect( component instanceof RadioPage ).toBe( true );
     } );
 
+    it( 'should getinitdata even if platform is not cordova', async ( done ) => {
+        const radioComponent = ( component as any );
+        radioComponent.is = () => false;
+
+        spyOn( radioComponent.radioService, 'initLoop' ).and.callFake( () => {} );
+
+        const spySuccess = spyOn( radioComponent.initService, 'getInitData' ).and.returnValue(
+            Promise.resolve( true )
+        );
+
+        radioComponent.onPlatformReady();
+
+        spySuccess.calls.mostRecent().returnValue.then( () => {
+            expect( radioComponent.initService.getInitData ).toHaveBeenCalled();
+            done();
+        } );
+
+    } );
+
     it( 'should getInitData from initService and prepare service', async ( done ) => {
         const radioComponent = ( component as any );
 
@@ -115,27 +134,6 @@ describe( 'RadioPage', () => {
             expect( radioComponent.streamingUrl ).toBeDefined();
             expect( radioComponent.configReady ).toBeTruthy();
             expect( radioComponent.radioService.initLoop ).toHaveBeenCalled();
-            done();
-        } );
-    } );
-
-    it( 'should prompt error if getInitData returns wrong data', async ( done ) => {
-        const radioComponent = ( component as any );
-
-        spyOn( radioComponent.prompt, 'presentMessage' ).and.callFake( () => {} );
-        const fakeData = {
-            content: 'myFakeContent',
-            error: 'fakeError',
-        };
-        const spyError = spyOn( radioComponent.initService, 'getInitData' ).and.returnValue(
-            Promise.resolve( fakeData )
-        );
-
-        radioComponent.onPlatformReady();
-
-        spyError.calls.mostRecent().returnValue.then( ( data: any ) => {
-            expect( radioComponent.prompt.presentMessage ).toHaveBeenCalled();
-            expect( data ).toEqual( fakeData );
             done();
         } );
     } );

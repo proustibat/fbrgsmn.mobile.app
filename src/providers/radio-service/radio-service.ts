@@ -35,48 +35,46 @@ export class RadioService {
     constructor ( public http: HttpClient, private events: Events ) { }
 
     public initLoop ( interval?: number ) {
+        this.loopInterval = interval ? interval : this.loopInterval;
         if ( this.timer ) {
             clearTimeout( this.timer );
         }
         this.getApiSongs()
-            .then( ( data: any ) => {
-                const hasChanged = !this.currentSong || ( this.currentSong.title !== data.songs[0].title );
-                if ( hasChanged ) {
-                    this.lastSongs = data.songs.map( song => {
-                        return {
-                            artist: song.title.split( ' - ' )[0],
-                            cover: song.cover,
-                            title: song.title || '',
-                            track: song.title.split( ' - ' )[1]
-                        };
-                    } );
-                    this.currentSong = this.lastSongs.shift();
-                    this.events.publish( '[RadioService]now-playing-change', this.currentSong, this.lastSongs );
-                }
-                this.timer = setTimeout( () => this.initLoop(), interval ? interval : this.loopInterval );
-            } )
-            .catch( error => {
-                console.log( error );
-                // TODO : verifier que c'est entendu
-                this.events.publish( '[RadioService]error', error );
-            } );
+            .then( this.onGetApiSongsSuccess.bind( this ) )
+            .catch( this.onGetApiSongsError.bind( this ) );
     }
 
     public getApiSongs (): Promise<any> {
-        return new Promise( resolve => {
+        return new Promise( ( resolve, reject ) => {
             this.http.get( GlobalService.URL_API_COVERS ).subscribe( data => {
                 resolve( this.filterDefaultCovers( data ) );
             }, err => {
-                return new Error( 'This request has failed ' + err );
+                reject( new Error( 'This request has failed ' + err ) );
             } );
         } );
     }
 
-    public getThisFuckingData() {
-        const req = new HttpRequest( 'GET', GlobalService.URL_API_COVERS, {
-            reportProgress: true
-        } );
-        return this.http.request( req );
+    private onGetApiSongsSuccess( data: any ) {
+        const hasChanged = !this.currentSong || ( this.currentSong.title !== data.songs[0].title );
+        if ( hasChanged ) {
+            this.lastSongs = data.songs.map( song => {
+                return {
+                    artist: song.title.split( ' - ' )[0],
+                    cover: song.cover,
+                    title: song.title || '',
+                    track: song.title.split( ' - ' )[1]
+                };
+            } );
+            this.currentSong = this.lastSongs.shift();
+            this.events.publish( '[RadioService]now-playing-change', this.currentSong, this.lastSongs );
+        }
+        this.timer = setTimeout( this.initLoop.bind( this ), this.loopInterval );
+    }
+
+    private onGetApiSongsError( error ) {
+        console.log( error );
+        // TODO : verifier que c'est entendu
+        this.events.publish( '[RadioService]error', error );
     }
 
     /**
@@ -87,11 +85,7 @@ export class RadioService {
     private filterDefaultCovers ( data ): any {
         data.songs = data.songs.map( song => {
 
-            let coverToGet: ICoverSong = null;
-
-            if ( coverToGet == null ) {
-                coverToGet = this.getMatchedCover( song );
-            }
+            let coverToGet: ICoverSong = this.getMatchedCover( song );
 
             if ( coverToGet === null ) {
                 coverToGet = {
@@ -156,9 +150,9 @@ export class RadioService {
             .find( tagArray => !!( tagArray.find( tag => title.toLowerCase().indexOf( tag.toLowerCase() ) > -1 ) ) );
     }
 
-    private someAsyncFunction() {
-        return new Promise( resolve => {
-            setTimeout( resolve, 1000, 'coucou' );
-        } );
-    }
+    // private someAsyncFunction() {
+    //     return new Promise( resolve => {
+    //         setTimeout( resolve, 1000, 'coucou' );
+    //     } );
+    // }
 }

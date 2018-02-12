@@ -46,8 +46,6 @@ describe( 'Provider: MusicControlsManagerProvider', () => {
             HttpClient,
             HttpHandler,
             TrackerService,
-            HttpClient,
-            HttpHandler,
             Events,
             { provide: Platform, useClass: PlatformMock },
             { provide: MusicControls, useClass: MusicControlsMocks },
