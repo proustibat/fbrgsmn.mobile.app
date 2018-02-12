@@ -69,23 +69,30 @@ export class RadioPage {
         // Look for streaming address in a json file (remote or local)
         this.initService.getInitData()
             .then( ( data: any ) => {
-                if ( data.error ) {
-                    this.prompt.presentMessage( {
-                        classNameCss: 'error',
-                        message: `${ data.error.toString() } => Resolved by loading local config`
-                    } );
-                    data = data.content;
-                }
-                this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
-                this.radioService.initLoop( data.loop_interval );
-                this.configReady = true;
+                this.onData( data );
             } )
-            .catch( errors => {
+            .catch( () => {
                 this.prompt.presentMessage( {
                     classNameCss: 'error',
-                    message: `⚠ ${ errors.join( ' ⚠ ' ) }`
+                    message: `⚠ Error when loading prod config => Try to resolved by loading local config`
                 } );
+                this.initService.getInitData( true )
+                    .then( ( data: any ) => {
+                        this.onData( data );
+                    } )
+                    .catch( errors => {
+                        this.prompt.presentMessage( {
+                            classNameCss: 'error',
+                            message: `⚠ ${ errors.join( ' ⚠ ' ) }`
+                        } );
+                    } );
             } );
+    }
+
+    private onData( data: any ) {
+        this.streamingUrl = data.streamingUrl ? data.streamingUrl : GlobalService.DEFAULT_URL_STREAMING;
+        this.radioService.initLoop( data.loop_interval );
+        this.configReady = true;
     }
 
     private onNowPlayingChanged ( currentSong, lastSongs ) {
