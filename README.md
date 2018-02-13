@@ -167,8 +167,11 @@ Then it publishes it on our [public results](https://proustibat.github.io/fbrgsm
 [Our dashboard](https://codeclimate.com/github/proustibat/fbrgsmn.mobile.app) is updated at each push.
 
 ### Sonarqube
-We use **[Sonarqube](https://www.sonarqube.org/)** on [Sonarcloud.io](https://about.sonarcloud.io/get-started/) to keep our code safe.
+We use **[Sonarqube](https://www.sonarqube.org/)** on [Sonarcloud.io](https://about.sonarcloud.io/get-started/) to keep our code safe. Scans are applied after each push on the repo.
+
 Our dashboard is available here: [https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app](https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app)
+
+We also have a dashboard for the develop branch, see it here: [https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app%3Adevelop](https://sonarcloud.io/dashboard?id=fbrgsmn.mobile.app%3Adevelop)
 
 ### Greenkeeper
 It's a real-time monitoring and automatic updates for npm dependencies. If an update is available on our dependencies, it updates it on a specific branch and creates a pull request. Travis will then be triggered, if tests are passed we can accept the pull request.
