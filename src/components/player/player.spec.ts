@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, async, fakeAsync } from '@angular/core/testing';
-import { Events, IonicModule, LoadingController, Platform, ToastController } from 'ionic-angular';
+import { IonicModule, LoadingController, Platform, ToastController } from 'ionic-angular';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { MusicControls } from '@ionic-native/music-controls';
 import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
 import { BackgroundMode } from '@ionic-native/background-mode';
@@ -12,7 +11,6 @@ import { HttpLoaderFactory } from '../../app/app.module';
 
 import { PlatformMock } from '../../../test-config/mocks/platform-browser';
 import { GoogleAnalyticsMock } from '@ionic-native-mocks/google-analytics';
-import { InAppBrowserMock, InAppBrowserObjectMock } from '@ionic-native-mocks/in-app-browser';
 import { MusicControlsMocks } from '@ionic-native-mocks/music-controls';
 import { BackgroundModeMock } from '@ionic-native-mocks/background-mode';
 import { ToastControllerMock } from 'ionic-mocks';
@@ -55,7 +53,6 @@ describe( 'PlayerComponent', () => {
                 { provide: Platform, useClass: PlatformMock},
                 { provide: GoogleAnalytics, useClass: GoogleAnalyticsMock },
                 { provide: MusicControls, useClass: MusicControlsMocks },
-                { provide: InAppBrowser, useClass: InAppBrowserMock },
                 { provide: Media, useClass: MediaMock },
                 { provide: MediaObject, useClass: MediaObjectMock },
                 { provide: BackgroundMode, useClass: BackgroundModeMock },
@@ -299,40 +296,6 @@ describe( 'PlayerComponent', () => {
         const player = ( component as any );
         player.updateShareOptions();
         player.updateTrackingOptions();
-        expect().nothing();
-    } );
-
-    it( 'posts to feed: translate before posting',  async () => {
-        const player = ( component as any );
-
-        spyOn( player.translateService, 'get' ).and.callThrough();
-        spyOn( player, 'onPostToFeedTranslated' ).and.callFake( () => {} );
-        player.postToFeed();
-
-        expect( player.translateService.get ).toHaveBeenCalled();
-        expect( player.onPostToFeedTranslated ).toHaveBeenCalled();
-    } );
-
-    it( 'posts to feed after being translated: creates a popup',  async () => {
-        const player = ( component as any );
-        spyOn( player.iab, 'create' ).and.callThrough();
-        spyOn( player, 'onPopupLoadStop' ).and.callFake( () => {} );
-
-        player.onPostToFeedTranslated( 'fakeDescription' );
-
-        expect( player.iab.create ).toHaveBeenCalled();
-    } );
-
-    it( 'closes the popup when receiving stop event',  async () => {
-        const player = ( component as any );
-        const iab = new InAppBrowserMock();
-        player.browserPopup = iab.create( 'fake/popup' );
-        spyOn( player.browserPopup, 'close' ).and.callFake( () => {} );
-
-        player.onPopupLoadStop( { url: 'https://www.facebook.com/dialog/return/close?#_=_' } );
-        expect( player.browserPopup.close ).toHaveBeenCalled();
-
-        player.onPopupLoadStop( { url: 'fake/url' } );
         expect().nothing();
     } );
 
