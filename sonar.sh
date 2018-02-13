@@ -24,5 +24,5 @@ function readJson {
 
 VERSION=`readJson package.json version` || exit 1;
 
-sonar-scanner -X -Dsonar.projectVersion=$VERSION -Dsonar.branch.name=$TRAVIS_BRANCH
+sonar-scanner -X -Dsonar.projectVersion=$VERSION -Dsonar.branch=$TRAVIS_BRANCH
 
