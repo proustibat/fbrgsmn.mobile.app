@@ -57,7 +57,7 @@ script:
 # have to check $TRAVIS_PULL_REQUEST and $TRAVIS_BRANCH.
 # If we are here, we run bash deploy.sh
 after_success:
-  - if [ "$TRAVIS_BRANCH" = "master"] || [ "$TRAVIS_BRANCH" = "develop"]; then bash sonar.sh; fi
+  - bash sonar.sh
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run test-coverage && npm run typedoc; fi
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash deploy.sh; fi
 
