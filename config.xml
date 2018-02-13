@@ -95,7 +95,7 @@
     <plugin name="com.darktalker.cordova.screenshot" spec="^0.1.6" />
     <allow-navigation href="http://192.168.1.21:8101" />
     <allow-navigation href="http://192.168.33.1:8101" />
+    <plugin name="cordova-plugin-media" spec="^5.0.1" />
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="7.0.0" />
-    <plugin name="cordova-plugin-media" spec="^5.0.1" />
 </widget>

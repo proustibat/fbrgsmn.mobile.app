@@ -23,10 +23,11 @@ import { TrackerService } from '../../providers/tracker-service/tracker-service'
 import { MusicControlsManagerProvider } from '../../providers/music-controls-manager/music-controls-manager';
 import { PlayerComponent } from './player';
 import { ShareButtonComponent } from '../../components/share-button/share-button';
-import { LoadingControllerMock, MediaMock, MediaObjectMock, PromptServiceMock } from '../../../test-config/mocks/ionic';
-// import { Observable } from 'rxjs/Rx';
-// import { EventEmitter } from '@angular/core';
-// import { Subscriber } from 'rxjs/Subscriber';
+import {
+    LoadingControllerMock, MediaMock, MediaObjectMock,
+    PromptServiceMock
+} from '../../../test-config/mocks/ionic';
+import { Observable } from 'rxjs';
 
 describe( 'PlayerComponent', () => {
     let component: PlayerComponent;
@@ -181,6 +182,20 @@ describe( 'PlayerComponent', () => {
         expect( player.onTrackError ).toHaveBeenCalled();
     } );
 
+    it( 'creates media and listen to its events', async ( () => {
+        const player = ( component as any );
+
+        spyOn( player.media, 'create' ).and.returnValue( {
+            create: () => {},
+            onError: Observable.of( MEDIA_ERROR ),
+            onStatusUpdate: Observable.of( MEDIA_STATUS )
+        } );
+
+        player.createMedia();
+
+        expect( player.media.create ).toHaveBeenCalledWith( player.streamingUrl );
+    } ) );
+
     it( 'calls onTrackLoaded on MEDIA_STATUS.RUNNING event received', async () => {
         const player = ( component as any );
         spyOn( player, 'onTrackLoaded' ).and.callThrough();
@@ -286,4 +301,39 @@ describe( 'PlayerComponent', () => {
         player.updateTrackingOptions();
         expect().nothing();
     } );
+
+    it( 'posts to feed: translate before posting',  async () => {
+        const player = ( component as any );
+
+        spyOn( player.translateService, 'get' ).and.callThrough();
+        spyOn( player, 'onPostToFeedTranslated' ).and.callFake( () => {} );
+        player.postToFeed();
+
+        expect( player.translateService.get ).toHaveBeenCalled();
+        expect( player.onPostToFeedTranslated ).toHaveBeenCalled();
+    } );
+
+    it( 'posts to feed after being translated: creates a popup',  async () => {
+        const player = ( component as any );
+        spyOn( player.iab, 'create' ).and.callThrough();
+        spyOn( player, 'onPopupLoadStop' ).and.callFake( () => {} );
+
+        player.onPostToFeedTranslated( 'fakeDescription' );
+
+        expect( player.iab.create ).toHaveBeenCalled();
+    } );
+
+    it( 'closes the popup when receiving stop event',  async () => {
+        const player = ( component as any );
+        const iab = new InAppBrowserMock();
+        player.browserPopup = iab.create( 'fake/popup' );
+        spyOn( player.browserPopup, 'close' ).and.callFake( () => {} );
+
+        player.onPopupLoadStop( { url: 'https://www.facebook.com/dialog/return/close?#_=_' } );
+        expect( player.browserPopup.close ).toHaveBeenCalled();
+
+        player.onPopupLoadStop( { url: 'fake/url' } );
+        expect().nothing();
+    } );
+
 } );

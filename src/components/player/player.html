@@ -2,7 +2,6 @@
     <img no-padding no-margin class="cover" [ngClass]="!configReady ? 'animated' : ''" src="{{currentSong.cover.jpg}}" srcset="{{currentSong.cover.svg}}" alt="Current cover song"/>
 </div>
 
-
 <div class="meta-info" padding>
             <span *ngIf="configReady" ion-text class="label-now-playing" color="secondary" text-uppercase>
                 <span class="txt">

@@ -129,11 +129,7 @@ export class PlayerComponent {
     }
 
     private onMediaError( error: MEDIA_ERROR ) {
-        const possibleErrors = [
-            MEDIA_ERROR.SUPPORTED,
-            MEDIA_ERROR.DECODE,
-            MEDIA_ERROR.ABORTED,
-            MEDIA_ERROR.NETWORK];
+        const possibleErrors = [ MEDIA_ERROR.SUPPORTED, MEDIA_ERROR.DECODE, MEDIA_ERROR.ABORTED, MEDIA_ERROR.NETWORK ];
         if ( possibleErrors.indexOf( error ) > 1 ) {
             this.onTrackError( error );
         } else {
@@ -210,33 +206,33 @@ export class PlayerComponent {
     }
 
     private postToFeed () {
+        this.translateService
+            .get( 'SHARING.CURRENT_SONG.FACEBOOK_FEED_DESCRIPTION',
+                { track: this.currentSong.track, artist: this.currentSong.artist } )
+            .subscribe( this.onPostToFeedTranslated.bind( this ) );
+    }
+
+    private onPostToFeedTranslated( result: string ) {
         // Escape HTML
         const el: HTMLElement = document.createElement( 'textarea' );
         el.innerHTML = this.currentSong.cover.jpg.toString();
 
-        this.translateService
-            .get( 'SHARING.CURRENT_SONG.FACEBOOK_FEED_DESCRIPTION',
-                { track: this.currentSong.track, artist: this.currentSong.artist } )
-            .subscribe( ( result: string ) => {
-                const baseUrl = 'https://www.facebook.com/dialog/feed';
-                const url = `${baseUrl}?app_id=419281238161744&name=${this.currentSong.title}
+        const baseUrl = 'https://www.facebook.com/dialog/feed';
+        const url = `${baseUrl}?app_id=419281238161744&name=${this.currentSong.title}
                 &display=popup&caption=http://faubourgsimone.paris/application-mobile
                 &description=${result}
                 &link=faubourgsimone.paris/application-mobile
                 &picture=${el.innerHTML}`;
-                this.browserPopup = this.iab.create( url, '_blank' );
-                // This check is because of a crash when simulated on desktop browser
-                if ( typeof this.browserPopup.on( 'loadstop' ).subscribe === 'function' ) {
-                    this.browserPopup.on( 'loadstop' ).subscribe( ( evt ) => {
-                        if ( evt.url === 'https://www.facebook.com/dialog/return/close?#_=_' ) {
-                            this.closePopUp();
-                        }
-                    } );
-                }
-            } );
+        this.browserPopup = this.iab.create( url, '_blank' );
+        // This check is because of a crash when simulated on desktop browser
+        if ( typeof this.browserPopup.on( 'loadstop' ).subscribe === 'function' ) {
+            this.browserPopup.on( 'loadstop' ).subscribe( this.onPopupLoadStop.bind( this ) );
+        }
     }
 
-    private closePopUp () {
-        this.browserPopup.close();
+    private onPopupLoadStop( evt ) {
+        if ( evt.url === 'https://www.facebook.com/dialog/return/close?#_=_' ) {
+            this.browserPopup.close();
+        }
     }
 }

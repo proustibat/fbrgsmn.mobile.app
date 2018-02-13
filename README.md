@@ -35,6 +35,21 @@ You also needs sdks:
 
 Run `ionic info` to be sure your system is ok.
 
+Our current configuration is the following:
+```
+cli packages:
+    @ionic/cli-utils  : 1.19.1
+    ionic (Ionic CLI) : 3.19.1
+    
+global packages:
+    cordova (Cordova CLI) : 8.0.0 
+    
+local packages:
+    @ionic/app-scripts : 3.1.8
+    Cordova Platforms  : android 7.0.0 ios 4.5.4
+    Ionic Framework    : ionic-angular 3.9.2
+```
+
 
 ## Installation
 
