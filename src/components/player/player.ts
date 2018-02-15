@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MEDIA_ERROR, MEDIA_STATUS, Media, MediaObject } from '@ionic-native/media';
 import { TrackerService } from '../../providers/tracker-service/tracker-service';
 import { PromptService } from '../../providers/prompt-service/prompt-service';
+import { FacebookServiceProvider } from '../../providers/facebook-service/facebook-service';
 import { Events, Platform } from 'ionic-angular';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { GlobalService } from '../../providers/global-service/global-service';
@@ -35,6 +36,7 @@ export class PlayerComponent {
                  private media: Media,
                  private backgroundMode: BackgroundMode,
                  private events: Events,
+                 private fbApi: FacebookServiceProvider
     ) {
         this.currentSong = { cover: GlobalService.COVER_DEFAULT, title: 'Title', artist: 'Artist', track: 'Track' };
 
@@ -114,6 +116,7 @@ export class PlayerComponent {
     }
 
     private onMediaStatusUpdate( status ) {
+        console.log( 'onMediaStatusUpdate' );
         if ( status === MEDIA_STATUS.RUNNING ) {
             this.backgroundMode.enable();
             this.onTrackLoaded();
@@ -199,6 +202,59 @@ export class PlayerComponent {
                     category: result[ 'TRACKING.SHARE.CURRENT_SONG.CATEGORY' ],
                     label: result[ 'TRACKING.SHARE.CURRENT_SONG.LABEL' ]
                 };
+            } );
+    }
+
+    private async shareOnFacebook() {
+        if ( !this.plt.is( 'cordova' ) ) {
+            console.log( 'Can\'t share with facebook native because of cordova is not available!' );
+            return false;
+        }
+
+        await this.fbApi.login()
+            .then( async () => {
+
+                this.prompt.presentMessage( {
+                    classNameCss: 'info', duration: 6000,
+                    message: 'You\'re logged with Facebook'
+                } );
+
+                // const basicInfo = await this.fbApi.getBasicInfo();
+                // if ( !basicInfo.error ) {
+                //     console.log( '### Player:: basicinfo ', basicInfo.data );
+                // }
+                //
+                // const listensInfo = await this.fbApi.getMusicListens();
+                // if ( !listensInfo.error ) {
+                //     console.log( '### Player:: music.listens ', listensInfo.data );
+                // }
+                //
+                // const radioStationInfo = await this.fbApi.getRadioStation();
+                // if ( !radioStationInfo.error ) {
+                //     console.log( '### Player:: music.radiostation ', radioStationInfo.data );
+                // }
+
+                // await this.fbApi.postDialogSimple( this.currentSong )
+                //     .then( () => console.log( 'shared' ) )
+                //     .catch( e => console.log( 'postDialogSimple error: ', e ) );
+
+                await this.fbApi.postDialogMusicStation( this.currentSong )
+                    .then( () => console.log( 'shared' ) )
+                    .catch( e => console.log( 'postDialogMusicStation error: ', e ) );
+
+                // await this.fbApi.postWithGraphApi( this.currentSong )
+                //     .then( () => console.log( 'shared' ) )
+                //     .catch( e => console.log( 'postWithGraphApi error: ', e ) );
+
+                await this.fbApi.logout();
+
+            } )
+            .catch( reason => {
+                console.log( 'Player.shareOnfacebook::login error => ', reason );
+                this.prompt.presentMessage( {
+                    classNameCss: 'error', duration: 6000,
+                    message: `Error when logging to Facebook: ${ reason.toString() }`
+                } );
             } );
     }
 

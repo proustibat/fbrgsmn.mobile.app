@@ -22,6 +22,7 @@ import { SwingModule } from 'angular2-swing';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FacebookServiceProvider } from '../providers/facebook-service/facebook-service';
 
 const appSettings = {
     backButtonText: 'Retour',
@@ -71,7 +72,8 @@ export function HttpLoaderFactory( http: HttpClient ) {
     ],
     providers: [
         ...CustomProviders,
-        ...ExternalProviders
+        ...ExternalProviders,
+        FacebookServiceProvider
     ]
 } )
 export class AppModule {}

@@ -37,6 +37,7 @@
         "@angular/platform-browser-dynamic": "5.2.1",
         "@ionic-native/background-mode": "^4.5.2",
         "@ionic-native/core": "4.5.2",
+        "@ionic-native/facebook": "^4.5.3",
         "@ionic-native/google-analytics": "^4.5.2",
         "@ionic-native/in-app-browser": "^4.5.2",
         "@ionic-native/media": "^4.5.3",
@@ -54,6 +55,7 @@
         "cordova-ios": "4.5.4",
         "cordova-plugin-background-mode": "^0.7.2",
         "cordova-plugin-device": "^2.0.1",
+        "cordova-plugin-facebook4": "git+ssh://git@github.com/proustibat/cordova-plugin-facebook4.git",
         "cordova-plugin-file": "^6.0.1",
         "cordova-plugin-google-analytics": "^1.8.3",
         "cordova-plugin-inappbrowser": "^2.0.1",
@@ -131,7 +133,11 @@
             "cordova-plugin-media": {},
             "cordova-plugin-background-mode": {},
             "cordova-plugin-x-socialsharing": {},
-            "com.darktalker.cordova.screenshot": {}
+            "com.darktalker.cordova.screenshot": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "419281238161744",
+                "APP_NAME": "Faubourg Simone"
+            }
         },
         "platforms": [
             "ios",

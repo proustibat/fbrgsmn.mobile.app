@@ -23,3 +23,9 @@ export enum PostType {
     casque,
     pola
 }
+
+export interface IFBServiceRes {
+    error: boolean;
+    message?: string;
+    data?: object;
+}
