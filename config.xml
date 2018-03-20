@@ -97,5 +97,5 @@
     <allow-navigation href="http://192.168.33.1:8101" />
     <plugin name="cordova-plugin-media" spec="^5.0.1" />
     <engine name="ios" spec="4.5.4" />
-    <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="7.1.0" />
 </widget>
