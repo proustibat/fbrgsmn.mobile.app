@@ -8,7 +8,9 @@ env:
 #    - CC_TEST_REPORTER_ID: 5e81078668dc11edc4d6dbab7b21579c59d4238bbd3216c2f5279acdfbe5d1c8
 
 language: node_js
-node_js: '8'
+node_js:
+- '8'
+- '10'
 cache:
   directories:
     - node_modules
