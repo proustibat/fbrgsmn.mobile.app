@@ -35,7 +35,7 @@
         "@angular/http": "5.2.1",
         "@angular/platform-browser": "5.2.1",
         "@angular/platform-browser-dynamic": "5.2.1",
-        "@ionic-native/background-mode": "^4.5.2",
+        "@ionic-native/background-mode": "^4.18.0",
         "@ionic-native/core": "4.5.2",
         "@ionic-native/google-analytics": "^4.5.2",
         "@ionic-native/in-app-browser": "^4.5.2",
