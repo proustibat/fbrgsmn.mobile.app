@@ -41,7 +41,7 @@
         "@ionic-native/in-app-browser": "^4.5.2",
         "@ionic-native/media": "^4.5.3",
         "@ionic-native/music-controls": "^4.5.2",
-        "@ionic-native/screenshot": "^4.5.2",
+        "@ionic-native/screenshot": "^5.13.0",
         "@ionic-native/social-sharing": "^4.5.2",
         "@ionic-native/splash-screen": "4.5.2",
         "@ionic-native/status-bar": "4.5.2",
