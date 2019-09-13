@@ -38,7 +38,7 @@
         "@ionic-native/background-mode": "^4.5.2",
         "@ionic-native/core": "4.5.2",
         "@ionic-native/google-analytics": "^4.5.2",
-        "@ionic-native/in-app-browser": "^4.5.2",
+        "@ionic-native/in-app-browser": "^5.14.0",
         "@ionic-native/media": "^4.5.3",
         "@ionic-native/music-controls": "^4.5.2",
         "@ionic-native/screenshot": "^4.5.2",
